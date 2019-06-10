@@ -1,11 +1,12 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-10 12:09:07
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-10 13:51:39
  */
-@import '@styles/theme.scss';
+@import './theme.scss';
 
+// padding
 .p-vh {
   padding: $space $wind;
 }
@@ -22,6 +23,39 @@
 }
 .p-r {
   padding-right: $wind;
+}
+
+// flex
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-item {
+  flex: 1;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-align-start {
+  align-items: flex-start;
+}
+.flex-align-end {
+  align-items: flex-end;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 // margin-top
@@ -57,37 +91,4 @@
 // text
 .t-c {
   text-align: center;
-}
-
-// flex
-.flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-.flex-column {
-  flex-direction: column;
-}
-.flex-justify-center {
-  justify-content: center;
-}
-.flex-justify-end {
-  justify-content: flex-end;
-}
-.flex-justify-between {
-  justify-content: space-between;
-}
-.flex-align-start {
-  align-items: flex-start;
-}
-.flex-align-end {
-  align-items: flex-end;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.flex-item {
-  flex: 1;
 }

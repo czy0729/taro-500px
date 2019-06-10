@@ -5,3 +5,4 @@
 deploy_versions/
 dist/
 node_modules/
+yarn-error.log

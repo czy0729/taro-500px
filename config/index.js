@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:53:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 11:57:09
+ * @Last Modified time: 2019-06-10 14:40:38
  */
 const path = require('path')
 const sassImportor = function(url) {
@@ -41,6 +41,17 @@ const config = {
         'transform-class-properties',
         'transform-object-rest-spread'
       ]
+    },
+    // sass: {
+    //   projectDirectory: path.resolve(__dirname, '..'),
+    //   resource: [
+    //     'src/styles/theme.scss',
+    //     'src/styles/utils.scss',
+    //     'src/styles/mixins.scss'
+    //   ]
+    // }
+    sass: {
+      importer: sassImportor
     }
   },
   defineConstants: {},
@@ -104,7 +115,11 @@ const config = {
           }
         }
       }
-    }
+    },
+    sassLoaderOption: {
+      importer: sassImportor
+    },
+    esnextModules: ['taro-ui']
   }
 }
 

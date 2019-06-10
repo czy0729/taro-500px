@@ -1,18 +1,22 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-10 12:09:04
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-10 13:56:09
  */
 @import './mixins.scss';
 
 // 统一布局单位
-$space: 32px; // 上下
-$wind: 32px; // 两翼
-$bottom: 80px; // 底部
+$space: 20px; // 上下
+$wind: 16px; // 两翼
+$bottom: 40px; // 底部
+$xs: 4px;
+$sm: 8px;
+$md: 16px;
+$lg: 32px;
 
 // 主题色
-$color-plain: #fff;
+$color-plain: rgb(255, 255, 255);
 $color-main: rgb(252, 127, 138);
 $color-primary: rgb(68, 207, 252);
 $color-primary-light: rgb(248, 253, 255);
@@ -20,9 +24,9 @@ $color-success: rgb(50, 200, 64);
 $color-warning: rgb(254, 190, 88);
 $color-wait: rgb(200, 200, 200);
 $color-disabled: rgb(150, 150, 150);
-$color-border: #ddd;
-$color-bg: #fff;
-$color-placeholder: #fbfbfb;
+$color-border: rgb(222, 222, 222);
+$color-bg: rgb(248, 248, 248);
+$color-placeholder: rgb(250, 250, 250);
 
 // 文字颜色
 $color-title: #000;

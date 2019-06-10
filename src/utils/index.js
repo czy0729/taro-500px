@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 11:56:42
+ * @Last Modified time: 2019-06-10 16:00:05
  */
 import Taro from '@tarojs/taro'
 
@@ -34,6 +34,21 @@ export function jump(options) {
       url: `${url}?${urlStringify(payload)}`
     })
   }
+}
+
+/**
+ * 返回timestamp
+ * @version 170814 1.0
+ * @version 181107 1.1
+ * @param  {String} date  指定时间，例2018/11/11 00:00:00
+ * @return {Int}    时间戳
+ */
+// eslint-disable-next-line no-shadow
+export function getTimestamp(date) {
+  if (date) {
+    return Math.floor(new Date(date.replace(/-/g, '/')).valueOf() / 1000)
+  }
+  return Math.floor(new Date().valueOf() / 1000)
 }
 
 /**
@@ -297,19 +312,6 @@ export function date(format, timestamp) {
 /* eslint-enable */
 
 /**
- * IOS8601时间转换
- * @param {*} isostr
- */
-export function parseIOS8601(isostr, format = 'Y-m-d') {
-  const parts = isostr.match(/\d+/g)
-  const timestamp =
-    new Date(
-      `${parts[0]}-${parts[1]}-${parts[2]} ${parts[3]}:${parts[4]}:${parts[5]}`
-    ).getTime() / 1000
-  return date(format, timestamp)
-}
-
-/**
  * 字符串填充
  * @version 171011 1.0
  * @param {*} str
@@ -364,10 +366,41 @@ export function getStorage(key) {
  * @param {*} key
  * @param {*} data
  */
-export function updateStorage(key, data = '') {
+export function setStorage(key, data = '') {
   return Taro.setStorage({ key, data })
 }
 
+/**
+ * h5测试
+ * 190228 v1.0
+ * @param {*} config
+ * @param {*} stateKey
+ * @return {Promise}
+ */
+export function dev(key, store) {
+  if (process.env.TARO_ENV === 'h5') {
+    if (!window.Stores) {
+      window.Stores = {
+        toJS: () => {
+          const stores = {}
+          Object.keys(window.Stores).forEach(storeKey => {
+            if (window.Stores[storeKey].toJS) {
+              stores[storeKey] = window.Stores[storeKey].toJS()
+            }
+          })
+          console.log(stores)
+        }
+      }
+    }
+    window.Stores[key] = store
+  }
+
+  if (process.env.TARO_ENV === 'weapp') {
+    console.log(this)
+  }
+}
+
+// window.Utils
 if (process.env.TARO_ENV === 'h5') {
   if (!window.Utils) {
     window.Utils = {

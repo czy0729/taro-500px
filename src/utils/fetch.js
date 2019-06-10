@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:59:40
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 12:00:17
+ * @Last Modified time: 2019-06-10 15:23:15
  */
 import Taro from '@tarojs/taro'
 import { userStore } from '@stores'
-import { APP_ID } from '@constants'
 import { urlStringify, sleep, log } from './index'
 
+const APP_ID = 123456
 const STATUS_SUCCESS = 200
 const STATUS_ACCEPTED = 202
 const STATUS_NOT_MODIFIED = 304
@@ -59,7 +59,7 @@ export default function fetch({ url, payload = {}, method = 'GET', retryCb }) {
       return Promise.reject(statusCode)
     })
     .catch(async err => {
-      // NOTE Bangumi的接口代理经常报错, 我也就只能一直请求到成功为止了hhh
+      // 接口报错
       if (method === 'GET' && typeof retryCb === 'function') {
         await sleep(500)
 

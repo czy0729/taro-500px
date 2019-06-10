@@ -1,13 +1,15 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-10 11:37:31
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-10 14:40:37
  */
+import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Index from './pages/index'
-import counterStore from './store/counter'
+import { userStore } from '@stores'
+import 'taro-ui/dist/style/index.scss'
+import Index from './pages/index/index'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -17,7 +19,7 @@ import './app.scss'
 // }
 
 const store = {
-  counterStore
+  userStore
 }
 
 class App extends Component {
@@ -31,13 +33,13 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {}
+  // componentDidMount() {}
 
-  componentDidShow() {}
+  // componentDidShow() {}
 
-  componentDidHide() {}
+  // componentDidHide() {}
 
-  componentDidCatchError() {}
+  // componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
