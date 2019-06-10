@@ -2,18 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 13:56:09
+ * @Last Modified time: 2019-06-10 18:10:24
  */
 @import './mixins.scss';
 
 // 统一布局单位
-$space: 20px; // 上下
-$wind: 16px; // 两翼
-$bottom: 40px; // 底部
-$xs: 4px;
-$sm: 8px;
-$md: 16px;
-$lg: 32px;
+$space: 40px; // 上下
+$wind: 32px; // 两翼
+$bottom: 80px; // 底部
+$xs: 8px;
+$sm: 16px;
+$md: 32px;
+$lg: 64px;
 
 // 主题色
 $color-plain: rgb(255, 255, 255);

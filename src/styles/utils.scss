@@ -2,27 +2,23 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 13:51:39
+ * @Last Modified time: 2019-06-10 18:24:36
  */
 @import './theme.scss';
 
-// padding
-.p-vh {
+// container
+.container-outer {
+  padding-top: $space;
+  padding-right: $wind;
+  padding-bottom: $bottom;
+  padding-left: $wind;
+}
+.container-inner {
   padding: $space $wind;
 }
-.p-v {
-  padding-top: $space;
-  padding-bottom: $space;
-}
-.p-h {
-  padding-left: $wind;
+.container-wind {
   padding-right: $wind;
-}
-.p-l {
   padding-left: $wind;
-}
-.p-r {
-  padding-right: $wind;
 }
 
 // flex
@@ -60,32 +56,29 @@
 
 // margin-top
 .mt-xs {
-  margin-top: 8px;
-}
-.mt-xsm {
-  margin-top: 16px;
+  margin-top: $xs;
 }
 .mt-sm {
-  margin-top: 24px;
+  margin-top: $sm;
 }
 .mt-md {
-  margin-top: 32px;
+  margin-top: $md;
 }
 
 // margin-left
 .ml-xs {
-  margin-left: 8px;
+  margin-left: $xs;
 }
 .ml-sm {
-  margin-left: 24px;
+  margin-left: $sm;
 }
 .ml-md {
-  margin-left: 32px;
+  margin-left: $md;
 }
 
 // margin-right 尽量少用
 .mr-sm {
-  margin-right: 24px;
+  margin-right: $sm;
 }
 
 // text

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 15:56:08
+ * @Last Modified time: 2019-06-10 18:05:54
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
@@ -17,7 +17,7 @@ class Index extends Component {
     const { userStore } = this.props
     const { expires_in, user_id } = userStore.userInfo
     return (
-      <View className='index'>
+      <View className='index container-outer'>
         <View className='flex'>
           <View className='flex-item'>
             <Text>{expires_in}</Text>
