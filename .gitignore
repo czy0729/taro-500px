@@ -1,0 +1,7 @@
+.DS_Store
+.rn_temp/
+.temp/
+.vscode/
+deploy_versions/
+dist/
+node_modules/

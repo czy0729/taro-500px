@@ -1,0 +1,58 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-10 12:09:01
+ * @Last Modified by:   czy0729
+ * @Last Modified time: 2019-06-10 12:09:01
+ */
+@import '@styles/theme.scss';
+
+/* h5 */
+/*postcss-pxtransform rn eject enable*/
+body {
+  background: $color-bg;
+  -webkit-text-size-adjust: none;
+}
+div {
+  box-sizing: border-box;
+}
+#app {
+  line-height: 0;
+}
+button {
+  outline: none;
+}
+.taro-text {
+  box-sizing: border-box;
+  font-weight: 100;
+}
+.taro-tabbar__panel,
+.taro_router {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.taro_page {
+  flex: 1;
+}
+/*postcss-pxtransform rn eject disable*/
+
+/* weapp */
+page {
+  height: 100%;
+}
+view,
+text,
+scroll-view {
+  box-sizing: border-box;
+}
+view {
+  @include eject(line-height, 0);
+}
+button {
+  @include eject(margin-left, 0);
+  @include eject(margin-right, 0);
+
+  &:after {
+    display: none;
+  }
+}

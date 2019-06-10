@@ -1,0 +1,34 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-10 12:09:04
+ * @Last Modified by:   czy0729
+ * @Last Modified time: 2019-06-10 12:09:04
+ */
+@import './mixins.scss';
+
+// 统一布局单位
+$space: 32px; // 上下
+$wind: 32px; // 两翼
+$bottom: 80px; // 底部
+
+// 主题色
+$color-plain: #fff;
+$color-main: rgb(252, 127, 138);
+$color-primary: rgb(68, 207, 252);
+$color-primary-light: rgb(248, 253, 255);
+$color-success: rgb(50, 200, 64);
+$color-warning: rgb(254, 190, 88);
+$color-wait: rgb(200, 200, 200);
+$color-disabled: rgb(150, 150, 150);
+$color-border: #ddd;
+$color-bg: #fff;
+$color-placeholder: #fbfbfb;
+
+// 文字颜色
+$color-title: #000;
+$color-desc: #444;
+$color-sub: #aaa;
+$color-default: #ddd;
+
+// 其他
+$box-shadow-img: 0px 2px 16px rgba(0, 0, 0, 0.12);

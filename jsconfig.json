@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": false,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components": ["src/components/index"],
+      "@components/*": ["src/components/*"],
+      "@constants": ["src/constants/index"],
+      "@constants/*": ["src/constants/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

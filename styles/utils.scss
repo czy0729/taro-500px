@@ -1,0 +1,93 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-10 12:09:07
+ * @Last Modified by:   czy0729
+ * @Last Modified time: 2019-06-10 12:09:07
+ */
+@import '@styles/theme.scss';
+
+.p-vh {
+  padding: $space $wind;
+}
+.p-v {
+  padding-top: $space;
+  padding-bottom: $space;
+}
+.p-h {
+  padding-left: $wind;
+  padding-right: $wind;
+}
+.p-l {
+  padding-left: $wind;
+}
+.p-r {
+  padding-right: $wind;
+}
+
+// margin-top
+.mt-xs {
+  margin-top: 8px;
+}
+.mt-xsm {
+  margin-top: 16px;
+}
+.mt-sm {
+  margin-top: 24px;
+}
+.mt-md {
+  margin-top: 32px;
+}
+
+// margin-left
+.ml-xs {
+  margin-left: 8px;
+}
+.ml-sm {
+  margin-left: 24px;
+}
+.ml-md {
+  margin-left: 32px;
+}
+
+// margin-right 尽量少用
+.mr-sm {
+  margin-right: 24px;
+}
+
+// text
+.t-c {
+  text-align: center;
+}
+
+// flex
+.flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-justify-center {
+  justify-content: center;
+}
+.flex-justify-end {
+  justify-content: flex-end;
+}
+.flex-justify-between {
+  justify-content: space-between;
+}
+.flex-align-start {
+  align-items: flex-start;
+}
+.flex-align-end {
+  align-items: flex-end;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-item {
+  flex: 1;
+}
