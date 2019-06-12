@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 11:00:06
+ * @Last Modified time: 2019-06-12 13:46:52
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -12,7 +12,7 @@ import './index.scss'
 
 const cls = 'page-index__list'
 
-const ListItem = ({ url, height, user, title, count }) => {
+const ListItem = ({ url, height, user, avatar, title, count }) => {
   if (!url) {
     return null
   }
@@ -31,7 +31,7 @@ const ListItem = ({ url, height, user, title, count }) => {
       </View>
       <View className='flex mt-sm'>
         <Img
-          src={`${url}!p1`}
+          src={`${avatar}!p1`}
           width={42}
           style={{
             borderRadius: Taro.pxTransform(42),
@@ -56,6 +56,7 @@ ListItem.defaultProps = {
   width: 0,
   height: 0,
   user: '',
+  avatar: '',
   title: '',
   count: ''
 }

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 10:28:08
+ * @Last Modified time: 2019-06-12 14:44:05
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -17,7 +17,8 @@ const cls = 'page-index__list'
 const imageWidth = (ENV.screenWidth - ENV.wind * 3 * ENV.pxRatio) / 2
 const infoHeight = 40
 
-const List = ({ className, data }) => {
+const List = ({ className, title, data }) => {
+  // @todo 要缓存每次的计算
   let leftHeight = 0
   let rightHeight = 0
   const left = []
@@ -41,7 +42,7 @@ const List = ({ className, data }) => {
 
   return (
     <View className={classNames(cls, 'layout-wind', className)}>
-      <SectionTitle>随心看</SectionTitle>
+      {!!title && <SectionTitle>{title}</SectionTitle>}
       <View className={`${cls}__flow flex flex-align-start`}>
         <View className='flex-item'>
           {left.map(item => (
@@ -49,6 +50,7 @@ const List = ({ className, data }) => {
               key={item.id}
               url={item.url}
               user={item.user}
+              avatar={item.avatar}
               width={item.width}
               height={item.height}
               title={item.title}
@@ -67,6 +69,7 @@ const List = ({ className, data }) => {
               key={item.id}
               url={item.url}
               user={item.user}
+              avatar={item.avatar}
               width={item.width}
               height={item.height}
               title={item.title}
@@ -84,6 +87,7 @@ List.options = {
 }
 
 List.defaultProps = {
+  title: '',
   data: LIST_EMPTY
 }
 

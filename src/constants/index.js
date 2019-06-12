@@ -2,9 +2,10 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:35:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 10:20:01
+ * @Last Modified time: 2019-06-12 11:51:36
  */
 import Taro from '@tarojs/taro'
+import { getWindowHeight } from '@utils/style'
 
 const H5 = process.env.TARO_ENV === 'h5'
 const RN = process.env.TARO_ENV === 'rn'
@@ -20,7 +21,9 @@ export const ENV = {
   screenWidth,
   screenHeight,
   pxRatio,
-  wind: 32
+  wind: 32,
+  windowHeight: getWindowHeight(true),
+  windowHeightWithoutTab: getWindowHeight(false)
 }
 
 // 全局统一列表数据结构

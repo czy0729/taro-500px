@@ -1,0 +1,29 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-12 14:14:45
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-12 15:02:59
+ */
+@import '@styles/theme.scss';
+
+.at-tabs {
+  &__item {
+    flex: initial;
+    width: 132px;
+    padding: 8px 0 24px;
+    font-size: 34px;
+    line-height: 48px;
+    color: $color-sub;
+
+    &--active {
+      font-weight: bold;
+      color: $color-desc;
+    }
+  }
+  &__item-underline {
+    width: 66px;
+    height: 3PX;
+    margin-left: 34px;
+    background-color: $color-desc;
+  }
+}

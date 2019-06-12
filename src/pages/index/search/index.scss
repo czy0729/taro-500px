@@ -1,0 +1,11 @@
+@import '@styles/theme.scss';
+
+.page-index__search {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: $wind;
+  padding: 14px 26px;
+  background-color: $color-bg;
+  border-radius: 62px;
+}

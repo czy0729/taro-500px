@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 10:50:55
+ * @Last Modified time: 2019-06-12 15:02:03
  */
 @import './theme.scss';
 @import './mixins.scss'; // layout
@@ -111,6 +111,9 @@
 }
 .t-26 {
   @include font-size(26px);
+}
+.t-28 {
+  @include font-size(28px);
 }
 .t-34 {
   @include font-size(34px);

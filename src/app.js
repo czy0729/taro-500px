@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 14:40:37
+ * @Last Modified time: 2019-06-12 15:39:20
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -30,6 +30,26 @@ class App extends Component {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      // color: '#666',
+      // selectedColor: '#b4282d',
+      // backgroundColor: '#fff',
+      // borderStyle: 'black',
+      list: [
+        {
+          pagePath: 'pages/index/index',
+          iconPath: './assets/tab-bar/home.png',
+          selectedIconPath: './assets/tab-bar/home-active.png'
+          // text: '首页'
+        },
+        {
+          pagePath: 'pages/index/index',
+          iconPath: './assets/tab-bar/user.png',
+          selectedIconPath: './assets/tab-bar/user-active.png'
+          // text: ''
+        }
+      ]
     }
   }
 

@@ -42,7 +42,7 @@ class UserStore extends store {
   }
 
   // -------------------- fetch --------------------
-  fetchTest2 = async refresh => {
+  fetchTest = async refresh => {
     const res = fetch({
       url: 'https://500px.me/community/discover/created_date',
       data: {
