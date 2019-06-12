@@ -1,5 +1,7 @@
 @import '@styles/theme.scss';
 
-.a {
-  color: $color-primary;
+.page-index {
+  &__container {
+    padding: 0 0 $bottom;
+  }
 }

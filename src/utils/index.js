@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 16:00:05
+ * @Last Modified time: 2019-06-11 18:16:50
  */
 import Taro from '@tarojs/taro'
 
@@ -396,7 +396,6 @@ export function dev(key, store) {
   }
 
   if (process.env.TARO_ENV === 'weapp') {
-    console.log(this)
   }
 }
 

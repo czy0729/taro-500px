@@ -1,0 +1,15 @@
+@import '@styles/theme.scss';
+
+.page-index__list {
+  &__flow {
+    margin-top: 22px;
+  }
+  &__item {
+    margin-bottom: 28px;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}

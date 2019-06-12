@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 13:47:31
+ * @Last Modified time: 2019-06-11 21:44:22
  */
 @import './theme.scss';
 
 /* h5 */
 /*postcss-pxtransform rn eject enable*/
 body {
-  background: $color-bg;
+  background: $color-plain;
   -webkit-text-size-adjust: none;
 }
 div {
@@ -23,7 +23,6 @@ button {
 }
 .taro-text {
   box-sizing: border-box;
-  font-weight: 100;
 }
 .taro-tabbar__panel,
 .taro_router {

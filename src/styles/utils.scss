@@ -2,21 +2,21 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 18:24:36
+ * @Last Modified time: 2019-06-12 10:50:55
  */
 @import './theme.scss';
+@import './mixins.scss'; // layout
 
-// container
-.container-outer {
+.layout-outer {
   padding-top: $space;
   padding-right: $wind;
   padding-bottom: $bottom;
   padding-left: $wind;
 }
-.container-inner {
+.layout-inner {
   padding: $space $wind;
 }
-.container-wind {
+.layout-wind {
   padding-right: $wind;
   padding-left: $wind;
 }
@@ -55,6 +55,9 @@
 }
 
 // margin-top
+.mt-d {
+  margin-top: $distance;
+}
 .mt-xs {
   margin-top: $xs;
 }
@@ -84,4 +87,54 @@
 // text
 .t-c {
   text-align: center;
+}
+.t-b {
+  font-weight: bold;
+}
+.t-plain {
+  color: $color-plain;
+}
+.t-desc {
+  color: $color-desc;
+}
+.t-sub {
+  color: $color-sub;
+}
+.t-20 {
+  @include font-size(20px);
+}
+.t-22 {
+  @include font-size(22px);
+}
+.t-24 {
+  @include font-size(24px);
+}
+.t-26 {
+  @include font-size(26px);
+}
+.t-34 {
+  @include font-size(34px);
+}
+
+.t-c1 {
+  @include lamp-clamp(1);
+}
+.t-c2 {
+  @include lamp-clamp(2);
+}
+
+.l-24 {
+  line-height: 24px;
+}
+.l-30 {
+  line-height: 30px;
+}
+.l-34 {
+  line-height: 34px;
+}
+.l-38 {
+  line-height: 38px;
+}
+.l-48 {
+  line-height: 48px;
 }

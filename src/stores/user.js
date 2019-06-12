@@ -2,11 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 15:53:27
+ * @Last Modified time: 2019-06-12 11:04:03
  */
 import { observable, computed } from 'mobx'
-import { dev } from '@utils'
+import { dev, getTimestamp } from '@utils'
 import store from '@utils/store'
+import fetch from '@utils/fetch'
+import { LIST_EMPTY } from '@constants'
 
 class UserStore extends store {
   @observable state = {
@@ -19,7 +21,7 @@ class UserStore extends store {
       refresh_token: 'e087f362872ee0a2207ff0e3e6245d685e73faac',
       _loaded: true
     },
-    news: {}
+    photo: LIST_EMPTY
   }
 
   // -------------------- get --------------------
@@ -35,18 +37,61 @@ class UserStore extends store {
     return !!this.userInfo.access_token
   }
 
-  // -------------------- fetch --------------------
-  fetchTest = async () => {
-    const res = this.fetch(
-      {
-        url: 'https://xw.qq.com/service/api/getData?k=index:data:all'
-      },
-      'news'
-    )
-    await res
-    console.log(this.state)
+  @computed get photo() {
+    return this.state.photo || LIST_EMPTY
+  }
 
-    return res
+  // -------------------- fetch --------------------
+  fetchTest2 = async refresh => {
+    const res = fetch({
+      url: 'https://500px.me/community/discover/created_date',
+      data: {
+        resourceType: 3,
+        page: refresh ? 1 : this.photo.pagination.page + 1,
+        size: 20,
+        type: 'json'
+      }
+    })
+    const data = await res
+
+    let DS = LIST_EMPTY
+    if (data) {
+      const nextDS = data.map(item => ({
+        id: item.id,
+        width: item.width,
+        height: item.height,
+        url: item.url.baseUrl,
+        user: item.uploaderInfo.nickName,
+        avatar: item.uploaderInfo.avatar.baseUrl,
+        title: item.title,
+        count: item.picturePvCount
+      }))
+      if (refresh) {
+        DS = {
+          list: nextDS,
+          pagination: {
+            page: 1,
+            pageTotal: 10
+          },
+          _loaded: getTimestamp()
+        }
+      } else {
+        DS = {
+          ...this.photo,
+          list: [...this.photo.list, ...nextDS],
+          pagination: {
+            ...this.photo.pagination,
+            page: this.photo.pagination.page + 1
+          },
+          _loaded: getTimestamp()
+        }
+      }
+      this.setState({
+        photo: DS
+      })
+    }
+
+    return Promise.resolve(DS)
   }
 }
 

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:59:40
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 15:23:15
+ * @Last Modified time: 2019-06-11 09:31:13
  */
 import Taro from '@tarojs/taro'
 import { userStore } from '@stores'
@@ -24,7 +24,7 @@ const STATUS_NOT_MODIFIED = 304
  * @param {*} param
  */
 const retryCount = {}
-export default function fetch({ url, payload = {}, method = 'GET', retryCb }) {
+export default function fetch({ url, data = {}, method = 'GET', retryCb }) {
   const { token_type, access_token } = userStore.userInfo
   const header = {
     Authorization: `${token_type} ${access_token}`
@@ -38,7 +38,7 @@ export default function fetch({ url, payload = {}, method = 'GET', retryCb }) {
     method,
     data: {
       app_id: APP_ID,
-      ...payload
+      ...data
     }
   }
 
@@ -50,7 +50,7 @@ export default function fetch({ url, payload = {}, method = 'GET', retryCb }) {
         statusCode === STATUS_NOT_MODIFIED
       ) {
         // 成功后清除失败计数
-        const key = `${url}|${urlStringify(payload)}`
+        const key = `${url}|${urlStringify(data)}`
         if (retryCount[key]) {
           retryCount[key] = 0
         }
@@ -63,7 +63,7 @@ export default function fetch({ url, payload = {}, method = 'GET', retryCb }) {
       if (method === 'GET' && typeof retryCb === 'function') {
         await sleep(500)
 
-        const key = `${url}|${urlStringify(payload)}`
+        const key = `${url}|${urlStringify(data)}`
         retryCount[key] = (retryCount[key] || 0) + 1
         log('re-fetch', `${retryCount[key]} time`, url, config)
 

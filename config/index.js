@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:53:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 14:40:38
+ * @Last Modified time: 2019-06-11 18:29:23
  */
 const path = require('path')
 const sassImportor = function(url) {
@@ -42,20 +42,13 @@ const config = {
         'transform-object-rest-spread'
       ]
     },
-    // sass: {
-    //   projectDirectory: path.resolve(__dirname, '..'),
-    //   resource: [
-    //     'src/styles/theme.scss',
-    //     'src/styles/utils.scss',
-    //     'src/styles/mixins.scss'
-    //   ]
-    // }
     sass: {
       importer: sassImportor
     }
   },
   defineConstants: {},
   alias: {
+    '@assets': path.resolve(__dirname, '..', 'src/assets'),
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@constants': path.resolve(__dirname, '..', 'src/constants'),
     '@pages': path.resolve(__dirname, '..', 'src/pages'),

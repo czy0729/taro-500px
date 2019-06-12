@@ -1,0 +1,92 @@
+@import '@styles/theme.scss';
+
+.c-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 8px;
+
+  &:active {
+    opacity: 0.64;
+  }
+
+  &--rn {
+    padding-horizontal: 0;
+  }
+  &--plain {
+    background: $color-bg;
+    border-color: rgb(223, 223, 223);
+  }
+  &--main {
+    background: $color-main;
+    border-color: $color-main;
+  }
+  &--primary {
+    background: $color-primary;
+    border: 2px solid rgb(13, 156, 204);
+  }
+  &--warning {
+    background: $color-warning;
+    border: 2px solid rgb(249, 163, 80);
+  }
+  &--wait {
+    background: $color-wait;
+    border: 2px solid rgb(160, 160, 160);
+  }
+  &--disabled {
+    background: $color-disabled;
+    border: 2px solid rgb(80, 80, 80);
+  }
+
+  &--ghost {
+    &-plain {
+      background: $color-plain;
+      border: 2px solid $color-border;
+    }
+    &-primary {
+      background: $color-primary-light;
+      border: 2px solid rgb(159, 230, 254);
+    }
+    &-success {
+      background: rgb(236, 255, 236);
+      border: 2px solid rgb(115, 241, 115);
+    }
+  }
+
+  &--mini {
+    width: 56px;
+    height: 56px;
+  }
+  &--shadow {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  }
+
+  &__text {
+    font-size: 28px;
+    line-height: 28px;
+
+    &--main {
+      color: $color-desc;
+    }
+    &--primary,
+    &--warning,
+    &--wait,
+    &--disabled {
+      color: $color-plain;
+    }
+    &--ghost-primary,
+    &--ghost-success,
+    &--ghost-plain {
+      color: $color-sub;
+    }
+    &--mini {
+      font-size: 24px;
+      line-height: 24px;
+    }
+  }
+}

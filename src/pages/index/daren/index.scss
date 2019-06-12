@@ -1,0 +1,27 @@
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.page-index__daren {
+  &__scroll-view {
+    margin-top: 22px;
+    overflow: hidden;
+    @include eject(white-space, nowrap);
+  }
+  &__item {
+    @include eject(position, relative);
+    @include eject(display, inline-block);
+    width: 250px;
+    padding: 24px 0;
+    margin-right: 18px;
+    background-color: $color-bg;
+    border-radius: 8px;
+    overflow: hidden;
+
+    &--first {
+      margin-left: $wind;
+    }
+    &--last {
+      margin-right: $wind;
+    }
+  }
+}

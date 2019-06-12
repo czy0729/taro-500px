@@ -1,0 +1,28 @@
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.page-index__recommend {
+  &__scroll-view {
+    margin-top: 22px;
+    overflow: hidden;
+    @include eject(white-space, nowrap);
+  }
+  &__item {
+    @include eject(position, relative);
+    @include eject(display, inline-block);
+    width: 392px;
+    padding: 28px 20px;
+    margin-top: 2px;
+    margin-right: 20px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.08);
+
+    &--first {
+      margin-left: $wind;
+    }
+    &--last {
+      margin-right: $wind;
+    }
+  }
+}

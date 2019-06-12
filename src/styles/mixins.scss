@@ -1,8 +1,8 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-10 12:08:52
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-11 13:53:26
  */
 /**
  * // NOTE Taro 编译成 RN 时对 border 的处理有问题
@@ -73,6 +73,6 @@
 }
 
 @mixin font-size($px) {
-  font-size: $px * 2;
-  line-height: $px * 2.86;
+  font-size: $px;
+  line-height: $px * 1.44;
 }

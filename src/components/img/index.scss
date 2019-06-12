@@ -1,0 +1,14 @@
+@import '@styles/theme';
+
+.c-img--h5 {
+  /*postcss-pxtransform rn eject enable*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: $color-placeholder;
+
+  img {
+    display: none;
+  }
+  /*postcss-pxtransform rn eject disable*/
+}

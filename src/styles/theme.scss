@@ -2,22 +2,23 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-10 18:10:24
+ * @Last Modified time: 2019-06-11 16:03:50
  */
 @import './mixins.scss';
 
 // 统一布局单位
-$space: 40px; // 上下
+$space: 42px; // 上下
 $wind: 32px; // 两翼
 $bottom: 80px; // 底部
 $xs: 8px;
 $sm: 16px;
 $md: 32px;
 $lg: 64px;
+$distance: 42px; // 块与块之间的距离
 
 // 主题色
 $color-plain: rgb(255, 255, 255);
-$color-main: rgb(252, 127, 138);
+$color-main: rgb(255, 195, 0);
 $color-primary: rgb(68, 207, 252);
 $color-primary-light: rgb(248, 253, 255);
 $color-success: rgb(50, 200, 64);
@@ -25,14 +26,17 @@ $color-warning: rgb(254, 190, 88);
 $color-wait: rgb(200, 200, 200);
 $color-disabled: rgb(150, 150, 150);
 $color-border: rgb(222, 222, 222);
-$color-bg: rgb(248, 248, 248);
+$color-bg: #f8f8f8;
 $color-placeholder: rgb(250, 250, 250);
 
 // 文字颜色
 $color-title: #000;
-$color-desc: #444;
-$color-sub: #aaa;
+$color-desc: #282828;
+$color-sub: #999;
 $color-default: #ddd;
+
+// 圆角
+$radius-sm: 12px;
 
 // 其他
 $box-shadow-img: 0px 2px 16px rgba(0, 0, 0, 0.12);
