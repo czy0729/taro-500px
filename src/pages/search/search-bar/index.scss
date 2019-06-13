@@ -1,0 +1,15 @@
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.page-search__search-bar {
+  padding: 20px $wind;
+  background-color: $color-plain;
+  @include border(bottom);
+
+  &__input {
+    padding: 16px $wind;
+    font-size: 26px;
+    background-color: $color-bg;
+    border-radius: 64px;
+  }
+}

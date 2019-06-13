@@ -2,11 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 15:02:03
+ * @Last Modified time: 2019-06-13 11:14:49
  */
 @import './theme.scss';
-@import './mixins.scss'; // layout
+@import './mixins.scss';
 
+// layout
+.layout-screen {
+  flex: 1;
+  background-color: $color-bg;
+}
 .layout-outer {
   padding-top: $space;
   padding-right: $wind;
@@ -32,6 +37,9 @@
 .flex-item {
   flex: 1;
 }
+.flex-1 {
+  flex: 1;
+}
 .flex-column {
   flex-direction: column;
 }
@@ -54,10 +62,15 @@
   flex-wrap: wrap;
 }
 
-// margin-top
+// margin-distance
+.mt-d-xs {
+  margin-top: 18px;
+}
 .mt-d {
   margin-top: $distance;
 }
+
+// margin-top
 .mt-xs {
   margin-top: $xs;
 }
@@ -68,7 +81,7 @@
   margin-top: $md;
 }
 
-// margin-left
+// margin-left 优先使用
 .ml-xs {
   margin-left: $xs;
 }
@@ -85,12 +98,6 @@
 }
 
 // text
-.t-c {
-  text-align: center;
-}
-.t-b {
-  font-weight: bold;
-}
 .t-plain {
   color: $color-plain;
 }
@@ -100,6 +107,7 @@
 .t-sub {
   color: $color-sub;
 }
+
 .t-20 {
   @include font-size(20px);
 }
@@ -119,6 +127,13 @@
   @include font-size(34px);
 }
 
+.t-c {
+  text-align: center;
+}
+.t-b {
+  font-weight: bold;
+}
+
 .t-c1 {
   @include lamp-clamp(1);
 }
@@ -126,6 +141,7 @@
   @include lamp-clamp(2);
 }
 
+// line-height
 .l-24 {
   line-height: 24px;
 }

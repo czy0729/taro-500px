@@ -1,0 +1,31 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-13 14:46:00
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-13 18:20:41
+ */
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.custom-tab-bar {
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: -1PX;
+  background-color: $color-plain;
+  @include border(top, 1px);
+
+  &__item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0;
+  }
+  &__thumb {
+    width: 50px;
+    height: 50px;
+  }
+}

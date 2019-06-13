@@ -2,12 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 15:32:02
+ * @Last Modified time: 2019-06-13 17:53:44
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { Tabs, TabsPane } from '@components'
+import { Tabs, TabsPane, ActivityIndicator } from '@components'
 import { ENV } from '@constants'
 import Search from './search'
 import Collect from './collect'
@@ -27,7 +27,8 @@ class Index extends Component {
   }
 
   state = {
-    current: 0
+    current: 0,
+    loading: false
   }
 
   componentDidMount() {
@@ -35,9 +36,27 @@ class Index extends Component {
     userStore.fetchTest(true)
   }
 
-  onScrollToLower = () => {
+  componentDidShow() {
+    if (
+      typeof this.$scope.getTabBar === 'function' &&
+      this.$scope.getTabBar()
+    ) {
+      this.$scope.getTabBar().setData({
+        selected: 0
+      })
+    }
+  }
+
+  onScrollToLower = async () => {
     const { userStore } = this.props
-    userStore.fetchTest()
+    this.setState({
+      loading: true
+    })
+
+    await userStore.fetchTest()
+    this.setState({
+      loading: false
+    })
   }
 
   onTabsClick = value => {
@@ -48,7 +67,7 @@ class Index extends Component {
 
   render() {
     const { userStore } = this.props
-    const { current } = this.state
+    const { current, loading } = this.state
     return (
       <View>
         <Search />
@@ -68,6 +87,7 @@ class Index extends Component {
                 <Recommend className='mt-d' />
                 <Daren className='mt-d' />
                 <List className='mt-d' title='随心看' data={userStore.photo} />
+                <ActivityIndicator show={loading} />
               </View>
             </ScrollView>
           </TabsPane>

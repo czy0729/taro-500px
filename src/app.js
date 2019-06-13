@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 15:39:20
+ * @Last Modified time: 2019-06-13 18:23:28
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -24,7 +24,7 @@ const store = {
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index'],
+    pages: ['pages/index/index', 'pages/user/index', 'pages/search/index'],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -32,25 +32,21 @@ class App extends Component {
       navigationBarTextStyle: 'black'
     },
     tabBar: {
-      // color: '#666',
-      // selectedColor: '#b4282d',
-      // backgroundColor: '#fff',
-      // borderStyle: 'black',
+      custom: true,
       list: [
         {
           pagePath: 'pages/index/index',
           iconPath: './assets/tab-bar/home.png',
           selectedIconPath: './assets/tab-bar/home-active.png'
-          // text: '首页'
         },
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/user/index',
           iconPath: './assets/tab-bar/user.png',
           selectedIconPath: './assets/tab-bar/user-active.png'
-          // text: ''
         }
       ]
-    }
+    },
+    usingComponents: {}
   }
 
   // componentDidMount() {}

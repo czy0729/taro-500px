@@ -1,0 +1,8 @@
+@import '@styles/theme.scss';
+
+.c-activity-indicator {
+  display: flex;
+  justify-content: center;
+  min-height: 54px;
+  padding: $sm 0 $lg;
+}
