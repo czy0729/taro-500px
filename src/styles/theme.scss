@@ -2,19 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 15:03:33
+ * @Last Modified time: 2019-06-14 10:00:54
  */
 @import './mixins.scss';
 
 // 统一布局单位
-$space: 42px; // 上下
-$wind: 32px; // 两翼
+$space: 60px; // 上下
+$wind: 30px; // 两翼
 $bottom: 80px; // 底部
 $xs: 8px;
 $sm: 16px;
 $md: 32px;
 $lg: 64px;
-$distance: 42px; // 块与块之间的距离
+$distance: 60px; // 块与块之间的距离
 
 // 主题色
 $color-plain: rgb(255, 255, 255);

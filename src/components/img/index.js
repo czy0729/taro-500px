@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 11:26:50
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-11 17:58:53
+ * @Last Modified time: 2019-06-14 10:11:50
  */
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
@@ -63,7 +63,7 @@ export default class Img extends Component {
       _style.borderRadius = Taro.pxTransform(width)
     }
     if (radius) {
-      _style.borderRadius = Taro.pxTransform(8)
+      _style.borderRadius = Taro.pxTransform(6)
     }
 
     return (

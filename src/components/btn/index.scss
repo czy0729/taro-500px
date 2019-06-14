@@ -59,11 +59,14 @@
   }
 
   &--mini {
-    width: 56px;
-    height: 56px;
+    width: 120px;
+    height: 50px;
   }
   &--shadow {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  }
+  &--round {
+    border-radius: 100px;
   }
 
   &__text {
@@ -85,8 +88,8 @@
       color: $color-sub;
     }
     &--mini {
-      font-size: 24px;
-      line-height: 24px;
+      font-size: 28px;
+      line-height: 40px;
     }
   }
 }

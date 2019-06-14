@@ -3,17 +3,14 @@
 
 .page-index__collect {
   &__scroll-view {
-    height: 168px;
-    margin-top: 22px;
     @include eject(white-space, nowrap);
   }
   &__item {
     @include eject(position, relative);
     @include eject(display, inline-block);
-    width: 250px;
-    height: 168px;
-    margin-right: 18px;
-    border-radius: 8px;
+    width: 270px;
+    height: 180px;
+    border-radius: $radius-sm;
     overflow: hidden;
 
     &--first {

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 14:03:30
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 14:11:16
+ * @Last Modified time: 2019-06-14 12:11:30
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -59,53 +59,56 @@ const Recommend = ({ className }) => {
   return (
     <View className={classNames(cls, className)}>
       <View className='layout-wind'>
-        <SectionTitle rightText='换一批'>设计师推荐</SectionTitle>
+        <SectionTitle text='换一批' icon='refresh'>
+          设计师推荐
+        </SectionTitle>
       </View>
-      <ScrollView className={`${cls}__scroll-view`} scrollX>
+      <ScrollView className={`${cls}__scroll-view mt-30`} scrollX>
         {DS.map((item, index) => (
           <View
             key={item.title}
-            className={classNames(`${cls}__item`, {
+            className={classNames({
+              [`${cls}__item`]: true,
               [`${cls}__item--first`]: index === 0,
-              [`${cls}__item--last`]: index === DS.length - 1
+              [`${cls}__item--last`]: index === DS.length - 1,
+              'ml-20': !!index
             })}
           >
             <View className='flex'>
               <View className='flex-item'>
-                <Text className='t-22 t-sub'>{item.tip}</Text>
+                <Text className='t-28 l-50 t-sub t-c1'>{item.tip}</Text>
               </View>
-              <Btn
-                type='main'
-                text='关注'
-                size='mini'
-                styles={{
-                  width: Taro.pxTransform(84),
-                  height: Taro.pxTransform(42),
-                  borderRadius: Taro.pxTransform(42)
-                }}
-              />
+              <Btn className='ml-sm' type='main' text='关注' size='mini' />
             </View>
-            <View className='flex mt-sm'>
+            <View className='flex mt-24'>
               <Img
                 src={item.avatar}
-                width={66}
+                width={92}
                 style={{
-                  borderRadius: Taro.pxTransform(66),
+                  borderRadius: Taro.pxTransform(92),
                   overflow: 'hidden'
                 }}
               />
-              <View className='flex-item ml-sm'>
+              <View className='flex-item ml-28'>
                 <View>
-                  <Text className='t-24'>{item.user}</Text>
+                  <Text className='t-30 l-52 t-desc t-c1'>{item.user}</Text>
                 </View>
                 <View>
-                  <Text className='t-22 t-sub'>{item.sign}</Text>
+                  <Text className='t-28 l-40 t-sub t-c1'>{item.sign}</Text>
                 </View>
               </View>
             </View>
-            <View className='flex flex-justify-between mt-sm'>
-              {item.preview.map(i => (
-                <Img key={i.id} src={i.src} width={110} radius />
+            <View className='flex mt-24'>
+              {item.preview.map((i, idx) => (
+                <Img
+                  key={i.id}
+                  className={classNames({
+                    'ml-20': !!idx
+                  })}
+                  src={i.src}
+                  width={120}
+                  radius
+                />
               ))}
             </View>
           </View>

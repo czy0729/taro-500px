@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 14:44:05
+ * @Last Modified time: 2019-06-14 12:26:55
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -15,7 +15,7 @@ import './index.scss'
 
 const cls = 'page-index__list'
 const imageWidth = (ENV.screenWidth - ENV.wind * 3 * ENV.pxRatio) / 2
-const infoHeight = 40
+const infoHeight = 248 * ENV.pxRatio
 
 const List = ({ className, title, data }) => {
   // @todo 要缓存每次的计算
@@ -43,8 +43,8 @@ const List = ({ className, title, data }) => {
   return (
     <View className={classNames(cls, 'layout-wind', className)}>
       {!!title && <SectionTitle>{title}</SectionTitle>}
-      <View className={`${cls}__flow flex flex-align-start`}>
-        <View className='flex-item'>
+      <View className='flex flex-align-start mt-30'>
+        <View className='flex-item' style={{ width: `${imageWidth}px` }}>
           {left.map(item => (
             <Item
               key={item.id}
@@ -61,6 +61,7 @@ const List = ({ className, title, data }) => {
         <View
           className='flex-item'
           style={{
+            width: `${imageWidth}px`,
             marginLeft: Taro.pxTransform(ENV.wind)
           }}
         >

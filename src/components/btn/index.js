@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:37:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-11 15:43:29
+ * @Last Modified time: 2019-06-14 10:29:35
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -27,6 +27,7 @@ export default class Btn extends Component {
     shadow: false,
     loading: false,
     disabled: false,
+    round: true,
     text: '',
     onClick: Function.prototype
   }
@@ -41,6 +42,7 @@ export default class Btn extends Component {
       shadow,
       loading,
       disabled,
+      round,
       text,
       onClick
     } = this.props
@@ -51,7 +53,8 @@ export default class Btn extends Component {
         [`${cls}--rn`]: process.env.TARO_ENV === 'rn',
         [`${cls}--${type}`]: type,
         [`${cls}--${size}`]: size,
-        [`${cls}--shadow`]: shadow
+        [`${cls}--shadow`]: shadow,
+        [`${cls}--round`]: round
       },
       className
     )

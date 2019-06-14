@@ -2,17 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 13:46:52
+ * @Last Modified time: 2019-06-14 12:14:31
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { Img } from '@components'
+import { Img, Iconfont } from '@components'
 import './index.scss'
 
 const cls = 'page-index__list'
 
-const ListItem = ({ url, height, user, avatar, title, count }) => {
+const Item = ({ url, height, user, avatar, title, count }) => {
   if (!url) {
     return null
   }
@@ -26,32 +26,33 @@ const ListItem = ({ url, height, user, avatar, title, count }) => {
           height: `${height}px`
         }}
       />
-      <View className='mt-sm'>
-        <Text className='t-26 t-desc t-c2'>{title}</Text>
+      <View className='mt-20'>
+        <Text className='t-30 l-48 t-desc t-c2'>{title}</Text>
       </View>
-      <View className='flex mt-sm'>
+      <View className='flex mt-20'>
         <Img
           src={`${avatar}!p1`}
-          width={42}
+          width={40}
           style={{
-            borderRadius: Taro.pxTransform(42),
+            borderRadius: Taro.pxTransform(40),
             overflow: 'hidden'
           }}
         />
-        <View className='flex-item ml-sm'>
-          <Text className='t-22 t-sub t-c1'>{user}</Text>
+        <View className='flex-item ml-8'>
+          <Text className='t-28 l-40 t-sub t-c1'>{user}</Text>
         </View>
-        <Text className='t-22 t-sub'>{count}</Text>
+        <Iconfont className='t-36 t-sub ml-16' name='star' />
+        <Text className='t-28 l-40 t-sub ml-8'>{count}</Text>
       </View>
     </View>
   )
 }
 
-ListItem.options = {
+Item.options = {
   addGlobalClass: true
 }
 
-ListItem.defaultProps = {
+Item.defaultProps = {
   url: '',
   width: 0,
   height: 0,
@@ -61,4 +62,4 @@ ListItem.defaultProps = {
   count: ''
 }
 
-export default observer(ListItem)
+export default observer(Item)

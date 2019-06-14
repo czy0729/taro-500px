@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 11:14:49
+ * @Last Modified time: 2019-06-14 12:10:43
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -62,40 +62,38 @@
   flex-wrap: wrap;
 }
 
-// margin-distance
-.mt-d-xs {
-  margin-top: 18px;
-}
+// margin-top
 .mt-d {
   margin-top: $distance;
 }
-
-// margin-top
-.mt-xs {
-  margin-top: $xs;
+.mt-12 {
+  margin-top: 12px;
 }
-.mt-sm {
-  margin-top: $sm;
+.mt-20 {
+  margin-top: 20px;
 }
-.mt-md {
-  margin-top: $md;
+.mt-24 {
+  margin-top: 24px;
+}
+.mt-30 {
+  margin-top: 30px;
 }
 
 // margin-left 优先使用
-.ml-xs {
-  margin-left: $xs;
+.ml-8 {
+  margin-left: 8px;
 }
-.ml-sm {
-  margin-left: $sm;
+.ml-16 {
+  margin-left: 16px;
 }
-.ml-md {
-  margin-left: $md;
+.ml-20 {
+  margin-left: 20px;
+}
+.ml-28 {
+  margin-left: 28px;
 }
 
 // margin-right 尽量少用
-.mr-sm {
-  margin-right: $sm;
-}
 
 // text
 .t-plain {
@@ -111,20 +109,14 @@
 .t-20 {
   @include font-size(20px);
 }
-.t-22 {
-  @include font-size(22px);
-}
-.t-24 {
-  @include font-size(24px);
-}
-.t-26 {
-  @include font-size(26px);
-}
 .t-28 {
   @include font-size(28px);
 }
-.t-34 {
-  @include font-size(34px);
+.t-30 {
+  @include font-size(30px);
+}
+.t-36 {
+  @include font-size(36px);
 }
 
 .t-c {
@@ -145,15 +137,24 @@
 .l-24 {
   line-height: 24px;
 }
-.l-30 {
-  line-height: 30px;
+.l-32 {
+  line-height: 32px;
 }
-.l-34 {
-  line-height: 34px;
+.l-36 {
+  line-height: 36px;
 }
-.l-38 {
-  line-height: 38px;
+.l-40 {
+  line-height: 40px;
 }
 .l-48 {
   line-height: 48px;
+}
+.l-50 {
+  line-height: 50px;
+}
+.l-52 {
+  line-height: 52px;
+}
+.l-60 {
+  line-height: 60px;
 }
