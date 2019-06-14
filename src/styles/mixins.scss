@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 15:03:39
+ * @Last Modified time: 2019-06-14 16:11:46
  */
 /**
  * // NOTE Taro 编译成 RN 时对 border 的处理有问题
@@ -10,7 +10,7 @@
  * 那么 border-bottom: 1px 就需要写成如下形式：
  * border: 0 style color; border-bottom-width: 1px;
  */
-$color-border: rgb(243, 243, 243);
+$color-border: rgb(238, 238, 238);
 @mixin border($dir, $width: 1px, $style: solid, $color: $color-border) {
   border: 0 $style $color;
   @each $d in $dir {
@@ -75,5 +75,5 @@ $color-border: rgb(243, 243, 243);
 
 @mixin font-size($px) {
   font-size: $px;
-  line-height: $px * 1.44;
+  line-height: $px;
 }

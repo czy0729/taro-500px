@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 11:16:02
+ * @Last Modified time: 2019-06-14 15:36:40
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
@@ -76,7 +76,7 @@ class Index extends Component {
             <ScrollView
               className={cls}
               scrollY
-              lowerThreshold={ENV.screenWidth * 0.5}
+              lowerThreshold={ENV.screenWidth * 0.64}
               onScrollToLower={this.onScrollToLower}
               style={{
                 height: ENV.windowHeight
@@ -102,7 +102,8 @@ class Index extends Component {
               }}
             >
               <View className={`${cls}__container`}>
-                <List data={userStore.photo} />
+                <List title='随心看' data={userStore.photo} />
+                <ActivityIndicator show={loading} />
               </View>
             </ScrollView>
           </TabsPane>

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 12:10:43
+ * @Last Modified time: 2019-06-14 16:16:45
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -79,7 +79,7 @@
   margin-top: 30px;
 }
 
-// margin-left 优先使用
+// margin-left
 .ml-8 {
   margin-left: 8px;
 }
@@ -93,7 +93,10 @@
   margin-left: 28px;
 }
 
-// margin-right 尽量少用
+// margin-right 能用left的不要用right
+.mr-30 {
+  margin-right: 30px;
+}
 
 // text
 .t-plain {
@@ -117,6 +120,9 @@
 }
 .t-36 {
   @include font-size(36px);
+}
+.t-44 {
+  @include font-size(44px);
 }
 
 .t-c {
@@ -145,6 +151,9 @@
 }
 .l-40 {
   line-height: 40px;
+}
+.l-42 {
+  line-height: 42px;
 }
 .l-48 {
   line-height: 48px;

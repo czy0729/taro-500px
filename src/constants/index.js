@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:35:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 11:10:23
+ * @Last Modified time: 2019-06-14 14:28:32
  */
 import Taro from '@tarojs/taro'
 import { getWindowHeight } from '@utils/style'
@@ -22,8 +22,7 @@ export const ENV = {
   screenHeight,
   pxRatio,
   wind: 30,
-  windowHeight: getWindowHeight(true),
-  windowHeightWithoutTab: screenHeight
+  windowHeight: getWindowHeight()
 }
 
 // 全局统一列表数据结构

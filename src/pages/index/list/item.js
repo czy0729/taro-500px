@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 12:14:31
+ * @Last Modified time: 2019-06-14 15:42:48
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -41,7 +41,7 @@ const Item = ({ url, height, user, avatar, title, count }) => {
         <View className='flex-item ml-8'>
           <Text className='t-28 l-40 t-sub t-c1'>{user}</Text>
         </View>
-        <Iconfont className='t-36 t-sub ml-16' name='star' />
+        <Iconfont className='t-36 t-sub ml-8' name='star' />
         <Text className='t-28 l-40 t-sub ml-8'>{count}</Text>
       </View>
     </View>

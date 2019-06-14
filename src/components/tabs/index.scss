@@ -2,11 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-12 14:14:45
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 09:25:46
+ * @Last Modified time: 2019-06-14 14:21:38
  */
 @import '@styles/theme.scss';
 
 .at-tabs {
+  &__header {
+    box-shadow: 0px 2px 4px 0px rgba(233, 233, 233, 0.5);
+  }
   &__item {
     flex: initial;
     padding: 10px 30px;
@@ -24,5 +27,8 @@
     height: 6px;
     margin-left: 30px;
     background-color: $color-desc;
+  }
+  &__underline {
+    display: none;
   }
 }

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:56:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 12:11:49
+ * @Last Modified time: 2019-06-14 14:09:48
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -15,7 +15,7 @@ const cls = 'page-index__daren'
 const DS = [
   {
     user: '本空设计',
-    tip: '38万粉丝，185笔记',
+    tip: '138万粉丝，1856笔记',
     avatar: require('../../../assets/pages/index/41.png')
   },
   {

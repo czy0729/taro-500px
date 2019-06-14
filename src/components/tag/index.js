@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:58:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 11:17:49
+ * @Last Modified time: 2019-06-14 16:12:16
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -27,7 +27,7 @@ export default class Tag extends Component {
         style={style}
         onClick={onClick}
       >
-        <Text className='t-26 t-desc'>{this.props.children}</Text>
+        <Text className='t-30 l-42 t-desc'>{this.props.children}</Text>
       </View>
     )
   }

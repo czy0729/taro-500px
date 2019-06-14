@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:46:00
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 18:20:41
+ * @Last Modified time: 2019-06-14 15:30:19
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
@@ -14,18 +14,28 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  margin-bottom: -1PX;
+  margin-bottom: -1px;
   background-color: $color-plain;
-  @include border(top, 1px);
+  box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.1);
 
   &__item {
     flex: 1;
     display: flex;
     justify-content: center;
-    padding: 24px 0;
+    padding: 16px 0;
   }
   &__thumb {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
+  }
+  &__btn-plus {
+    width: 60px;
+    height: 60px;
+    background-color: $color-main;
+    border-radius: $radius-xs;
+
+    &:active {
+      opacity: 0.64;
+    }
   }
 }

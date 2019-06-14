@@ -1,7 +1,13 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-14 14:30:21
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-14 14:31:19
+ */
 @import '@styles/theme.scss';
 
 .page-index {
   &__container {
-    padding: $space 0 $bottom;
+    padding: $space 0 $tab-bar + $space;
   }
 }

@@ -3,7 +3,7 @@
  * @Doc: https://taro-ui.aotu.io/#/docs/input
  * @Date: 2019-06-13 10:21:47
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 11:18:11
+ * @Last Modified time: 2019-06-14 15:58:23
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'

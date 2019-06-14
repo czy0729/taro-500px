@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 09:28:13
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 18:23:44
+ * @Last Modified time: 2019-06-14 15:53:02
  */
 import classNames from 'classnames'
 import Taro, { Component } from '@tarojs/taro'
@@ -28,12 +28,12 @@ class Search extends Component {
       <ScrollView
         className={classNames(cls, 'layout-screen')}
         style={{
-          height: ENV.windowHeightWithoutTab
+          height: ENV.windowHeight
         }}
       >
         <SearchBar />
         <History />
-        <Hot className='mt-d-xs' />
+        <Hot className='mt-20' />
       </ScrollView>
     )
   }
