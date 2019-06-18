@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:52:52
+ * @Last Modified time: 2019-06-18 17:18:40
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -23,7 +23,7 @@ const Item = ({ detailId, url, height, user, avatar, title, count }) => {
       className={cls}
       onClick={() => {
         Taro.navigateTo({
-          url: `/pages/detail/index?id=${detailId}`
+          url: `/pages/detail/index?id=${detailId}&cover=${url}&nickName=${user}&avatar=${avatar}`
         })
       }}
     >

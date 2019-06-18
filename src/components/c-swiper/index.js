@@ -3,7 +3,7 @@
  * @Doc: https://nervjs.github.io/taro/docs/components/viewContainer/swiper.html
  * @Date: 2019-06-17 15:07:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-17 17:23:05
+ * @Last Modified time: 2019-06-18 17:37:09
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -20,6 +20,7 @@ export default class CSwiper extends Component {
   static defaultProps = {
     className: '',
     data: [],
+    cover: '',
     width: ENV.screenWidth,
     height: ENV.screenWidth,
     indicatorDots: false,
@@ -48,6 +49,7 @@ export default class CSwiper extends Component {
     const {
       className,
       data,
+      cover,
       width,
       height,
       indicatorDots,
@@ -59,6 +61,11 @@ export default class CSwiper extends Component {
     const { index } = this.state
     return (
       <View className={classNames(cls, className)}>
+        {!!cover && (
+          <View className={`${cls}__cover`}>
+            <CImage src={cover} width={width} height={height} />
+          </View>
+        )}
         <Swiper
           style={{
             height: transform(height)
@@ -77,11 +84,13 @@ export default class CSwiper extends Component {
             </SwiperItem>
           ))}
         </Swiper>
-        <View className={`${cls}__text`}>
-          <Text className='t-28 l-40 t-plain'>
-            {index + 1} / {data.length}
-          </Text>
-        </View>
+        {!!data.length && (
+          <View className={`${cls}__text`}>
+            <Text className='t-28 l-40 t-plain'>
+              {index + 1} / {data.length}
+            </Text>
+          </View>
+        )}
       </View>
     )
   }

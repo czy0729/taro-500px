@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 10:37:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 12:10:32
+ * @Last Modified time: 2019-06-18 17:57:02
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -14,17 +14,20 @@ const cls = 'c-section-title'
 
 export default class SectionTitle extends Component {
   static defaultProps = {
+    desc: '',
     text: '',
     icon: '',
     onPress: Function.prototype
   }
 
   render() {
-    const { className, style, text, icon } = this.props
+    const { className, style, desc, text, icon } = this.props
     return (
       <View className={classNames(cls, 'flex', className)} style={style}>
         <View className='flex-item'>
-          <Text className='t-desc t-b t-36 l-60'>{this.props.children}</Text>
+          <Text className='t-desc t-b t-36 l-60'>
+            {desc || this.props.children}
+          </Text>
         </View>
         {!!text && (
           <View className='flex'>

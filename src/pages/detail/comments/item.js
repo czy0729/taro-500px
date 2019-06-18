@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:16:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:48:46
+ * @Last Modified time: 2019-06-18 16:41:05
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -44,20 +44,20 @@ const Item = ({
       />
       <View className='flex-1 ml-28'>
         <View>
-          <Text className='t-30 l-52 t-link t-c1'>
+          <Text className='t-28 l-40 t-link t-c1'>
             {nickName}
             <Text className='t-sub'> @{userName}</Text>
           </Text>
         </View>
         <View>
-          <Text className='t-30 l-52 t-desc'>{message}</Text>
+          <Text className='t-28 l-40 t-desc'>{message}</Text>
         </View>
         <View className='flex mt-20'>
           <View className='flex-1'>
-            <Text className='t-30 l-52 t-sub'>{lastDate(createDate)}</Text>
+            <Text className='t-28 l-40 t-sub'>{lastDate(createDate)}</Text>
           </View>
           <View>
-            <Text className='t-30 l-52 t-sub'>
+            <Text className='t-28 l-40 t-sub'>
               {countLike == 0 ? '' : countLike} 赞
             </Text>
           </View>

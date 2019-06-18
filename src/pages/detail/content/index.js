@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:34:13
+ * @Last Modified time: 2019-06-18 17:38:55
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -26,7 +26,7 @@ const Content = ({
     <View className={classNames(cls, className)}>
       <View className='flex'>
         <CImage
-          src={`${avatar}!p5`}
+          src={`${avatar}!p1`}
           width={Taro.pxTransform(92)}
           style={radius(Taro.pxTransform(92))}
         />
@@ -35,17 +35,23 @@ const Content = ({
         </View>
         <CButton type='main' text='关注' size='mini' />
       </View>
-      <View className='mt-20'>
-        <Text className='t-32 l-60 t-desc'>{content}</Text>
-      </View>
-      <View className='flex mt-40'>
-        <View className='flex-1'>
-          <Text className='t-28 t-sub'>
-            发布于 {date('y.m.d', uploadedDate)}
-          </Text>
+      {!!content ? (
+        <View className='mt-20'>
+          <View>
+            <Text className='t-32 l-60 t-desc'>{content}</Text>
+          </View>
+          <View className='flex mt-40'>
+            <View className='flex-1'>
+              <Text className='t-28 t-sub'>
+                发布于 {date('y.m.d', uploadedDate)}
+              </Text>
+            </View>
+            <Text className='t-28 t-sub'>{liked} 赞</Text>
+          </View>
         </View>
-        <Text className='t-28 t-sub'>{liked} 赞</Text>
-      </View>
+      ) : (
+        <View style={{ height: Taro.pxTransform(240) }} />
+      )}
       {/* <View className='flex mt-40'>
         <View className='flex-1'>
           <Text className='t-28 t-sub'>分享:</Text>

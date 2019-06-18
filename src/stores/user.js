@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 16:07:47
+ * @Last Modified time: 2019-06-18 17:17:21
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim } from '@utils'
@@ -193,9 +193,12 @@ class UserStore extends store {
           nickName: data.uploaderInfo.nickName
         },
         pictureLikeedCount: data.pictureLikeedCount,
-        carousel: photos
-          .filter((item, index) => index < 10)
-          .map(item => item.url.baseUrl),
+        carousel: [
+          data.url.baseUrl,
+          ...photos
+            .filter((item, index) => index > 0 && index < 10)
+            .map(item => item.url.baseUrl)
+        ],
         more: photos
           .reverse()
           .filter((item, index) => index < 5)
