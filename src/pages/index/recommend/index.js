@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 14:03:30
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:20:45
+ * @Last Modified time: 2019-06-18 11:22:32
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, Img, Btn } from '@components'
+import { SectionTitle, CImage, Btn } from '@components'
 import './index.scss'
 
 const cls = 'page-index__recommend'
@@ -101,9 +101,9 @@ const Recommend = ({ className }) => {
               <Btn className='ml-sm' type='main' text='关注' size='mini' />
             </View>
             <View className='flex mt-24'>
-              <Img
+              <CImage
                 src={item.avatar}
-                width={92}
+                width={Taro.pxTransform(92)}
                 style={{
                   borderRadius: Taro.pxTransform(92),
                   overflow: 'hidden'
@@ -120,13 +120,13 @@ const Recommend = ({ className }) => {
             </View>
             <View className='flex mt-24'>
               {item.preview.map((i, idx) => (
-                <Img
+                <CImage
                   key={i.id}
                   className={classNames({
                     'ml-20': !!idx
                   })}
                   src={i.src}
-                  width={120}
+                  width={Taro.pxTransform(120)}
                   radius
                 />
               ))}

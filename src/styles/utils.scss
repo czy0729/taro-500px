@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 16:16:45
+ * @Last Modified time: 2019-06-18 15:08:12
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -63,11 +63,17 @@
 }
 
 // margin-top
+.mt-wind {
+  margin-top: $wind;
+}
 .mt-d {
   margin-top: $distance;
 }
 .mt-12 {
   margin-top: 12px;
+}
+.mt-16 {
+  margin-top: 16px;
 }
 .mt-20 {
   margin-top: 20px;
@@ -78,8 +84,14 @@
 .mt-30 {
   margin-top: 30px;
 }
+.mt-40 {
+  margin-top: 40px;
+}
 
 // margin-left
+.ml-wind {
+  margin-left: $wind;
+}
 .ml-8 {
   margin-left: 8px;
 }
@@ -108,6 +120,9 @@
 .t-sub {
   color: $color-sub;
 }
+.t-link {
+  color: $color-link;
+}
 
 .t-20 {
   @include font-size(20px);
@@ -117,6 +132,9 @@
 }
 .t-30 {
   @include font-size(30px);
+}
+.t-32 {
+  @include font-size(32px);
 }
 .t-36 {
   @include font-size(36px);

@@ -1,0 +1,18 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-18 15:51:57
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-18 15:52:55
+ */
+@import '@styles/theme.scss';
+
+.c-masonry-list__item {
+  margin-bottom: $space;
+
+  &__image {
+    width: 100%;
+    background-color: $color-bg;
+    border-radius: $radius-sm;
+    overflow: hidden;
+  }
+}

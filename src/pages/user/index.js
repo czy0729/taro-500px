@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 18:21:34
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:25:14
+ * @Last Modified time: 2019-06-14 17:06:08
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, Text } from '@tarojs/components'
@@ -18,6 +18,8 @@ class User extends Component {
 
   componentDidShow() {
     if (
+      this &&
+      this.$scope &&
       typeof this.$scope.getTabBar === 'function' &&
       this.$scope.getTabBar()
     ) {

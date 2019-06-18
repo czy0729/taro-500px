@@ -2,12 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 16:28:04
+ * @Last Modified time: 2019-06-18 16:00:43
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import { userStore } from '@stores'
+import { colorDesc, colorSub, colorPlain } from '@constants/style'
 import 'taro-ui/dist/style/index.scss'
 import Index from './pages/index/index'
 import './app.scss'
@@ -24,7 +25,12 @@ const store = {
 
 class App extends Component {
   config = {
-    pages: ['pages/index/index', 'pages/search/index', 'pages/user/index'],
+    pages: [
+      'pages/index/index',
+      'pages/detail/index',
+      'pages/search/index',
+      'pages/user/index'
+    ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
@@ -33,12 +39,21 @@ class App extends Component {
     },
     tabBar: {
       custom: true,
+      color: colorSub,
+      selectedColor: colorDesc,
+      backgroundColor: colorPlain,
       list: [
         {
-          pagePath: 'pages/index/index'
+          pagePath: 'pages/index/index',
+          iconPath: './assets/tab-bar/home.png',
+          selectedIconPath: './assets/tab-bar/home-active.png',
+          text: '首页'
         },
         {
-          pagePath: 'pages/user/index'
+          pagePath: 'pages/user/index',
+          iconPath: './assets/tab-bar/user.png',
+          selectedIconPath: './assets/tab-bar/user-active.png',
+          text: '我'
         }
       ]
     },

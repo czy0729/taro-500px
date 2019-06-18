@@ -2,23 +2,22 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 13:43:36
+ * @Last Modified time: 2019-06-18 15:55:21
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle } from '@components'
 import Component from '@components/component'
 import { ENV, LIST_EMPTY } from '@constants'
+import SectionTitle from '../../section-title'
 import Item from './item'
-import './index.scss'
 
-const cls = 'page-index__list'
+const cls = 'c-masonry-list'
 const imageWidth = (ENV.screenWidth - ENV.wind * 3 * ENV.pxRatio) / 2
 const infoHeight = 248 * ENV.pxRatio
 
-class List extends Component {
+class MasonryList extends Component {
   static defaultProps = {
     title: '',
     data: LIST_EMPTY
@@ -65,6 +64,7 @@ class List extends Component {
             {this.left.map(item => (
               <Item
                 key={item.id}
+                detailId={item.id}
                 url={item.url}
                 user={item.user}
                 avatar={item.avatar}
@@ -85,6 +85,7 @@ class List extends Component {
             {this.right.map(item => (
               <Item
                 key={item.id}
+                detailId={item.id}
                 url={item.url}
                 user={item.user}
                 avatar={item.avatar}
@@ -101,4 +102,4 @@ class List extends Component {
   }
 }
 
-export default observer(List)
+export default observer(MasonryList)

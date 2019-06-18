@@ -2,30 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-11 11:26:50
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 10:11:50
+ * @Last Modified time: 2019-06-18 09:47:43
  */
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import Component from '@components/component'
+import { transform } from '@utils/style'
+import { radiusXs, radiusSm } from '@constants/style'
 import './index.scss'
 
 const cls = 'c-img'
 
 export default class Img extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    styles: PropTypes.object,
-    src: PropTypes.string,
-    mode: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    round: PropTypes.bool,
-    radius: PropTypes.bool,
-    onClick: PropTypes.func
-  }
-
   static defaultProps = {
     className: '',
     styles: null,
@@ -34,15 +23,14 @@ export default class Img extends Component {
     width: null,
     height: null,
     round: false,
-    radius: false,
-    onClick: null
+    radius: null,
+    onClick: Function.prototype
   }
 
   render() {
     const {
       className,
       style,
-      styles,
       src,
       mode,
       width,
@@ -52,8 +40,8 @@ export default class Img extends Component {
       onClick
     } = this.props
     const _style = {
-      width: Taro.pxTransform(width),
-      height: Taro.pxTransform(height || width)
+      width: transform(width),
+      height: transform(height || width)
     }
     if (process.env.TARO_ENV === 'h5') {
       _style.backgroundImage = `url(${src})`
@@ -63,13 +51,20 @@ export default class Img extends Component {
       _style.borderRadius = Taro.pxTransform(width)
     }
     if (radius) {
-      _style.borderRadius = Taro.pxTransform(6)
+      if (radius === 'sm') {
+        _style.borderRadius = Taro.pxTransform(radiusSm)
+      } else {
+        _style.borderRadius = Taro.pxTransform(radiusXs)
+      }
     }
 
     return (
       <View
         className={classNames(cls, className)}
-        style={styles || style}
+        style={{
+          ..._style,
+          ...style
+        }}
         onClick={onClick}
       >
         <Image

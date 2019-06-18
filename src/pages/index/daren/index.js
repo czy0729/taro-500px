@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:56:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 14:09:48
+ * @Last Modified time: 2019-06-18 11:22:03
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, Img, Btn } from '@components'
+import { SectionTitle, CImage, Btn } from '@components'
 import './index.scss'
 
 const cls = 'page-index__daren'
@@ -50,8 +50,8 @@ const Collect = ({ className }) => {
             })}
           >
             <View className='flex flex-column'>
-              <Img
-                width={92}
+              <CImage
+                width={Taro.pxTransform(92)}
                 src={item.avatar}
                 style={{
                   borderRadius: Taro.pxTransform(92),

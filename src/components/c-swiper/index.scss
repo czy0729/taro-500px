@@ -1,0 +1,22 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-17 17:06:55
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-18 12:25:29
+ */
+@import '@styles/theme.scss';
+
+.c-swiper {
+  position: relative;
+  background-color: $color-bg;
+
+  &__text {
+    position: absolute;
+    z-index: 1;
+    right: $wind;
+    bottom: $wind;
+    padding: 8px 24px;
+    background-color: rgba(0, 0, 0, 0.24);
+    border-radius: 60px;
+  }
+}

@@ -2,23 +2,31 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:42:48
+ * @Last Modified time: 2019-06-18 15:52:52
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { Img, Iconfont } from '@components'
-import './index.scss'
+import CImage from '../../img'
+import Iconfont from '../../iconfont'
+import './item.scss'
 
-const cls = 'page-index__list'
+const cls = 'c-masonry-list__item'
 
-const Item = ({ url, height, user, avatar, title, count }) => {
-  if (!url) {
+const Item = ({ detailId, url, height, user, avatar, title, count }) => {
+  if (!detailId) {
     return null
   }
 
   return (
-    <View className={`${cls}__item`}>
+    <View
+      className={cls}
+      onClick={() => {
+        Taro.navigateTo({
+          url: `/pages/detail/index?id=${detailId}`
+        })
+      }}
+    >
       <Image
         className={`${cls}__image`}
         src={`${url}!p1`}
@@ -30,9 +38,9 @@ const Item = ({ url, height, user, avatar, title, count }) => {
         <Text className='t-30 l-48 t-desc t-c2'>{title}</Text>
       </View>
       <View className='flex mt-20'>
-        <Img
+        <CImage
           src={`${avatar}!p1`}
-          width={40}
+          width={Taro.pxTransform(40)}
           style={{
             borderRadius: Taro.pxTransform(40),
             overflow: 'hidden'
@@ -53,6 +61,7 @@ Item.options = {
 }
 
 Item.defaultProps = {
+  detailId: '',
   url: '',
   width: 0,
   height: 0,

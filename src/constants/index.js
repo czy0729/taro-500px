@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:35:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 14:28:32
+ * @Last Modified time: 2019-06-18 16:09:00
  */
 import Taro from '@tarojs/taro'
 import { getWindowHeight } from '@utils/style'

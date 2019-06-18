@@ -2,18 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:36:40
+ * @Last Modified time: 2019-06-18 16:01:08
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import { Tabs, TabsPane, ActivityIndicator } from '@components'
+import MasonryList from '@components/app/masonry-list'
 import { ENV } from '@constants'
 import Search from './search'
 import Collect from './collect'
 import Recommend from './recommend'
 import Daren from './daren'
-import List from './list'
 import './index.scss'
 
 const cls = 'page-index'
@@ -33,11 +33,13 @@ class Index extends Component {
 
   componentDidMount() {
     const { userStore } = this.props
-    userStore.fetchTest(true)
+    userStore.fetchPhoto(true)
   }
 
   componentDidShow() {
     if (
+      this &&
+      this.$scope &&
       typeof this.$scope.getTabBar === 'function' &&
       this.$scope.getTabBar()
     ) {
@@ -53,7 +55,7 @@ class Index extends Component {
       loading: true
     })
 
-    await userStore.fetchTest()
+    await userStore.fetchPhoto()
     this.setState({
       loading: false
     })
@@ -86,7 +88,11 @@ class Index extends Component {
                 <Collect />
                 <Recommend className='mt-d' />
                 <Daren className='mt-d' />
-                <List className='mt-d' title='随心看' data={userStore.photo} />
+                <MasonryList
+                  className='mt-d'
+                  title='随心看'
+                  data={userStore.photo}
+                />
                 <ActivityIndicator show={loading} />
               </View>
             </ScrollView>
@@ -102,7 +108,7 @@ class Index extends Component {
               }}
             >
               <View className={`${cls}__container`}>
-                <List title='随心看' data={userStore.photo} />
+                <MasonryList title='随心看' data={userStore.photo} />
                 <ActivityIndicator show={loading} />
               </View>
             </ScrollView>

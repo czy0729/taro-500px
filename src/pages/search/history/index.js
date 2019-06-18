@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:14:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 16:26:13
+ * @Last Modified time: 2019-06-14 17:00:59
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
-import { View, Text, Iconfont } from '@tarojs/components'
-import { Tag } from '@components'
+import { View, Text } from '@tarojs/components'
+import { Tag, Iconfont } from '@components'
 import './index.scss'
 
 const cls = 'page-search__history'
