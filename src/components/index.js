@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:33:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 16:24:39
+ * @Last Modified time: 2019-06-19 14:38:49
  */
 // NOTE 组件命名不能与小程序自带的组件重名
 export { default as ActivityIndicator } from './activity-indicator'
@@ -10,6 +10,7 @@ export { default as Back } from './back'
 export { default as Btn } from './btn'
 export { default as CButton } from './btn'
 export { default as CImage } from './img'
+export { default as CRichText } from './c-rich-text'
 export { default as CSwiper } from './c-swiper'
 export { default as Flex } from './flex'
 export { default as FlexItem } from './flex/item'

@@ -1,13 +1,13 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-18 09:45:36
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-18 09:45:36
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-19 10:59:25
  */
 @import '@styles/theme';
 @import '@styles/mixins';
 
-.c-img--h5 {
+.c-image--h5 {
   /*postcss-pxtransform rn eject enable*/
   @include eject(vertical-align, top);
   background-size: cover;

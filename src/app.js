@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:02:48
+ * @Last Modified time: 2019-06-19 11:57:43
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -26,6 +26,7 @@ const store = {
 class App extends Component {
   config = {
     pages: [
+      'pages/article/index',
       'pages/index/index',
       'pages/detail/index',
       'pages/search/index',

@@ -1,0 +1,15 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-19 12:06:35
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-19 14:53:47
+ */
+@import '@styles/theme.scss';
+
+.page-article__content {
+  &__info {
+    padding: $wind;
+    border-radius: $radius-sm;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
+  }
+}

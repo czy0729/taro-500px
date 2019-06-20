@@ -2,25 +2,25 @@
  * @Author: czy0729
  * @Date: 2019-06-11 11:26:50
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 09:47:43
+ * @Last Modified time: 2019-06-19 10:59:32
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import Component from '@components/component'
 import { transform } from '@utils/style'
-import { radiusXs, radiusSm } from '@constants/style'
+import { screenWidth, radiusXs, radiusSm } from '@constants/style'
 import './index.scss'
 
-const cls = 'c-img'
+const cls = 'c-image'
 
-export default class Img extends Component {
+export default class CImage extends Component {
   static defaultProps = {
     className: '',
     styles: null,
     src: '',
     mode: 'aspectFill',
-    width: null,
+    width: screenWidth,
     height: null,
     round: false,
     radius: null,

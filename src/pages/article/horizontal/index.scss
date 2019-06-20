@@ -1,13 +1,13 @@
 /*
  * @Author: czy0729
- * @Date: 2019-06-19 15:32:13
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-19 15:32:13
+ * @Date: 2019-06-19 15:32:00
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-06-19 15:32:36
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
 
-.page-index__recommend {
+.page-article__horizontal {
   &__scroll-view {
     overflow: hidden;
     @include eject(white-space, nowrap);

@@ -1,26 +1,27 @@
 /*
  * @Author: czy0729
- * @Date: 2019-06-17 14:25:48
+ * @Date: 2019-06-19 09:48:33
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 15:08:44
+ * @Last Modified time: 2019-06-19 15:57:17
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { CSwiper, ActivityIndicator, Back } from '@components'
+import { ActivityIndicator, Back, CImage } from '@components'
 import MasonryList from '@components/app/masonry-list'
 import Comments from '@components/app/comments'
 import { getWindowHeight } from '@utils/style'
 import { ENV } from '@constants'
+import { screenWidth } from '@constants/style'
 import Content from './content'
-import Gallery from './gallery'
+import Horizontal from './horizontal'
 import './index.scss'
 
-const cls = 'page-detail'
+const cls = 'page-article'
 
 @inject('userStore')
 @observer
-class Detail extends Component {
+class Article extends Component {
   config = {
     navigationStyle: 'custom',
     navigationBarTextStyle: 'white'
@@ -31,7 +32,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.$router.params
+    const { id = '45eb320de44b4bb5a020480b3c0ed494' } = this.$router.params
     const { userStore } = this.props
     userStore.fetchDetail({
       id
@@ -57,7 +58,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { id } = this.$router.params
+    const { id = '45eb320de44b4bb5a020480b3c0ed494' } = this.$router.params
     const { userStore } = this.props
     const { loading } = this.state
     const detail = userStore.detail(id)
@@ -75,32 +76,27 @@ class Detail extends Component {
           lowerThreshold={ENV.screenWidth * 0.64}
           onScrollToLower={this.onScrollToLower}
         >
-          <CSwiper
-            className={cls}
-            height={ENV.screenWidth * 1.28}
-            cover={`${this.$router.params.cover}!p1`}
-            data={detail.carousel.map(item => `${item}!p5`)}
-          />
-          <View className='layout-inner'>
-            <Content
+          <CImage src={`${detail.cover}!p5`} height={screenWidth * 0.56} />
+          {/* <Content
+              title={detail.title}
               avatar={
                 detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
               }
               nickName={
                 detail.uploaderInfo.nickName || this.$router.params.nickName
               }
-              content={detail.content}
+              richText={detail.richText}
               uploadedDate={detail.uploadedDate}
-              liked={detail.pictureLikeedCount}
-            />
-            <Gallery
-              className='mt-d'
-              nickName={detail.uploaderInfo.nickName}
-              data={detail.more.map(item => `${item}!p5`)}
-            />
-            <Comments className='mt-d' data={comments} />
+            /> */}
+          <Horizontal
+            className='mt-d'
+            desc={`${detail.uploaderInfo.nickName}的更多案例`}
+            // data={detail}
+          />
+          <View className='layout-wind mt-d'>
+            <Comments data={comments} />
           </View>
-          <MasonryList title='你可能也想看' data={photo} />
+          <MasonryList className='mt-d' title='你可能也想看' data={photo} />
           <ActivityIndicator show={loading} />
         </ScrollView>
       </View>
@@ -108,4 +104,4 @@ class Detail extends Component {
   }
 }
 
-export default Detail
+export default Article

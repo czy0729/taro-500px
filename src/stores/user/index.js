@@ -2,84 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:17:21
+ * @Last Modified time: 2019-06-19 14:47:20
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim } from '@utils'
 import store from '@utils/store'
 import fetch from '@utils/fetch'
+import { genRichTextNodes } from '@utils/app'
 import { LIST_EMPTY } from '@constants'
-
-// comments: [
-//   {
-//     userInfo: {
-//       nickName: '会放电的小星星',
-//       id: '2336138af4282805e9fe083ce18373146',
-//       avatar: {
-//         baseUrl:
-//           'https://img.500px.me/2336138af4282805e9fe083ce18373146_1537541804270.jpg'
-//       }
-//     },
-//     countLike: 0,
-//     message: '巨巨',
-//     id: 'bf60fba758b6495787e5e0c09c7d7c88',
-//     childComments: [],
-//     createDate: 1560499220
-//   },
-//   {
-//     userInfo: {
-//       nickName: '小粒儿',
-//       id: 'a2240b4644ee8b21479f2d9caf0315240',
-//       avatar: {}
-//     },
-//     countLike: 0,
-//     message: '马克一下',
-//     id: 'cbbe3c2c87664f1fa4f63fe848d682b3',
-//     childComments: [],
-//     createDate: 1560482182
-//   },
-//   {
-//     userInfo: {
-//       nickName: 'Licca花园',
-//       id: 'fc975501640af8a4d18b9ed75eaf29259',
-//       avatar: {
-//         baseUrl:
-//           'https://img.500px.me/fc975501640af8a4d18b9ed75eaf29259_1554548391265.jpg'
-//       }
-//     },
-//     countLike: 0,
-//     message: '非常赞 期待下半程',
-//     id: 'a7fea1973ddc4a30aee2bf59638c91e7',
-//     childComments: [],
-//     createDate: 1559688756
-//   }
-// ]
-
-const initDetail = {
-  content: '',
-  uploadedDate: 0,
-  uploaderInfo: {
-    avatar: {
-      baseUrl: ''
-    },
-    nickName: ''
-  },
-  pictureLikeedCount: 0,
-  carousel: [],
-  more: []
-}
+import { initUserInfo, initDetail } from './init'
 
 class UserStore extends store {
   @observable state = {
-    userInfo: {
-      access_token: '16d9bc759e04e62b99576589cd7bfff02f6327ef',
-      expires_in: 604800,
-      token_type: 'Bearer',
-      scope: null,
-      user_id: 456208,
-      refresh_token: 'e087f362872ee0a2207ff0e3e6245d685e73faac',
-      _loaded: true
-    },
+    userInfo: initUserInfo,
     photo: LIST_EMPTY,
     detail: {
       // 0: initDetail
@@ -183,7 +118,10 @@ class UserStore extends store {
       )
       const { data } = JSON.parse(matchHTML[1])
       const photos = data.photos.filter(item => item.type === 'photo')
+
       DS = {
+        title: data.title,
+        cover: data.url.baseUrl,
         content: data.description,
         uploadedDate: Math.floor(data.uploadedDate / 1000),
         uploaderInfo: {
@@ -203,6 +141,7 @@ class UserStore extends store {
           .reverse()
           .filter((item, index) => index < 5)
           .map(item => item.url.baseUrl),
+        richText: genRichTextNodes(data.photos || []),
         _loaded: getTimestamp()
       }
 

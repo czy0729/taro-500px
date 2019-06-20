@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 10:43:58
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:46:24
+ * @Last Modified time: 2019-06-19 15:07:10
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -12,7 +12,7 @@ import { LIST_EMPTY } from '@constants'
 import Item from './item'
 import './index.scss'
 
-const cls = 'page-detail__comments'
+const cls = 'c-app-comments'
 
 const Comments = ({ className, data }) => {
   return (
