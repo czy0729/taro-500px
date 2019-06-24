@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:06:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 16:09:30
+ * @Last Modified time: 2019-06-24 14:45:51
  */
 import Taro from '@tarojs/taro'
 
@@ -14,6 +14,10 @@ const TAB_BAR_HEIGHT = 50
  * @param {*} px
  */
 export function transform(px) {
+  if (process.env.TARO_ENV === 'h5') {
+    return px
+  }
+
   if (process.env.TARO_ENV === 'rn') {
     if (String(px).includes('px')) {
       return parseInt(px.replace('px', ''))
