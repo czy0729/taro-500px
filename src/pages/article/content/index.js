@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 15:04:46
+ * @Last Modified time: 2019-06-24 13:54:29
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -68,7 +68,9 @@ const Content = ({
           </View>
         ))}
       </View>
-      <CRichText className='mt-40' nodes={richText} />
+      <View style={{ minHeight: Taro.pxTransform(640) }}>
+        <CRichText className='mt-40' nodes={richText} />
+      </View>
       <View className='mt-40'>
         <View>
           <Text className='t-28 t-sub'>

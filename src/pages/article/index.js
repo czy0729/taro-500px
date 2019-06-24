@@ -2,17 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-06-19 09:48:33
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 15:57:17
+ * @Last Modified time: 2019-06-24 14:01:58
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { ActivityIndicator, Back, CImage } from '@components'
+import { ActivityIndicator, Back } from '@components'
 import MasonryList from '@components/app/masonry-list'
 import Comments from '@components/app/comments'
 import { getWindowHeight } from '@utils/style'
 import { ENV } from '@constants'
-import { screenWidth } from '@constants/style'
+import Cover from './cover'
 import Content from './content'
 import Horizontal from './horizontal'
 import './index.scss'
@@ -32,7 +32,7 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    const { id = '45eb320de44b4bb5a020480b3c0ed494' } = this.$router.params
+    const { id } = this.$router.params
     const { userStore } = this.props
     userStore.fetchDetail({
       id
@@ -58,7 +58,7 @@ class Article extends Component {
   }
 
   render() {
-    const { id = '45eb320de44b4bb5a020480b3c0ed494' } = this.$router.params
+    const { id } = this.$router.params
     const { userStore } = this.props
     const { loading } = this.state
     const detail = userStore.detail(id)
@@ -76,22 +76,39 @@ class Article extends Component {
           lowerThreshold={ENV.screenWidth * 0.64}
           onScrollToLower={this.onScrollToLower}
         >
-          <CImage src={`${detail.cover}!p5`} height={screenWidth * 0.56} />
-          {/* <Content
-              title={detail.title}
-              avatar={
-                detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
-              }
-              nickName={
-                detail.uploaderInfo.nickName || this.$router.params.nickName
-              }
-              richText={detail.richText}
-              uploadedDate={detail.uploadedDate}
-            /> */}
+          <Cover
+            cover={`${this.$router.params.cover}!p1`}
+            src={`${detail.cover}!p5`}
+          />
+          <Content
+            className='mt-d'
+            title={detail.title || this.$router.params.title}
+            avatar={
+              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
+            }
+            nickName={
+              detail.uploaderInfo.nickName || this.$router.params.nickName
+            }
+            richText={detail.richText}
+            uploadedDate={detail.uploadedDate}
+          />
           <Horizontal
             className='mt-d'
             desc={`${detail.uploaderInfo.nickName}的更多案例`}
-            // data={detail}
+            avatar={
+              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
+            }
+            data={detail.carousel}
+            nickName={detail.uploaderInfo.nickName}
+          />
+          <Horizontal
+            className='mt-d'
+            desc='更多两室案例'
+            avatar={
+              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
+            }
+            data={detail.more}
+            nickName={detail.uploaderInfo.nickName}
           />
           <View className='layout-wind mt-d'>
             <Comments data={comments} />

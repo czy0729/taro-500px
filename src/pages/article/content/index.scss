@@ -2,11 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-19 12:06:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 14:53:47
+ * @Last Modified time: 2019-06-24 13:52:29
  */
 @import '@styles/theme.scss';
 
 .page-article__content {
+  padding: 0 $wind;
+
   &__info {
     padding: $wind;
     border-radius: $radius-sm;

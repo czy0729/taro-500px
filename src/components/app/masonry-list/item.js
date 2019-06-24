@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:18:40
+ * @Last Modified time: 2019-06-24 10:56:28
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -13,20 +13,22 @@ import './item.scss'
 
 const cls = 'c-masonry-list__item'
 
-const Item = ({ detailId, url, height, user, avatar, title, count }) => {
+const Item = ({
+  detailId,
+  url,
+  height,
+  user,
+  avatar,
+  title,
+  count,
+  onClick
+}) => {
   if (!detailId) {
     return null
   }
 
   return (
-    <View
-      className={cls}
-      onClick={() => {
-        Taro.navigateTo({
-          url: `/pages/detail/index?id=${detailId}&cover=${url}&nickName=${user}&avatar=${avatar}`
-        })
-      }}
-    >
+    <View className={cls} onClick={onClick}>
       <Image
         className={`${cls}__image`}
         src={`${url}!p1`}
@@ -68,7 +70,8 @@ Item.defaultProps = {
   user: '',
   avatar: '',
   title: '',
-  count: ''
+  count: '',
+  onClick: Function.prototype
 }
 
 export default observer(Item)

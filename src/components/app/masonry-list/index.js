@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:55:21
+ * @Last Modified time: 2019-06-24 10:58:57
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -72,6 +72,13 @@ class MasonryList extends Component {
                 height={item.height}
                 title={item.title}
                 count={item.count}
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: `/pages/detail/index?id=${item.id}&cover=${
+                      item.url
+                    }&nickName=${item.user}&avatar=${item.avatar}`
+                  })
+                }}
               />
             ))}
           </View>
@@ -93,6 +100,15 @@ class MasonryList extends Component {
                 height={item.height}
                 title={item.title}
                 count={item.count}
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: `/pages/article/index?id=${item.id}&cover=${
+                      item.url
+                    }&nickName=${item.user}&avatar=${item.avatar}&title=${
+                      item.title
+                    }`
+                  })
+                }}
               />
             ))}
           </View>
