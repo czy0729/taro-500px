@@ -110,6 +110,11 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@dw/wx-cropper@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@dw/wx-cropper/-/wx-cropper-1.0.6.tgz#19e7edec7aed1ba40f67245529b39c34688a6922"
+  integrity sha512-PEeTHYPg95r/q/nbYL9tw0Iw9symuLBhWQA+NHOtxMAlyNB3zbf2VnZFxazggmbyq5BJY9lE7U05yOvtj6cuIw==
+
 "@expo/bunyan@1.8.10", "@expo/bunyan@^1.8.10":
   version "1.8.10"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-1.8.10.tgz#7d19354a6bce85aae5fea0e973569d3f0142533e"

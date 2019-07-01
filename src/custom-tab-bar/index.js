@@ -2,13 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 15:13:35
+ * @Last Modified time: 2019-07-01 17:21:04
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import { Iconfont } from '@components'
 import Component from '@components/component'
+import Preview from './preview'
 import './index.scss'
 
 const cls = 'custom-tab-bar'
@@ -32,7 +33,8 @@ const list = [
 
 class CustomTabBar extends Component {
   state = {
-    selected: 0
+    selected: 0,
+    showPreview: false
   }
 
   switchTab = toPath => {
@@ -45,10 +47,23 @@ class CustomTabBar extends Component {
     }
   }
 
+  showPreview = () => {
+    this.setState({
+      showPreview: true
+    })
+  }
+
+  closePreview = () => {
+    this.setState({
+      showPreview: false
+    })
+  }
+
   render() {
-    const { selected } = this.state
+    const { selected, showPreview } = this.state
     return (
       <View>
+        <Preview show={showPreview} onClose={this.closePreview} />
         <View className={classNames(cls, 'flex')}>
           {list.map((item, index) => (
             <View
@@ -60,11 +75,7 @@ class CustomTabBar extends Component {
                 <View className='flex flex-column'>
                   <View
                     className={`${cls}__btn-plus flex flex-justify-center`}
-                    onClick={() =>
-                      Taro.navigateTo({
-                        url: '/pages/preview/index'
-                      })
-                    }
+                    onClick={this.showPreview}
                   >
                     <Iconfont className='t-32 t-desc' name='plus' />
                   </View>

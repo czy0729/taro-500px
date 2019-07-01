@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 15:09:48
+ * @Last Modified time: 2019-07-01 16:15:04
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -28,6 +28,7 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/publish/index',
       'pages/preview/index',
       'pages/article/index',
       'pages/detail/index',
