@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 12:25:12
+ * @Last Modified time: 2019-06-28 14:09:04
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -131,6 +131,9 @@
 .t-plain {
   color: $color-plain;
 }
+.t-main {
+  color: $color-main;
+}
 .t-desc {
   color: $color-desc;
 }
@@ -196,4 +199,21 @@
 }
 .l-72 {
   line-height: 72px;
+}
+
+// border
+.b-t {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-border;
+    transform: scale(1, 0.5);
+    transform-origin: center top;
+  }
 }

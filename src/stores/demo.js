@@ -1,3 +1,5 @@
+// 正常 简单 用例
+
 import { observable } from 'mobx'
 
 const counterStore = observable({

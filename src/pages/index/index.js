@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 16:01:08
+ * @Last Modified time: 2019-06-28 10:36:14
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
@@ -19,7 +19,7 @@ import './index.scss'
 const cls = 'page-index'
 const tabList = [{ title: '关注' }, { title: '发现' }]
 
-@inject('userStore')
+@inject('appStore')
 @observer
 class Index extends Component {
   config = {
@@ -27,13 +27,13 @@ class Index extends Component {
   }
 
   state = {
-    current: 0,
+    current: 1,
     loading: false
   }
 
   componentDidMount() {
-    const { userStore } = this.props
-    userStore.fetchPhoto(true)
+    const { appStore } = this.props
+    appStore.fetchPhoto(true)
   }
 
   componentDidShow() {
@@ -50,12 +50,12 @@ class Index extends Component {
   }
 
   onScrollToLower = async () => {
-    const { userStore } = this.props
+    const { appStore } = this.props
     this.setState({
       loading: true
     })
 
-    await userStore.fetchPhoto()
+    await appStore.fetchPhoto()
     this.setState({
       loading: false
     })
@@ -68,7 +68,7 @@ class Index extends Component {
   }
 
   render() {
-    const { userStore } = this.props
+    const { appStore } = this.props
     const { current, loading } = this.state
     return (
       <View>
@@ -84,15 +84,11 @@ class Index extends Component {
                 height: ENV.windowHeight
               }}
             >
-              <View className={`${cls}__container`}>
+              <View className={`${cls}__container b-t`}>
                 <Collect />
                 <Recommend className='mt-d' />
                 <Daren className='mt-d' />
-                <MasonryList
-                  className='mt-d'
-                  title='随心看'
-                  data={userStore.photo}
-                />
+                <MasonryList className='mt-d' data={appStore.photo} />
                 <ActivityIndicator show={loading} />
               </View>
             </ScrollView>
@@ -107,8 +103,8 @@ class Index extends Component {
                 height: ENV.windowHeight
               }}
             >
-              <View className={`${cls}__container`}>
-                <MasonryList title='随心看' data={userStore.photo} />
+              <View className={`${cls}__container b-t`}>
+                <MasonryList data={appStore.photo} />
                 <ActivityIndicator show={loading} />
               </View>
             </ScrollView>

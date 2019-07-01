@@ -19,7 +19,7 @@ import './index.scss'
 
 const cls = 'page-article'
 
-@inject('userStore')
+@inject('appStore')
 @observer
 class Article extends Component {
   config = {
@@ -33,11 +33,11 @@ class Article extends Component {
 
   componentDidMount() {
     const { id } = this.$router.params
-    const { userStore } = this.props
-    userStore.fetchDetail({
+    const { appStore } = this.props
+    appStore.fetchDetail({
       id
     })
-    userStore.fetchDetailComments(
+    appStore.fetchDetailComments(
       {
         id
       },
@@ -46,12 +46,12 @@ class Article extends Component {
   }
 
   onScrollToLower = async () => {
-    const { userStore } = this.props
+    const { appStore } = this.props
     this.setState({
       loading: true
     })
 
-    await userStore.fetchPhoto()
+    await appStore.fetchPhoto()
     this.setState({
       loading: false
     })
@@ -59,11 +59,11 @@ class Article extends Component {
 
   render() {
     const { id } = this.$router.params
-    const { userStore } = this.props
+    const { appStore } = this.props
     const { loading } = this.state
-    const detail = userStore.detail(id)
-    const comments = userStore.comments(id)
-    const photo = userStore.photo
+    const detail = appStore.detail(id)
+    const comments = appStore.comments(id)
+    const photo = appStore.photo
     return (
       <View>
         <Back />

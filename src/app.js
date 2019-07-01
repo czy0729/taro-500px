@@ -2,12 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 10:52:15
+ * @Last Modified time: 2019-06-28 15:09:48
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import { userStore } from '@stores'
+import { userStore, appStore } from '@stores'
 import { colorDesc, colorSub, colorPlain } from '@constants/style'
 import 'taro-ui/dist/style/index.scss'
 import Index from './pages/index/index'
@@ -20,13 +20,15 @@ import './app.scss'
 // }
 
 const store = {
-  userStore
+  userStore,
+  appStore
 }
 
 class App extends Component {
   config = {
     pages: [
       'pages/index/index',
+      'pages/preview/index',
       'pages/article/index',
       'pages/detail/index',
       'pages/search/index',

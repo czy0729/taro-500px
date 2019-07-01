@@ -16,7 +16,7 @@ import './index.scss'
 
 const cls = 'page-search'
 
-@inject('userStore')
+@inject('appStore')
 @observer
 class Search extends Component {
   config = {

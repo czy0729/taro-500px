@@ -44,6 +44,10 @@
   }
 
   &--ghost {
+    &-main {
+      background: $color-plain;
+      border: 2px solid $color-main;
+    }
     &-plain {
       background: $color-plain;
       border: 2px solid $color-border;
@@ -86,6 +90,10 @@
     &--ghost-success,
     &--ghost-plain {
       color: $color-sub;
+    }
+    &--ghost-main {
+      font-weight: bold;
+      color: $color-main;
     }
     &--mini {
       font-size: 28px;

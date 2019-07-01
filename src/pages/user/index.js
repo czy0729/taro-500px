@@ -9,7 +9,7 @@ import { ScrollView, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import { ENV } from '@constants'
 
-@inject('userStore')
+@inject('appStore')
 @observer
 class User extends Component {
   config = {

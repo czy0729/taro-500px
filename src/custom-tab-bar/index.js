@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-15 15:36:51
+ * @Last Modified time: 2019-06-28 15:13:35
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -48,32 +48,41 @@ class CustomTabBar extends Component {
   render() {
     const { selected } = this.state
     return (
-      <View className={classNames(cls, 'flex')}>
-        {list.map((item, index) => (
-          <View
-            key={item.pagePath}
-            className={`${cls}__item`}
-            onClick={() => this.switchTab(item.pagePath)}
-          >
-            {item.pagePath === 'add' ? (
-              <View className='flex flex-column'>
-                <View className={`${cls}__btn-plus flex flex-justify-center`}>
-                  <Iconfont className='t-32 t-desc' name='plus' />
+      <View>
+        <View className={classNames(cls, 'flex')}>
+          {list.map((item, index) => (
+            <View
+              key={item.pagePath}
+              className={`${cls}__item`}
+              onClick={() => this.switchTab(item.pagePath)}
+            >
+              {item.pagePath === 'add' ? (
+                <View className='flex flex-column'>
+                  <View
+                    className={`${cls}__btn-plus flex flex-justify-center`}
+                    onClick={() =>
+                      Taro.navigateTo({
+                        url: '/pages/preview/index'
+                      })
+                    }
+                  >
+                    <Iconfont className='t-32 t-desc' name='plus' />
+                  </View>
                 </View>
-              </View>
-            ) : (
-              <View className='flex flex-column'>
-                <Image
-                  className={`${cls}__thumb`}
-                  src={
-                    selected === index ? item.selectedIconPath : item.iconPath
-                  }
-                />
-                <Text className='t-20 l-24 t-sub'>{item.text}</Text>
-              </View>
-            )}
-          </View>
-        ))}
+              ) : (
+                <View className='flex flex-column'>
+                  <Image
+                    className={`${cls}__thumb`}
+                    src={
+                      selected === index ? item.selectedIconPath : item.iconPath
+                    }
+                  />
+                  <Text className='t-20 l-24 t-sub'>{item.text}</Text>
+                </View>
+              )}
+            </View>
+          ))}
+        </View>
       </View>
     )
   }

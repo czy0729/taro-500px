@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:46:00
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:30:19
+ * @Last Modified time: 2019-06-28 10:26:05
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
@@ -16,7 +16,7 @@
   width: 100%;
   margin-bottom: -1px;
   background-color: $color-plain;
-  box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.1);
+  @include hairline-top();
 
   &__item {
     flex: 1;

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:04:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 15:07:37
+ * @Last Modified time: 2019-06-28 10:38:22
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
@@ -11,6 +11,6 @@
   padding: 30px 0;
 
   &--border {
-    @include border(top);
+    @include hairline-top();
   }
 }
