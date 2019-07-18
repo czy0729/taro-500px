@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-01 10:23:41
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-01 16:09:35
+ * @Last Modified time: 2019-07-01 18:04:50
  */
 import { AtImagePicker } from 'taro-ui'
 import Taro, { Component } from '@tarojs/taro'
@@ -14,10 +14,10 @@ const cls = 'page-publish'
 
 class Publish extends Component {
   config = {
-    navigationBarTitleText: '发布',
-    usingComponents: {
-      'cropper': '../../components/wx/cropper/index'
-    }
+    navigationBarTitleText: '发布图片'
+    // usingComponents: {
+    //   'cropper': '../../components/wx/cropper/index'
+    // }
   }
 
   state = {
@@ -36,6 +36,22 @@ class Publish extends Component {
       }
     ]
   }
+
+  // async componentDidMount() {
+  //   const data = await Taro.chooseImage({
+  //     sourceType: ['album', 'camera'],
+  //     sizeType: ['original', 'compressed'],
+  //     count: 9
+  //   })
+
+  //   if (data.errMsg === 'chooseImage:ok') {
+  //     this.setState({
+  //       files: data.tempFilePaths.map(item => ({
+  //         url: item
+  //       }))
+  //     })
+  //   }
+  // }
 
   onChange = files => {
     this.setState({
@@ -60,18 +76,21 @@ class Publish extends Component {
           height: ENV.windowHeight
         }}
       >
-        <AtImagePicker
-          multiple
-          files={files}
-          onChange={this.onChange}
-          onFail={this.onFail}
-          onImageClick={this.onImageClick}
-        />
-        <cropper
+        <View className={`${cls}__image-picker`}>
+          <AtImagePicker
+            multiple
+            length={3}
+            files={files}
+            onChange={this.onChange}
+            onFail={this.onFail}
+            onImageClick={this.onImageClick}
+          />
+        </View>
+        {/* <cropper
           imageSrc='https://img.500px.me/photo/68cf581584fc08ceabce0477274035806/9d732dc2eb8f458391d0eeb90033fc8b.jpg!p5'
           cutRatio={0}
           cropperRatio={1}
-        />
+        /> */}
       </View>
     )
   }

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 10:24:12
+ * @Last Modified time: 2019-07-17 17:41:16
  */
 /**
  * // NOTE Taro 编译成 RN 时对 border 的处理有问题
@@ -74,6 +74,7 @@ $color-border: rgb(238, 238, 238);
 }
 
 @mixin font-size($px) {
+  display: block;
   font-size: $px;
   line-height: $px;
 }
@@ -88,13 +89,12 @@ $color-border: rgb(238, 238, 238);
     top: 0;
     left: 0;
     width: 100%;
-    height: 1PX;
+    height: 1px;
     background-color: $color-border;
     transform: scale(1, 0.5);
     transform-origin: center top;
   }
 }
-
 
 @mixin hairline-bottom() {
   & {
@@ -106,9 +106,17 @@ $color-border: rgb(238, 238, 238);
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 1PX;
+    height: 1px;
     background-color: $color-border;
     transform: scale(1, 0.5);
     transform-origin: center bottom;
+  }
+}
+
+@mixin active() {
+  transition: background-color 0.16s;
+
+  &:active {
+    background-color: $color-active;
   }
 }

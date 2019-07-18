@@ -5,6 +5,8 @@
     "experimentalDecorators": true,
     "baseUrl": "./",
     "paths": {
+      "@mock": ["src/mock"],
+      "@mock/*": ["src/mock/*"],
       "@components": ["src/components/index"],
       "@components/*": ["src/components/*"],
       "@constants": ["src/constants/index"],

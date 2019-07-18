@@ -1,9 +1,27 @@
 /*
  * @Author: czy0729
  * @Date: 2019-07-01 11:15:38
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-07-01 11:15:38
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-01 18:20:54
  */
-.page-publish {
+@import '@styles/theme.scss';
 
+.page-publish {
+  &__image-picker {
+    padding: 16px $wind 0 $wind - 16px;
+
+    .at-image-picker__flex-box {
+      padding: 0;
+      margin-bottom: 16px;
+    }
+    .at-image-picker__flex-item {
+      margin-left: 16px;
+      border-radius: $radius-sm;
+      overflow: hidden;
+    }
+    .at-image-picker__choose-btn {
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+    }
+  }
 }

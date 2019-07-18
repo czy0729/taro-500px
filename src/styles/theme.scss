@@ -2,40 +2,45 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:07:54
+ * @Last Modified time: 2019-07-18 11:55:12
  */
 @import './mixins.scss';
 
 // 统一布局单位
-$space: 60px; // 上下
-$wind: 30px; // 两翼
+$space: 56px; // 上下
+$wind: 32px; // 两翼
 $bottom: 80px; // 底部
-$tab-bar: 98px;
 $xs: 8px;
 $sm: 16px;
 $md: 32px;
 $lg: 64px;
 $distance: 60px; // 块与块之间的距离
 
+$status-bar: 40px;
+$header: 88px;
+$tab-bar: 98px;
+
 // 主题色
 $color-plain: rgb(255, 255, 255);
-$color-main: rgb(255, 195, 0);
+$color-main: #a89666; // rgb(255, 195, 0);
 $color-primary: rgb(68, 207, 252);
 $color-primary-light: rgb(248, 253, 255);
 $color-success: rgb(50, 200, 64);
 $color-warning: rgb(254, 190, 88);
+$color-danger: #e6211b;
 $color-wait: rgb(200, 200, 200);
 $color-disabled: rgb(150, 150, 150);
 $color-link: rgb(33, 74, 119);
-$color-border: rgb(238, 238, 238);
+$color-border: #ededed;
 $color-bg: #f8f8f8;
 $color-placeholder: rgb(250, 250, 250);
+$color-active: rgba(0, 0, 0, 0.08);
 
 // 文字颜色
-$color-title: #000;
-$color-desc: #282828;
+$color-title: #282828;
+$color-desc: #4a4a4a;
 $color-sub: #999;
-$color-default: #ddd;
+$color-default: #adadad;
 
 // 圆角
 $radius-xs: 6px;

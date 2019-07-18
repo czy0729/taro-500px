@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:35:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 16:09:00
+ * @Last Modified time: 2019-07-01 17:42:07
  */
 import Taro from '@tarojs/taro'
 import { getWindowHeight } from '@utils/style'
@@ -21,7 +21,7 @@ export const ENV = {
   screenWidth,
   screenHeight,
   pxRatio,
-  wind: 30,
+  wind: 32,
   windowHeight: getWindowHeight()
 }
 

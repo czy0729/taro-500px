@@ -1,0 +1,13 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-17 17:28:03
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-17 17:31:17
+ */
+@import '@styles/theme';
+
+.page-user {
+  &__container {
+    padding-bottom: $tab-bar + $space;
+  }
+}

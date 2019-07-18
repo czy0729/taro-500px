@@ -1,0 +1,20 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-17 14:45:31
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-17 16:04:51
+ */
+@import '@styles/theme.scss';
+
+.page-zone__header {
+  padding: $status-bar $wind 48px;
+  background: linear-gradient(
+    360deg,
+    rgba(211, 199, 159, 1) 0%,
+    rgba(168, 150, 102, 1) 97%
+  );
+
+  &__header {
+    height: $header;
+  }
+}

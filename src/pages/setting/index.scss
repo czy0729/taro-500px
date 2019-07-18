@@ -1,0 +1,17 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-18 12:10:08
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-18 12:11:20
+ */
+@import '../../styles/theme.scss';
+
+.page-setting {
+  &__fixed {
+    position: fixed;
+    z-index: 1;
+    right: $wind;
+    bottom: $wind;
+    left: $wind;
+  }
+}

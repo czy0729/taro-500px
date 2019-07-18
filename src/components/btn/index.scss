@@ -5,9 +5,9 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 56px;
   padding: 0;
-  border-width: 2px;
+  border-width: 1px;
   border-style: solid;
   border-radius: 8px;
 
@@ -28,43 +28,51 @@
   }
   &--primary {
     background: $color-primary;
-    border: 2px solid rgb(13, 156, 204);
+    border-color: rgb(13, 156, 204);
   }
   &--warning {
     background: $color-warning;
-    border: 2px solid rgb(249, 163, 80);
+    border-color: rgb(249, 163, 80);
   }
   &--wait {
     background: $color-wait;
-    border: 2px solid rgb(160, 160, 160);
+    border-color: rgb(160, 160, 160);
   }
   &--disabled {
     background: $color-disabled;
-    border: 2px solid rgb(80, 80, 80);
+    border-color: rgb(80, 80, 80);
+  }
+  &--ghost {
+    background: transparent;
+    border-color: $color-plain;
+  }
+  &--default {
+    background: $color-plain;
+    border-color: $color-border;
   }
 
   &--ghost {
     &-main {
       background: $color-plain;
-      border: 2px solid $color-main;
+      border-color: $color-main;
     }
     &-plain {
       background: $color-plain;
-      border: 2px solid $color-border;
+      border-color: $color-border;
     }
     &-primary {
       background: $color-primary-light;
-      border: 2px solid rgb(159, 230, 254);
+      border-color: rgb(159, 230, 254);
     }
     &-success {
       background: rgb(236, 255, 236);
-      border: 2px solid rgb(115, 241, 115);
+      border-color: rgb(115, 241, 115);
     }
   }
 
   &--mini {
-    width: 120px;
-    height: 50px;
+    width: 112px;
+    height: 48px;
   }
   &--shadow {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
@@ -74,8 +82,8 @@
   }
 
   &__text {
-    font-size: 28px;
-    line-height: 28px;
+    font-size: 24px;
+    line-height: 56px;
 
     &--main {
       color: $color-desc;
@@ -86,6 +94,10 @@
     &--disabled {
       color: $color-plain;
     }
+    &--ghost {
+      color: $color-plain;
+    }
+    &--default,
     &--ghost-primary,
     &--ghost-success,
     &--ghost-plain {
@@ -96,8 +108,8 @@
       color: $color-main;
     }
     &--mini {
-      font-size: 28px;
-      line-height: 40px;
+      font-size: 26px;
+      line-height: 48px;
     }
   }
 }

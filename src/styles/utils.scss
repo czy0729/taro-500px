@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 14:09:04
+ * @Last Modified time: 2019-07-18 11:23:31
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -87,8 +87,14 @@
 .mt-30 {
   margin-top: 30px;
 }
+.mt-32 {
+  margin-top: 32px;
+}
 .mt-40 {
   margin-top: 40px;
+}
+.mt-48 {
+  margin-top: 48px;
 }
 
 // margin-left
@@ -106,6 +112,12 @@
 }
 .ml-28 {
   margin-left: 28px;
+}
+.ml-32 {
+  margin-left: 32px;
+}
+.ml-56 {
+  margin-left: 56px;
 }
 
 // margin-right 能用left的不要用right
@@ -147,8 +159,14 @@
 .t-20 {
   @include font-size(20px);
 }
+.t-22 {
+  @include font-size(22px);
+}
 .t-24 {
   @include font-size(24px);
+}
+.t-26 {
+  @include font-size(26px);
 }
 .t-28 {
   @include font-size(28px);
@@ -159,11 +177,20 @@
 .t-32 {
   @include font-size(32px);
 }
+.t-34 {
+  @include font-size(34px);
+}
 .t-36 {
   @include font-size(36px);
 }
+.t-40 {
+  @include font-size(40px);
+}
 .t-44 {
   @include font-size(44px);
+}
+.t-48 {
+  @include font-size(48px);
 }
 .t-52 {
   @include font-size(52px);
@@ -194,8 +221,14 @@
 .l-52 {
   line-height: 52px;
 }
+.l-56 {
+  line-height: 56px;
+}
 .l-60 {
   line-height: 60px;
+}
+.l-68 {
+  line-height: 68px;
 }
 .l-72 {
   line-height: 72px;

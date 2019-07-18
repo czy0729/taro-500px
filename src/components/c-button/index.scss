@@ -1,0 +1,117 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-18 11:33:54
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-18 12:12:45
+ */
+@import '@styles/theme.scss';
+
+.c-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+
+  &:active {
+    opacity: 0.64;
+  }
+
+  // type
+  // &--plain {
+  //   background: $color-bg;
+  //   border-color: rgb(223, 223, 223);
+  // }
+  // &--main {
+  //   background: $color-main;
+  //   border-color: $color-main;
+  // }
+  // &--primary {
+  //   background: $color-primary;
+  //   border-color: rgb(13, 156, 204);
+  // }
+  // &--warning {
+  //   background: $color-warning;
+  //   border-color: rgb(249, 163, 80);
+  // }
+  // &--wait {
+  //   background: $color-wait;
+  //   border-color: rgb(160, 160, 160);
+  // }
+  // &--disabled {
+  //   background: $color-disabled;
+  //   border-color: rgb(80, 80, 80);
+  // }
+  &--default {
+    background: $color-plain;
+    border-color: $color-border;
+  }
+
+  // type ghost
+  &--ghost {
+    background: transparent;
+    border-color: $color-plain;
+
+    &-danger {
+      background: $color-plain;
+      border-color: $color-danger;
+    }
+    // &-main {
+    //   background: $color-plain;
+    //   border-color: $color-main;
+    // }
+    // &-plain {
+    //   background: $color-plain;
+    //   border-color: $color-border;
+    // }
+    // &-primary {
+    //   background: $color-primary-light;
+    //   border-color: rgb(159, 230, 254);
+    // }
+    // &-success {
+    //   background: rgb(236, 255, 236);
+    //   border-color: rgb(115, 241, 115);
+    // }
+  }
+
+  &--mini {
+    min-width: 112px;
+    padding: 0 16px;
+  }
+
+  &--shadow {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  }
+
+  &--round {
+    border-radius: 100px;
+  }
+
+  &__text {
+    padding: 16px 0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 48px;
+
+    &--default {
+      color: $color-sub;
+    }
+
+    &--ghost {
+      color: $color-plain;
+
+      &-danger {
+        color: $color-danger;
+      }
+    }
+
+    &--mini {
+      padding: 0;
+      font-size: 26px;
+      line-height: 48px;
+    }
+  }
+}
