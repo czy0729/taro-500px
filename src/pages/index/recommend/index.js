@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 14:03:30
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 11:22:32
+ * @Last Modified time: 2019-07-18 15:38:25
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, CImage, Btn } from '@components'
+import { SectionTitle, CImage, CButton } from '@components'
 import './index.scss'
 
 const cls = 'page-index__recommend'
@@ -83,7 +83,7 @@ const Recommend = ({ className }) => {
           设计师推荐
         </SectionTitle>
       </View>
-      <ScrollView className={`${cls}__scroll-view mt-30`} scrollX>
+      <ScrollView className={`${cls}__scroll-view`} scrollX>
         {DS.map((item, index) => (
           <View
             key={item.user}
@@ -91,31 +91,33 @@ const Recommend = ({ className }) => {
               [`${cls}__item`]: true,
               [`${cls}__item--first`]: index === 0,
               [`${cls}__item--last`]: index === DS.length - 1,
-              'ml-20': !!index
+              'ml-16': !!index
             })}
           >
             <View className='flex'>
-              <View className='flex-item'>
-                <Text className='t-28 l-50 t-sub t-c1'>{item.tip}</Text>
+              <View className='flex-1'>
+                <Text className='t-24 l-48 t-sub t-c1'>{item.tip}</Text>
               </View>
-              <Btn className='ml-sm' type='main' text='关注' size='mini' />
+              <CButton
+                className='ml-16'
+                type='danger'
+                ghost
+                text='关注'
+                size='mini'
+              />
             </View>
             <View className='flex mt-24'>
               <CImage
                 src={item.avatar}
-                width={Taro.pxTransform(92)}
+                width={Taro.pxTransform(72)}
                 style={{
-                  borderRadius: Taro.pxTransform(92),
+                  borderRadius: Taro.pxTransform(72),
                   overflow: 'hidden'
                 }}
               />
-              <View className='flex-item ml-28'>
-                <View>
-                  <Text className='t-30 l-52 t-desc t-c1'>{item.user}</Text>
-                </View>
-                <View>
-                  <Text className='t-28 l-40 t-sub t-c1'>{item.sign}</Text>
-                </View>
+              <View className='flex-1 ml-16'>
+                <Text className='t-30 l-40 t-title t-c1'>{item.user}</Text>
+                <Text className='t-24 l-32 t-sub t-c1'>{item.sign}</Text>
               </View>
             </View>
             <View className='flex mt-24'>
@@ -123,7 +125,7 @@ const Recommend = ({ className }) => {
                 <CImage
                   key={i.id}
                   className={classNames({
-                    'ml-20': !!idx
+                    'ml-16': !!idx
                   })}
                   src={i.src}
                   width={Taro.pxTransform(120)}

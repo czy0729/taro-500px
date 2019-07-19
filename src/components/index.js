@@ -2,17 +2,21 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:33:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:32:41
+ * @Last Modified time: 2019-07-19 16:59:29
  */
-// NOTE 组件命名不能与小程序自带的组件重名
+// @Notice 组件命名不能与小程序自带的组件重名
 export { default as ActivityIndicator } from './activity-indicator'
 export { default as Back } from './back'
 export { default as Btn } from './btn'
 export { default as CButton } from './c-button'
 export { default as CImage } from './img'
+export { default as CInput } from './ipt'
 export { default as CRichText } from './c-rich-text'
+export { default as CScrollView } from './c-scroll-view'
 export { default as CSwiper } from './c-swiper'
 export { default as CText } from './c-text'
+export { default as CTextarea } from './c-textarea'
+export { default as Empty } from './empty'
 export { default as Flex } from './flex'
 export { default as FlexItem } from './flex/item'
 export { default as Iconfont } from './iconfont'

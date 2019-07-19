@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-13 11:30:40
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 12:13:50
+ * @Last Modified time: 2019-07-18 16:55:25
  */
 import classNames from 'classnames'
 import { AtActivityIndicator } from 'taro-ui'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import Component from '@components/component'
-import { colorMain } from '@constants/style'
+import { colorDanger } from '@constants/style'
 import './index.scss'
 
 const cls = 'c-activity-indicator'
@@ -20,7 +20,7 @@ export default class ActivityIndicator extends Component {
     style: null,
     show: false,
     size: 48,
-    color: colorMain,
+    color: colorDanger,
     content: ''
   }
 

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:23:31
+ * @Last Modified time: 2019-07-19 15:50:02
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -96,10 +96,16 @@
 .mt-48 {
   margin-top: 48px;
 }
+.mt-64 {
+  margin-top: 64px;
+}
 
 // margin-left
 .ml-wind {
   margin-left: $wind;
+}
+.ml-4 {
+  margin-left: 4px;
 }
 .ml-8 {
   margin-left: 8px;
@@ -109,6 +115,9 @@
 }
 .ml-20 {
   margin-left: 20px;
+}
+.ml-24 {
+  margin-left: 24px;
 }
 .ml-28 {
   margin-left: 28px;
@@ -121,6 +130,9 @@
 }
 
 // margin-right 能用left的不要用right
+.mr-16 {
+  margin-right: 16px;
+}
 .mr-30 {
   margin-right: 30px;
 }
@@ -128,6 +140,9 @@
 // text
 .t-c {
   text-align: center;
+}
+.t-r {
+  text-align: right;
 }
 .t-b {
   font-weight: bold;
@@ -146,11 +161,17 @@
 .t-main {
   color: $color-main;
 }
+.t-danger {
+  color: $color-danger;
+}
 .t-desc {
   color: $color-desc;
 }
 .t-sub {
   color: $color-sub;
+}
+.t-default {
+  color: $color-default;
 }
 .t-link {
   color: $color-link;
@@ -211,6 +232,9 @@
 }
 .l-42 {
   line-height: 42px;
+}
+.l-44 {
+  line-height: 44px;
 }
 .l-48 {
   line-height: 48px;

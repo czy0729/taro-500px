@@ -2,12 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:33:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:55:40
+ * @Last Modified time: 2019-07-18 18:25:59
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
 
 .c-ipt {
-  font-size: 28px;
-  line-height: 40px;
+  font-size: 30px;
+  color: $color-title;
+  line-height: 48px;
 }

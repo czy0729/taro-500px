@@ -1,9 +1,15 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-18 15:23:16
+ * @Last Modified by:   czy0729
+ * @Last Modified time: 2019-07-18 15:23:16
+ */
 @import '@styles/theme.scss';
 
 .page-index__search {
   position: absolute;
   z-index: 1;
-  top: 8px;
+  top: 4px;
   right: $wind;
   padding: 16px 20px;
   background-color: $color-bg;

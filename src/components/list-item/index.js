@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 09:45:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:21:19
+ * @Last Modified time: 2019-07-18 18:00:51
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -16,6 +16,7 @@ const cls = 'c-list-item'
 export default class ListItem extends Component {
   static defaultProps = {
     text: '',
+    highlight: false,
     arrow: true,
     border: true,
     renderExtra: null,
@@ -23,9 +24,14 @@ export default class ListItem extends Component {
   }
 
   render() {
-    const { text, arrow, border, onClick } = this.props
+    const { text, highlight, arrow, border, onClick } = this.props
     return (
-      <View className={cls} onClick={onClick}>
+      <View
+        className={classNames(cls, {
+          [`${cls}--highlight`]: highlight
+        })}
+        onClick={onClick}
+      >
         <View
           className={classNames(`${cls}__item flex`, {
             [`${cls}__item--border`]: border
@@ -37,8 +43,10 @@ export default class ListItem extends Component {
             </View>
           )}
           {this.props.children}
-          {arrow && <Iconfont className='t-28 t-sub' name='angle-right' />}
           {this.props.renderExtra}
+          {arrow && (
+            <Iconfont className='t-28 t-sub ml-16' name='angle-right' />
+          )}
         </View>
       </View>
     )

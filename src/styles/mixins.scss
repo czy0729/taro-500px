@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 17:41:16
+ * @Last Modified time: 2019-07-18 16:39:03
  */
 /**
  * // NOTE Taro 编译成 RN 时对 border 的处理有问题
@@ -55,7 +55,7 @@ $color-border: rgb(238, 238, 238);
   /*postcss-pxtransform rn eject enable*/
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
+  display: -webkit-box !important;
   -webkit-line-clamp: $line;
   /* autoprefixer: ignore next */
   -webkit-box-orient: vertical;
@@ -76,6 +76,7 @@ $color-border: rgb(238, 238, 238);
 @mixin font-size($px) {
   display: block;
   font-size: $px;
+  font-weight: 400;
   line-height: $px;
 }
 

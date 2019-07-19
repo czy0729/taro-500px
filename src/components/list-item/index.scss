@@ -2,15 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-07-18 10:11:36
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 10:33:39
+ * @Last Modified time: 2019-07-18 18:01:02
  */
 @import '@styles/theme';
 @import '@styles/mixins';
 
 .c-list-item {
   padding-left: 32px;
-  @include active();
 
+  &--highlight {
+    @include active();
+  }
   &__item {
     padding: 32px 32px 32px 0;
 

@@ -2,23 +2,26 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 10:58:57
+ * @Last Modified time: 2019-07-18 16:40:01
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import Component from '@components/component'
+import { transform } from '@utils/style'
 import { ENV, LIST_EMPTY } from '@constants'
 import SectionTitle from '../../section-title'
 import Item from './item'
+import './index.scss'
 
-const cls = 'c-masonry-list'
-const imageWidth = (ENV.screenWidth - ENV.wind * 3 * ENV.pxRatio) / 2
+const cls = 'c-app-masonry-list'
+const imageWidth = (ENV.screenWidth - (ENV.wind * 2 + 16) * ENV.pxRatio) / 2
 const infoHeight = 248 * ENV.pxRatio
 
 class MasonryList extends Component {
   static defaultProps = {
+    className: '',
     title: '',
     data: LIST_EMPTY
   }
@@ -57,9 +60,9 @@ class MasonryList extends Component {
     this.index = _data.length - 1
 
     return (
-      <View className={classNames(cls, 'layout-wind', className)}>
+      <View className={classNames(cls, className)}>
         {!!title && <SectionTitle>{title}</SectionTitle>}
-        <View className='flex flex-align-start mt-30'>
+        <View className='flex flex-align-start'>
           <View className='flex-item' style={{ width: `${imageWidth}px` }}>
             {this.left.map(item => (
               <Item
@@ -85,8 +88,8 @@ class MasonryList extends Component {
           <View
             className='flex-item'
             style={{
-              width: `${imageWidth}px`,
-              marginLeft: Taro.pxTransform(ENV.wind)
+              width: transform(imageWidth),
+              marginLeft: Taro.pxTransform(16)
             }}
           >
             {this.right.map(item => (

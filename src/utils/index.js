@@ -2,11 +2,23 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-25 12:00:42
+ * @Last Modified time: 2019-07-19 11:05:51
  */
 import Taro from '@tarojs/taro'
 
 const PAGE_WEBVIEW = '/pages/webview/index'
+
+/**
+ * 跳转
+ * @param {*} url
+ * @param {*} options
+ */
+export function push(url, options) {
+  Taro.navigateTo({
+    url,
+    ...options
+  })
+}
 
 /**
  * // NOTE 后端返回的 url 可能是网页链接，需要在 webview 中打开

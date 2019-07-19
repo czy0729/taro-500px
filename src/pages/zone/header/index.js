@@ -2,13 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:27:28
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 16:27:48
+ * @Last Modified time: 2019-07-19 14:49:33
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import { CImage, Btn } from '@components'
+import { CImage, CButton } from '@components'
+import { push } from '@utils'
 import './index.scss'
 
 const cls = 'page-zone__header'
@@ -54,10 +55,15 @@ const Header = ({ className }) => {
           </View>
           <View className='flex mt-16'>
             <View className='flex-1'>
-              <Btn type='ghost' text='编辑个人资料' />
+              <CButton
+                ghost
+                size='medium'
+                text='编辑个人资料'
+                onClick={() => push('/pages/my-info/index')}
+              />
             </View>
             <View className='flex-1 ml-32'>
-              <Btn type='ghost' text='更改封面' />
+              <CButton ghost size='medium' text='更改封面' />
             </View>
           </View>
         </View>

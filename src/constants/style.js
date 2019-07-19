@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 11:32:08
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 18:03:39
+ * @Last Modified time: 2019-07-19 10:03:34
  */
 import Taro from '@tarojs/taro'
 
@@ -11,7 +11,9 @@ export const statusBarHeight = 40
 
 export const colorPlain = 'rgb(255, 255, 255)'
 export const colorMain = '#a89666'
+export const colorDanger = '#e6211b'
 export const colorDesc = '#282828'
 export const colorSub = '#999'
+export const colorDefault = '#adadad'
 export const radiusXs = 6
 export const radiusSm = 12

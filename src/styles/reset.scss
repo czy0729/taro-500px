@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-13 10:50:07
+ * @Last Modified time: 2019-07-18 18:26:07
  */
 @import './theme.scss';
 
@@ -59,4 +59,7 @@ button {
   width: 0;
   height: 0;
   color: transparent;
+}
+::-webkit-input-placeholder {
+  color: $color-default;
 }

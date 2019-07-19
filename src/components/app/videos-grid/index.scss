@@ -1,0 +1,29 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-19 15:46:03
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-19 15:50:39
+ */
+@import '@styles/theme';
+
+.c-app-videos-grid {
+  &__item {
+    position: relative;
+    border-radius: $radius-sm;
+    overflow: hidden;
+  }
+  &__info {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 64px;
+    padding: 0 16px;
+    line-height: 64px;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+}

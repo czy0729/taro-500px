@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 10:36:14
+ * @Last Modified time: 2019-07-18 16:54:41
  */
 import Taro, { Component } from '@tarojs/taro'
 import { ScrollView, View } from '@tarojs/components'
@@ -23,7 +23,7 @@ const tabList = [{ title: '关注' }, { title: '发现' }]
 @observer
 class Index extends Component {
   config = {
-    navigationBarTitleText: '首页'
+    navigationBarTitleText: '云知光'
   }
 
   state = {
@@ -86,9 +86,9 @@ class Index extends Component {
             >
               <View className={`${cls}__container b-t`}>
                 <Collect />
-                <Recommend className='mt-d' />
-                <Daren className='mt-d' />
-                <MasonryList className='mt-d' data={appStore.photo} />
+                <Recommend className='mt-40' />
+                <Daren className='mt-40' />
+                <MasonryList className='mt-64' data={appStore.photo} />
                 <ActivityIndicator show={loading} />
               </View>
             </ScrollView>

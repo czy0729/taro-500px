@@ -2,33 +2,30 @@
  * @Author: czy0729
  * @Date: 2019-06-12 14:14:45
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-28 10:34:11
+ * @Last Modified time: 2019-07-18 15:16:31
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
 
 .at-tabs {
-  // &__header {
-  //   @include hairline-bottom();
-  //   box-shadow: 0px 2px 4px 0px rgba(233, 233, 233, 0.5);
-  // }
   &__item {
     flex: initial;
     padding: 10px 30px;
     font-size: 36px;
+    font-weight: 400;
     line-height: 68px;
     color: $color-sub;
 
     &--active {
-      font-weight: bold;
-      color: $color-desc;
+      font-weight: 500;
+      color: $color-title;
     }
   }
   &__item-underline {
     width: 70px;
     height: 6px;
     margin-left: 30px;
-    background-color: $color-desc;
+    background-color: $color-title;
   }
   &__underline {
     display: none;

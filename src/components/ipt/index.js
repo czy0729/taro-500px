@@ -3,12 +3,13 @@
  * @Doc: https://taro-ui.aotu.io/#/docs/input
  * @Date: 2019-06-13 10:21:47
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:58:23
+ * @Last Modified time: 2019-07-19 10:03:42
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { Input } from '@tarojs/components'
 import Component from '@components/component'
+import { colorDefault } from '@constants/style'
 import './index.scss'
 
 const cls = 'c-ipt'
@@ -38,6 +39,7 @@ export default class Ipt extends Component {
         value={value}
         focus={focus}
         placeholder={placeholder}
+        placeholderStyle={`color: ${colorDefault}`}
         onInput={this.onInput}
       />
     )

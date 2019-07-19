@@ -2,12 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:51:57
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 15:52:55
+ * @Last Modified time: 2019-07-18 16:19:01
  */
 @import '@styles/theme.scss';
 
-.c-masonry-list__item {
-  margin-bottom: $space;
+.c-app-masonry-list__item {
+  margin-bottom: 40px;
 
   &__image {
     width: 100%;

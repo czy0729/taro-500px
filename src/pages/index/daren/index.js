@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:56:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 11:22:03
+ * @Last Modified time: 2019-07-18 15:40:52
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, CImage, Btn } from '@components'
+import { SectionTitle, CImage, CButton } from '@components'
 import './index.scss'
 
 const cls = 'page-index__daren'
@@ -38,7 +38,7 @@ const Collect = ({ className }) => {
           达人推荐
         </SectionTitle>
       </View>
-      <ScrollView className={`${cls}__scroll-view mt-30`} scrollX>
+      <ScrollView className={`${cls}__scroll-view`} scrollX>
         {DS.map((item, index) => (
           <View
             key={item.title}
@@ -46,23 +46,29 @@ const Collect = ({ className }) => {
               [`${cls}__item`]: true,
               [`${cls}__item--first`]: index === 0,
               [`${cls}__item--last`]: index === DS.length - 1,
-              'ml-20': !!index
+              'ml-16': !!index
             })}
           >
             <View className='flex flex-column'>
               <CImage
-                width={Taro.pxTransform(92)}
+                width={Taro.pxTransform(96)}
                 src={item.avatar}
                 style={{
-                  borderRadius: Taro.pxTransform(92),
+                  borderRadius: Taro.pxTransform(96),
                   overflow: 'hidden'
                 }}
               />
-              <Text className='t-30 l-36 t-desc t-b mt-20 t-c1'>
+              <Text className='t-30 l-40 t-title t-b mt-24 t-c1'>
                 {item.user}
               </Text>
-              <Text className='t-28 l-32 t-sub mt-12 t-c1'>{item.tip}</Text>
-              <Btn className='mt-20' type='main' text='关注' size='mini' />
+              <Text className='t-24 l-32 t-sub mt-8 t-c1'>{item.tip}</Text>
+              <CButton
+                className='mt-24'
+                type='danger'
+                ghost
+                text='关注'
+                size='mini'
+              />
             </View>
           </View>
         ))}

@@ -1,8 +1,8 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-19 15:32:13
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-19 15:32:13
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-18 15:34:24
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
@@ -15,8 +15,8 @@
   &__item {
     @include eject(position, relative);
     @include eject(display, inline-block);
-    width: 460px;
-    padding: 30px;
+    width: 456px;
+    padding: 32px;
     margin-top: 4px;
     margin-bottom: 4px;
     border-radius: $radius-sm;

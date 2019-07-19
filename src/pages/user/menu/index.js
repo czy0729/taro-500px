@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:09:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 17:06:08
+ * @Last Modified time: 2019-07-19 12:20:06
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -19,7 +19,8 @@ const DS = [
   },
   {
     label: '我的文章',
-    icon: 'star'
+    icon: 'star',
+    url: '/pages/my-article/index'
   },
   {
     label: '我的方案',
@@ -31,7 +32,8 @@ const DS = [
   },
   {
     label: '我的收藏',
-    icon: 'star'
+    icon: 'star',
+    url: '/pages/my-favor/index'
   },
   {
     label: '浏览历史',
@@ -51,7 +53,17 @@ const Menu = ({ className }) => {
   return (
     <View className={classNames(cls, 'flex', 'flex-wrap', className)}>
       {DS.map(item => (
-        <View key={item.label} className={`${cls}__item flex flex-column`}>
+        <View
+          key={item.label}
+          className={`${cls}__item flex flex-column`}
+          onClick={() => {
+            if (item.url) {
+              Taro.navigateTo({
+                url: item.url
+              })
+            }
+          }}
+        >
           <Iconfont className='t-44 t-main' name={item.icon} />
           <Text className='t-24 l-32 t-desc t-c mt-16'>{item.label}</Text>
         </View>
