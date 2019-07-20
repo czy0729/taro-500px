@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 17:38:40
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 17:40:03
+ * @Last Modified time: 2019-07-20 13:42:05
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -14,11 +14,12 @@ const cls = 'c-scroll-view'
 
 export default class CScrollView extends Component {
   static defaultProps = {
-    className: ''
+    className: '',
+    onScrollToLower: null
   }
 
   render() {
-    const { className } = this.props
+    const { className, onScrollToLower } = this.props
     return (
       <ScrollView
         className={classNames(cls, className)}
@@ -26,6 +27,10 @@ export default class CScrollView extends Component {
           height: ENV.windowHeight
         }}
         scrollY
+        lowerThreshold={
+          onScrollToLower === null ? undefined : ENV.screenWidth * 0.64
+        }
+        onScrollToLower={onScrollToLower === null ? undefined : onScrollToLower}
       >
         {this.props.children}
       </ScrollView>

@@ -2,15 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-06-17 14:25:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-19 15:08:44
+ * @Last Modified time: 2019-07-20 17:44:16
  */
 import Taro, { Component } from '@tarojs/taro'
-import { ScrollView, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { CSwiper, ActivityIndicator, Back } from '@components'
+import { CScrollView, CSwiper, ActivityIndicator } from '@components'
 import MasonryList from '@components/app/masonry-list'
 import Comments from '@components/app/comments'
-import { getWindowHeight } from '@utils/style'
+import FixedBar from '@components/app/fixed-bar'
 import { ENV } from '@constants'
 import Content from './content'
 import Gallery from './gallery'
@@ -22,8 +22,7 @@ const cls = 'page-detail'
 @observer
 class Detail extends Component {
   config = {
-    navigationStyle: 'custom',
-    navigationBarTextStyle: 'white'
+    navigationBarTitleText: '照片详情'
   }
 
   state = {
@@ -31,7 +30,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.$router.params
+    const { id = '7ea2d9f41b440320f5f0ac24294e0d50' } = this.$router.params
     const { appStore } = this.props
     appStore.fetchDetail({
       id
@@ -57,7 +56,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { id } = this.$router.params
+    const { id = '7ea2d9f41b440320f5f0ac24294e0d50' } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -65,23 +64,14 @@ class Detail extends Component {
     const photo = appStore.photo
     return (
       <View>
-        <Back />
-        <ScrollView
-          className={cls}
-          scrollY
-          style={{
-            height: getWindowHeight()
-          }}
-          lowerThreshold={ENV.screenWidth * 0.64}
-          onScrollToLower={this.onScrollToLower}
-        >
+        <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
           <CSwiper
             className={cls}
-            height={ENV.screenWidth * 1.28}
+            height={ENV.screenWidth * 1.216}
             cover={`${this.$router.params.cover}!p1`}
             data={detail.carousel.map(item => `${item}!p5`)}
           />
-          <View className='layout-inner'>
+          <View className={`${cls}__wrap`}>
             <Content
               avatar={
                 detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
@@ -94,15 +84,18 @@ class Detail extends Component {
               liked={detail.pictureLikeedCount}
             />
             <Gallery
-              className='mt-d'
+              className='mt-64'
               nickName={detail.uploaderInfo.nickName}
               data={detail.more.map(item => `${item}!p5`)}
             />
-            <Comments className='mt-d' data={comments} />
           </View>
-          <MasonryList title='你可能也想看' data={photo} />
-          <ActivityIndicator show={loading} />
-        </ScrollView>
+          <Comments className='mt-64' data={comments} />
+          <View className='layout-bg'>
+            <MasonryList data={photo} />
+            <ActivityIndicator show={loading} />
+          </View>
+        </CScrollView>
+        <FixedBar />
       </View>
     )
   }

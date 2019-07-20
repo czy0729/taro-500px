@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 09:33:47
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 16:29:59
+ * @Last Modified time: 2019-07-20 11:47:35
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -45,10 +45,7 @@ export default class SearchBar extends Component {
             onChange={this.onChange}
           />
         </View>
-        <Text
-          className={`${cls}__cancel t-28 l-40 t-sub ml-8`}
-          onClick={this.back}
-        >
+        <Text className={`${cls}__cancel t-sub ml-8`} onClick={this.back}>
           取消
         </Text>
       </View>

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:57:21
+ * @Last Modified time: 2019-07-20 16:42:05
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -14,8 +14,8 @@ import { ENV } from '@constants'
 
 const cls = 'page-detail__gallery'
 const imageHalfWidth = (ENV.screenWidth - ENV.wind * 2 * ENV.pxRatio) / 2
-const imageLgWidth = imageHalfWidth - 10 * ENV.pxRatio // 8 -> 10
-const imageSmWidth = imageHalfWidth / 2 - 12 * ENV.pxRatio // 16 -> 12
+const imageLgWidth = imageHalfWidth - 8 * ENV.pxRatio
+const imageSmWidth = imageHalfWidth / 2 - 12 * ENV.pxRatio
 
 const Gallery = ({ className, nickName, data }) => {
   const [lg, ...md] = data
@@ -26,7 +26,7 @@ const Gallery = ({ className, nickName, data }) => {
         text='查看全部'
         icon='angle-right'
       />
-      <View className='flex mt-30'>
+      <View className='flex'>
         <CImage src={lg} width={transform(imageLgWidth)} radius='sm' />
         <View className='flex flex-wrap ml-16'>
           {md.map((item, index) => (

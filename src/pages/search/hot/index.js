@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:14:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 17:01:10
+ * @Last Modified time: 2019-07-20 11:58:07
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -32,9 +32,9 @@ const Hot = ({ className }) => {
         </View>
         <Iconfont className='t-36 t-sub' name='trash' />
       </View>
-      <View className='flex mt-30'>
+      <View className='flex mt-32'>
         {DS.map(item => (
-          <Tag key={item.id} className='mr-30'>
+          <Tag key={item.id} className='mr-32'>
             {item.title}
           </Tag>
         ))}

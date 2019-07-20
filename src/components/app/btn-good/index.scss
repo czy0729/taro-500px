@@ -1,0 +1,16 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-20 15:06:20
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-20 15:26:48
+ */
+@import '@styles/theme';
+
+.c-app-btn-goods {
+  &__btn {
+    width: 112px;
+    height: 112px;
+    border: 1px solid $color-border;
+    border-radius: 112px;
+  }
+}

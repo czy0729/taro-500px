@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 09:40:59
+ * @Last Modified time: 2019-07-20 17:52:25
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -27,24 +27,24 @@ const store = {
 class App extends Component {
   config = {
     pages: [
-      // 'pages/article/index',
-      // 'pages/detail/index',
-      // 'pages/fans/index',
-      // 'pages/favor-detail/index',
-      // 'pages/follow/index',
-      // 'pages/my-articles/index',
-      // 'pages/my-favor/index',
-      // 'pages/my-photos/index',
-      // 'pages/my-videos/index',
-      // 'pages/new-favor/index',
-      // 'pages/preview/index',
-      // 'pages/publish/index',
-      // 'pages/search/index',
-      // 'pages/zone/index',
+      // 'pages/detail/index', // 图片详情
+      // 'pages/article/index', // 文章详情
+      // 'pages/fans/index', // 我的粉丝
+      // 'pages/follow/index', // 我的关注
+      // 'pages/my-favor/index', // 我的收藏
+      // 'pages/new-favor/index', // 新建收藏
+      // 'pages/favor-detail/index', // 收藏夹详情
+      // 'pages/my-photos/index', // 我的图片
+      // 'pages/my-videos/index', // 我的视频
+      // 'pages/my-articles/index', // 我的文章
+      // 'pages/history/index', // 浏览历史
+      // 'pages/search/index', // 搜索
+      // 'pages/zone/index', // 个人空间
+      // 'pages/setting/index', // 设置
+      // 'pages/publish/index', // 发布
 
-      'pages/user/index',
-      'pages/setting/index',
-      'pages/index/index'
+      'pages/index/index', // 首页
+      'pages/user/index' // 个人中心
     ],
     window: {
       backgroundTextStyle: 'light',

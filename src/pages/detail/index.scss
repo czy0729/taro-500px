@@ -2,10 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:32:26
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:28:49
+ * @Last Modified time: 2019-07-20 17:24:53
  */
 @import '@styles/theme.scss';
 
 .page-detail {
   background-color: $color-plain;
+
+  &__wrap {
+    padding: 40px $wind 0;
+  }
 }

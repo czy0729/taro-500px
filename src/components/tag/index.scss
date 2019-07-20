@@ -1,14 +1,22 @@
 /*
  * @Author: czy0729
  * @Date: 2019-06-18 16:17:39
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-06-18 16:17:39
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-20 14:57:29
  */
 @import '@styles/theme.scss';
 
 .c-tag {
-  padding: 9px 30px;
+  padding: 8px 32px;
   background-color: $color-plain;
   border: 1px solid $color-border;
-  border-radius: 60px;
+  border-radius: 64px;
+
+  &--link {
+    background-color: #f3f4f8;
+    border-color: #f3f4f8;
+  }
+  &__text--link {
+    color: #5467a7;
+  }
 }

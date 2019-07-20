@@ -6,18 +6,20 @@
   top: 0;
   right: 0;
   left: 0;
-  padding: 10px 0 10px $wind;
+  padding: 8px 0 8px $wind;
   background-color: $color-plain;
-  box-shadow: 0px 2px 4px 0px rgba(233, 233, 233, 0.5);
 
   &__input {
-    height: 68px;
+    height: 72px;
     padding: 0 $wind;
-    font-size: 26px;
+    font-size: 28px;
+    line-height: 36px;
     background-color: $color-bg;
     border-radius: 64px;
   }
   &__cancel {
-    padding: 0 $wind;
+    padding: 0 32px;
+    font-size: 28px;
+    line-height: 68px;
   }
 }

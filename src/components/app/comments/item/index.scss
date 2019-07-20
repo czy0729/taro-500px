@@ -1,0 +1,21 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-18 15:04:06
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-20 17:37:33
+ */
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.c-app-comments__item {
+  &__wrap {
+    padding: 32px $wind 32px 0;
+
+    &--border {
+      @include hairline-top();
+    }
+  }
+  &__message {
+    word-break: break-all;
+  }
+}

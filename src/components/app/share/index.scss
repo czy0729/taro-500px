@@ -1,0 +1,15 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-20 16:06:37
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-20 16:19:15
+ */
+@import '@styles/theme';
+
+.c-app-share {
+  &__item {
+    padding: 16px 0;
+    border: 1px solid $color-border;
+    border-radius: 40px;
+  }
+}
