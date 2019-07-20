@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-01 16:57:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-01 17:31:02
+ * @Last Modified time: 2019-07-20 11:36:05
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -10,25 +10,25 @@ import { View, Text } from '@tarojs/components'
 import { CButton, CImage, Iconfont } from '@components'
 import Component from '@components/component'
 import { ENV } from '@constants'
-import './preview.scss'
+import './index.scss'
 
 const cls = 'custom-tab-bar__preview'
 const menuDS = [
   {
-    text: '发布文章',
-    icon: 'document-fill'
+    text: '文章',
+    icon: 'document'
   },
   {
-    text: '发布图片',
-    icon: 'picture-fill'
+    text: '图片',
+    icon: 'picture'
   },
   {
-    text: '发布视频',
-    icon: 'video-fill'
+    text: '视频',
+    icon: 'video'
   },
   {
-    text: '发布案例',
-    icon: 'camera-fill'
+    text: '案例',
+    icon: 'plan'
   }
 ]
 
@@ -39,46 +39,57 @@ class Preview extends Component {
 
   renderPlan() {
     return (
-      <View className={`${cls}__plan flex flex-justify-center`}>
-        <View>
+      <View className={`${cls}__plan flex`}>
+        <View className='flex-1'>
           <View className={`${cls}__wrap`}>
-            <Text className={`${cls}__title t-36 l-36 t-desc`}>正在征集</Text>
+            <Text className='t-24 l-40 t-c t-warning'>正在征集</Text>
           </View>
-          <View className='mt-20'>
-            <Text className='t-44 l-52 t-desc t-b'>晒晒你家的照明方案</Text>
-          </View>
-          <View className='flex flex-justify-end mt-20'>
-            <CButton
-              className='ml-sm'
-              type='main'
-              text='点击参与'
-              size='mini'
-              style={{
-                width: Taro.pxTransform(144)
-              }}
-            />
-          </View>
+          <Text className='t-36 l-50 t-title t-b mt-8'>晒晒你家的照明方案</Text>
+          <CButton
+            className='mt-40'
+            type='warning'
+            text='点击参与'
+            size='mini'
+            style={{
+              width: Taro.pxTransform(144)
+            }}
+          />
         </View>
         <View className={`${cls}__thumbs`}>
           <CImage
-            src={require('../assets/pages/index/12.png')}
+            src={require('../../assets/pages/index/13.png')}
+            width={Taro.pxTransform(160)}
+            radius
+            style={{
+              position: 'absolute',
+              zIndex: 3,
+              bottom: 0,
+              right: 0
+            }}
+          />
+          <CImage
+            src={require('../../assets/pages/index/12.png')}
             width={Taro.pxTransform(80)}
             radius
             style={{
               position: 'absolute',
+              zIndex: 2,
               top: 0,
               left: 0
             }}
           />
           <CImage
-            src={require('../assets/pages/index/13.png')}
-            width={Taro.pxTransform(160)}
+            src={require('../../assets/pages/index/11.png')}
+            width={Taro.pxTransform(124)}
             radius
             style={{
               position: 'absolute',
               zIndex: 1,
-              bottom: 0,
-              right: 0
+              top: 0,
+              left: 0,
+              marginTop: Taro.pxTransform(32),
+              marginLeft: `-${Taro.pxTransform(48)}`,
+              opacity: 0.5
             }}
           />
         </View>
@@ -92,13 +103,14 @@ class Preview extends Component {
       <View className={`${cls}__publish`}>
         <View className='flex'>
           {menuDS.map(item => (
-            <View key={item.text} className='flex flex-column flex-1'>
-              <View className={`${cls}__icon flex flex-justify-center`}>
-                <Iconfont className='t-52 t-plain' name={item.icon} />
+            <View
+              key={item.text}
+              className={`${cls}__item flex flex-column flex-1`}
+            >
+              <View className='flex flex-justify-center'>
+                <Iconfont className='t-52 t-title' name={item.icon} />
               </View>
-              <View className='mt-30'>
-                <Text className='t-24 l-32 t-desc'>{item.text}</Text>
-              </View>
+              <Text className='t-26 l-48 t-title mt-16'>{item.text}</Text>
             </View>
           ))}
         </View>
@@ -106,7 +118,7 @@ class Preview extends Component {
           className={`${cls}__btn-close flex flex-justify-center`}
           onClick={onClose}
         >
-          <Iconfont className='t-28 t-desc t-b' name='close' />
+          <Iconfont className='t-32 t-default' name='close' />
         </View>
       </View>
     )

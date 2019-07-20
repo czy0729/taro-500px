@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 17:18:22
+ * @Last Modified time: 2019-07-20 09:40:59
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -27,10 +27,6 @@ const store = {
 class App extends Component {
   config = {
     pages: [
-      'pages/zone/index',
-      'pages/user/index',
-      'pages/index/index'
-
       // 'pages/article/index',
       // 'pages/detail/index',
       // 'pages/fans/index',
@@ -38,11 +34,17 @@ class App extends Component {
       // 'pages/follow/index',
       // 'pages/my-articles/index',
       // 'pages/my-favor/index',
+      // 'pages/my-photos/index',
+      // 'pages/my-videos/index',
       // 'pages/new-favor/index',
       // 'pages/preview/index',
       // 'pages/publish/index',
       // 'pages/search/index',
-      // 'pages/setting/index',
+      // 'pages/zone/index',
+
+      'pages/user/index',
+      'pages/setting/index',
+      'pages/index/index'
     ],
     window: {
       backgroundTextStyle: 'light',

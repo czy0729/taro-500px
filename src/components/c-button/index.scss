@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:33:54
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 14:48:33
+ * @Last Modified time: 2019-07-20 10:51:49
  */
 @import '@styles/theme.scss';
 
@@ -20,6 +20,10 @@
   &--default {
     background: $color-plain;
     border-color: $color-border;
+  }
+  &--warning {
+    background: $color-warning;
+    border-color: $color-warning;
   }
   &--danger {
     background: $color-danger;
@@ -62,6 +66,9 @@
     &--default {
       color: $color-sub;
     }
+    &--warning {
+      color: $color-plain;
+    }
     &--danger {
       color: $color-plain;
     }
@@ -79,7 +86,7 @@
 
     &--mini {
       padding: 0;
-      font-size: 26px;
+      font-size: 24px;
       line-height: 48px;
     }
     &--medium {

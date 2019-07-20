@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 15:50:02
+ * @Last Modified time: 2019-07-20 10:36:37
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -160,6 +160,9 @@
 }
 .t-main {
   color: $color-main;
+}
+.t-warning {
+  color: $color-warning;
 }
 .t-danger {
   color: $color-danger;

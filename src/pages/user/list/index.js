@@ -2,13 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-17 17:17:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 10:35:42
+ * @Last Modified time: 2019-07-20 09:47:20
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View } from '@tarojs/components'
 import { ListItem } from '@components'
+import { push } from '@utils'
 
 const cls = 'page-user__list'
 const DS = [
@@ -29,14 +30,26 @@ const DS = [
   },
   {
     label: '加入我们'
+  },
+  {
+    label: '设置',
+    url: '/pages/setting/index'
   }
 ]
 
 const List = ({ className }) => {
   return (
     <View className={classNames(cls, className)}>
-      {DS.map((item, index) => (
-        <ListItem key={item.label} text={item.label} border={!!index} />
+      {DS.map(item => (
+        <ListItem
+          key={item.label}
+          text={item.label}
+          onClick={() => {
+            if (item.url) {
+              push(item.url)
+            }
+          }}
+        />
       ))}
     </View>
   )

@@ -2,17 +2,35 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:51:57
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 16:19:01
+ * @Last Modified time: 2019-07-19 18:19:53
  */
 @import '@styles/theme.scss';
 
 .c-app-masonry-list__item {
   margin-bottom: 40px;
 
+  &__media {
+    position: relative;
+    border-radius: $radius-sm;
+    overflow: hidden;
+  }
   &__image {
     width: 100%;
     background-color: $color-bg;
     border-radius: $radius-sm;
     overflow: hidden;
+  }
+  &__mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  &__time {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
   }
 }

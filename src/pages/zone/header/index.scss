@@ -2,17 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:45:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 16:04:51
+ * @Last Modified time: 2019-07-19 17:48:21
  */
 @import '@styles/theme.scss';
 
 .page-zone__header {
+  position: relative;
   padding: $status-bar $wind 48px;
-  background: linear-gradient(
-    360deg,
-    rgba(211, 199, 159, 1) 0%,
-    rgba(168, 150, 102, 1) 97%
-  );
+  background-color: rgba(211, 199, 159, 1);
+  background-image: url('../../../assets/common/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   &__header {
     height: $header;

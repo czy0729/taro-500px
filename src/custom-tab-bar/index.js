@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 16:49:56
+ * @Last Modified time: 2019-07-20 10:13:44
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -34,7 +34,7 @@ const list = [
 class CustomTabBar extends Component {
   state = {
     selected: 0,
-    showPreview: false
+    showPreview: true
   }
 
   switchTab = toPath => {

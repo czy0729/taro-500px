@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 16:40:01
+ * @Last Modified time: 2019-07-19 18:14:21
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -75,6 +75,7 @@ class MasonryList extends Component {
                 height={item.height}
                 title={item.title}
                 count={item.count}
+                time={item.time}
                 onClick={() => {
                   Taro.navigateTo({
                     url: `/pages/detail/index?id=${item.id}&cover=${
@@ -103,6 +104,7 @@ class MasonryList extends Component {
                 height={item.height}
                 title={item.title}
                 count={item.count}
+                time={item.time}
                 onClick={() => {
                   Taro.navigateTo({
                     url: `/pages/article/index?id=${item.id}&cover=${

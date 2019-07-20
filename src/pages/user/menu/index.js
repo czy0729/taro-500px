@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:09:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 12:20:06
+ * @Last Modified time: 2019-07-20 09:48:17
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -15,7 +15,8 @@ const cls = 'page-user__menu'
 const DS = [
   {
     label: '图片视频',
-    icon: 'star'
+    icon: 'star',
+    url: '/pages/my-photos/index'
   },
   {
     label: '我的文章',

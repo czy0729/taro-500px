@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:59:29
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 12:16:28
+ * @Last Modified time: 2019-07-20 09:38:59
  */
 import classNames from 'classnames'
 import Taro, { Component } from '@tarojs/taro'
@@ -72,11 +72,11 @@ class Setting extends Component {
           <View
             key={item.id}
             className={classNames({
-              'mt-32': !!index
+              'mt-64': !!index
             })}
           >
-            {item.data.map((i, idx) => (
-              <ListItem key={i.label} text={i.label} border={!!idx} />
+            {item.data.map((i) => (
+              <ListItem key={i.label} text={i.label} />
             ))}
           </View>
         ))}

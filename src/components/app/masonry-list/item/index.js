@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 16:37:31
+ * @Last Modified time: 2019-07-19 18:18:44
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
@@ -22,6 +22,7 @@ const Item = ({
   avatar,
   title,
   count,
+  time,
   onClick
 }) => {
   if (!detailId) {
@@ -30,13 +31,21 @@ const Item = ({
 
   return (
     <View className={cls} onClick={onClick}>
-      <Image
-        className={`${cls}__image`}
-        src={`${url}!p1`}
-        style={{
-          height: transform(height)
-        }}
-      />
+      <View className={`${cls}__media`}>
+        <Image
+          className={`${cls}__image`}
+          src={`${url}!p1`}
+          style={{
+            height: transform(height)
+          }}
+        />
+        {!!time && (
+          <View className={`${cls}__mask flex flex-justify-center`}>
+            <Iconfont className='t-44 t-plain' name='search' />
+            <Text className={`${cls}__time t-24 l-32 t-plain`}>{time}</Text>
+          </View>
+        )}
+      </View>
       <View>
         <Text className='t-28 l-44 t-title t-c2 mt-16'>{title}</Text>
       </View>
@@ -72,6 +81,7 @@ Item.defaultProps = {
   avatar: '',
   title: '',
   count: '',
+  time: '',
   onClick: Function.prototype
 }
 

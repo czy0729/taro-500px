@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 10:05:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 15:58:58
+ * @Last Modified time: 2019-07-19 18:13:29
  */
 import thumb from '../assets/pages/index/11.png'
 import thumb2 from '../assets/pages/index/13.png'
@@ -533,6 +533,65 @@ export const listDS = {
         'https://img.500px.me/ad932a0364251b405c0b20fa7b6a96360_1483636723406.jpg',
       title: '守望者 ┃ 走进大凉山，走近“永不熄灭的火塘”',
       count: 446
+    }
+  ],
+  pagination: { page: 1, pageTotal: 10 },
+  _loaded: 1563508437
+}
+
+export const myVideosDS = {
+  list: [
+    {
+      id: 'ce7bbd6fad9847a290ee61a801ce8ce5',
+      width: 1248,
+      height: 832,
+      url:
+        'https://img.500px.me/graphic/cf33791224fa993890f992da405e47519/03244742c2374c9d816ed64bebcfb130.jpg',
+      user: '500px摄影社区',
+      avatar:
+        'https://img.500px.me/cf33791224fa993890f992da405e47519_1490070353045.PNG',
+      title: '7.19部落周精选合集 ┃ 500px摄影社区',
+      count: 25,
+      time: '00:40'
+    },
+    {
+      id: 'ac64d469d02d4a6a8af85d1333779cfb',
+      width: 720,
+      height: 403,
+      url:
+        'https://img.500px.me/graphic/cf33791224fa993890f992da405e47519/6ba22d46aeac44fab5627de394083e67.jpg',
+      user: '王鹏鹏－嗨摄会',
+      avatar:
+        'https://img.500px.me/6d3ed88f74e6dbca5caec2ee8030e2974_1531460850228.jpg',
+      title: '嗨摄会手机摄影┃手机摄影怎样把不同类型的作品拍出质感？',
+      count: 102,
+      time: '00:55'
+    },
+    {
+      id: '4b635f43f5ceba488bc24dd8d7d41189',
+      width: 1618,
+      height: 1080,
+      url:
+        'https://img.500px.me/graphic/cff75da1644acb03b157811d2375a9781/513b4810760f4296abb5a788753a0984.jpg',
+      user: '焖烧驴蹄',
+      avatar:
+        'https://img.500px.me/cff75da1644acb03b157811d2375a9781_1500881576318.jpg',
+      title: '三年六次，探秘地球上最像火星的地方',
+      count: 165,
+      time: '01:00'
+    },
+    {
+      id: '7ea2d9f41b440320f5f0ac24294e0d50',
+      width: 3264,
+      height: 2176,
+      url:
+        'https://img.500px.me/graphic/df0148d264c6185951011934a727b7496/3417adf6bd964831808e5290f37ffb06.jpg',
+      user: '励Eloi (ง •̀_•́)ง',
+      avatar:
+        'https://img.500px.me/df0148d264c6185951011934a727b7496_1561906872364.jpg',
+      title: '金蓝交辉：布尔诺的日与夜',
+      count: 150,
+      time: '01:00'
     }
   ],
   pagination: { page: 1, pageTotal: 10 },
