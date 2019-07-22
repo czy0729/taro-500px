@@ -2,14 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 13:54:29
+ * @Last Modified time: 2019-07-22 15:09:09
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import { date } from '@utils'
-import { CImage, CButton, CRichText } from '@components'
+import { CImage, CButton, CRichText, Tag } from '@components'
+import BtnGood from '@components/app/btn-good'
+import Share from '@components/app/share'
 import { radius } from '@utils/style'
 import './index.scss'
 
@@ -43,56 +45,57 @@ const Content = ({
 }) => {
   return (
     <View className={classNames(cls, className)}>
-      <View>
-        <Text className='t-52 l-72 t-desc t-b'>{title}</Text>
-      </View>
-      <View className='flex mt-30'>
-        <CImage
-          src={`${avatar}!p1`}
-          width={Taro.pxTransform(48)}
-          style={radius(Taro.pxTransform(48))}
-        />
-        <View className='flex-1 ml-20'>
-          <Text className='t-30 t-desc'>{nickName}</Text>
-        </View>
-      </View>
-      <View className={`${cls}__info flex mt-40`}>
-        {infoDS.map(item => (
-          <View key={item.label} className='flex-1'>
-            <View>
-              <Text className='t-24 l-32 t-sub'>{item.label}</Text>
-            </View>
-            <View className='mt-8'>
-              <Text className='t-30 l-36 t-desc t-b'>{item.value}</Text>
-            </View>
+      <View className={`${cls}__content`}>
+        <Text className='t-48 l-64 t-title t-b'>{title}</Text>
+        <View className='flex mt-48'>
+          <CImage
+            src={`${avatar}!p1`}
+            width={Taro.pxTransform(72)}
+            style={radius(Taro.pxTransform(72))}
+          />
+          <View className='flex-1 ml-16'>
+            <Text className='t-28 l-40 t-desc'>{nickName}</Text>
+            <Text className='t-24 l-32 t-sub'>
+              {uploadedDate ? date('y.m.d', uploadedDate) : '-'}
+            </Text>
           </View>
-        ))}
-      </View>
-      <View style={{ minHeight: Taro.pxTransform(640) }}>
-        <CRichText className='mt-40' nodes={richText} />
-      </View>
-      <View className='mt-40'>
-        <View>
-          <Text className='t-28 t-sub'>
-            创建于 {date('y.m.d', uploadedDate)}
-          </Text>
+          <CButton type='danger' ghost text='关注' size='mini' />
         </View>
-        <View className='mt-20'>
-          <Text className='t-28 t-sub'>
-            (C) 声明∶ 本页所有文字与图片禁止转载或发布
-          </Text>
+        <View className={`${cls}__info flex mt-48`}>
+          {infoDS.map(item => (
+            <View key={item.label} className='flex-1'>
+              <Text className='t-24 l-32 t-sub t-c'>{item.label}</Text>
+              <Text className='t-32 l-48 t-title t-b t-c mt-8'>
+                {item.value}
+              </Text>
+            </View>
+          ))}
         </View>
+        <View className='mt-64' style={{ minHeight: Taro.pxTransform(640) }}>
+          <CRichText nodes={richText} />
+        </View>
+        <Text className='t-24 l-32 t-sub mt-48'>
+          (C) 声明∶ 本页所有文字与图片禁止转载或发布
+        </Text>
+        <View className='flex flex-wrap mt-32'>
+          <Tag type='link'># 无主灯照明</Tag>
+        </View>
+        <BtnGood className='mt-32' />
+        <Share className='mt-40' />
       </View>
-      <View className='flex mt-40'>
+      <View className={`${cls}__author flex mt-40`}>
         <CImage
           src={`${avatar}!p1`}
-          width={Taro.pxTransform(92)}
-          style={radius(Taro.pxTransform(92))}
+          width={Taro.pxTransform(96)}
+          style={radius(Taro.pxTransform(96))}
         />
-        <View className='flex-1 ml-20'>
-          <Text className='t-36 t-desc t-b'>{nickName}</Text>
+        <View className='flex-1 ml-16'>
+          <Text className='t-34 l-56 t-title t-b'>{nickName}</Text>
+          <Text className='t-28 l-40 t-sub'>
+            {uploadedDate ? date('y.m.d', uploadedDate) : '-'}
+          </Text>
         </View>
-        <CButton type='main' text='关注' size='mini' />
+        <CButton type='danger' ghost text='关注' size='mini' />
       </View>
     </View>
   )

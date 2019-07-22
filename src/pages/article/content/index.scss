@@ -2,16 +2,21 @@
  * @Author: czy0729
  * @Date: 2019-06-19 12:06:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 13:52:29
+ * @Last Modified time: 2019-07-22 14:39:48
  */
 @import '@styles/theme.scss';
 
 .page-article__content {
-  padding: 0 $wind;
-
+  &__content {
+    padding: 0 $wind 72px;
+  }
   &__info {
-    padding: $wind;
+    padding: $wind 0;
     border-radius: $radius-sm;
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.08);
+  }
+  &__author {
+    padding: 32px;
+    background-color: $color-bg;
   }
 }

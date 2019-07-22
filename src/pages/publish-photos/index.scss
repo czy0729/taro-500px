@@ -1,0 +1,32 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-22 15:28:17
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-22 15:53:08
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.page-publish-photos {
+  &__container {
+    padding: 0 $wind;
+  }
+  &__upload {
+    padding: 40px 0;
+    @include hairline-bottom();
+  }
+  &__textarea {
+    padding: 40px 0;
+    @include hairline-bottom();
+  }
+  &__tags {
+    padding: 40px 0;
+  }
+  &__fixed {
+    position: fixed;
+    z-index: 1;
+    right: $wind;
+    bottom: 32px;
+    left: $wind;
+  }
+}

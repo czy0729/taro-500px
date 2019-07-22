@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-24 13:58:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 14:08:34
+ * @Last Modified time: 2019-07-22 14:06:25
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -13,7 +13,7 @@ import { transform } from '@utils/style'
 import { screenWidth } from '@constants/style'
 
 const cls = 'page-article__cover'
-const height = screenWidth * 0.56
+const height = screenWidth * 0.66667
 
 const Cover = ({ className, cover, src }) => {
   return (

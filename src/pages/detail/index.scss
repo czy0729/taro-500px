@@ -2,11 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:32:26
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:24:53
+ * @Last Modified time: 2019-07-22 10:25:20
  */
 @import '@styles/theme.scss';
 
 .page-detail {
+  padding-bottom: $fixed-bar;
   background-color: $color-plain;
 
   &__wrap {

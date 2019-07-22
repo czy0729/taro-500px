@@ -1,14 +1,22 @@
 /*
  * @Author: czy0729
  * @Date: 2019-07-19 10:50:16
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-07-19 10:50:16
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-22 15:55:18
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
 
 .c-textarea {
+  width: 100%;
+  height: 240px;
   font-size: 30px;
   color: $color-title;
   line-height: 48px;
+
+  &__placeholder {
+    font-size: 30px;
+    color: $color-sub;
+    line-height: 48px;
+  }
 }

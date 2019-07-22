@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:04
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 10:50:16
+ * @Last Modified time: 2019-07-22 10:24:46
  */
 @import './mixins.scss';
 
@@ -19,6 +19,7 @@ $distance: 60px; // 块与块之间的距离
 $status-bar: 40px;
 $header: 88px;
 $tab-bar: 98px;
+$fixed-bar: 98px;
 
 // 主题色
 $color-plain: rgb(255, 255, 255);

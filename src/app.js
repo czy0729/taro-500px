@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:52:25
+ * @Last Modified time: 2019-07-22 15:18:48
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -27,8 +27,8 @@ const store = {
 class App extends Component {
   config = {
     pages: [
-      // 'pages/detail/index', // 图片详情
       // 'pages/article/index', // 文章详情
+      // 'pages/detail/index', // 图片详情
       // 'pages/fans/index', // 我的粉丝
       // 'pages/follow/index', // 我的关注
       // 'pages/my-favor/index', // 我的收藏
@@ -41,7 +41,7 @@ class App extends Component {
       // 'pages/search/index', // 搜索
       // 'pages/zone/index', // 个人空间
       // 'pages/setting/index', // 设置
-      // 'pages/publish/index', // 发布
+      'pages/publish-photos/index', // 发布图片
 
       'pages/index/index', // 首页
       'pages/user/index' // 个人中心

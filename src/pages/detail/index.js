@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 14:25:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:44:16
+ * @Last Modified time: 2019-07-22 14:42:55
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -30,7 +30,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id = '7ea2d9f41b440320f5f0ac24294e0d50' } = this.$router.params
+    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
     const { appStore } = this.props
     appStore.fetchDetail({
       id
@@ -56,7 +56,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { id = '7ea2d9f41b440320f5f0ac24294e0d50' } = this.$router.params
+    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -66,7 +66,6 @@ class Detail extends Component {
       <View>
         <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
           <CSwiper
-            className={cls}
             height={ENV.screenWidth * 1.216}
             cover={`${this.$router.params.cover}!p1`}
             data={detail.carousel.map(item => `${item}!p5`)}

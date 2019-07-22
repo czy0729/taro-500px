@@ -2,16 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-06-19 09:48:33
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 14:01:58
+ * @Last Modified time: 2019-07-22 15:07:23
  */
 import Taro, { Component } from '@tarojs/taro'
-import { ScrollView, View } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { ActivityIndicator, Back } from '@components'
+import { CScrollView, ActivityIndicator } from '@components'
 import MasonryList from '@components/app/masonry-list'
 import Comments from '@components/app/comments'
-import { getWindowHeight } from '@utils/style'
-import { ENV } from '@constants'
+import FixedBar from '@components/app/fixed-bar'
 import Cover from './cover'
 import Content from './content'
 import Horizontal from './horizontal'
@@ -23,8 +22,7 @@ const cls = 'page-article'
 @observer
 class Article extends Component {
   config = {
-    navigationStyle: 'custom',
-    navigationBarTextStyle: 'white'
+    navigationBarTitleText: '文章详情'
   }
 
   state = {
@@ -32,7 +30,7 @@ class Article extends Component {
   }
 
   componentDidMount() {
-    const { id } = this.$router.params
+    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
     const { appStore } = this.props
     appStore.fetchDetail({
       id
@@ -58,7 +56,7 @@ class Article extends Component {
   }
 
   render() {
-    const { id } = this.$router.params
+    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -66,22 +64,13 @@ class Article extends Component {
     const photo = appStore.photo
     return (
       <View>
-        <Back />
-        <ScrollView
-          className={cls}
-          scrollY
-          style={{
-            height: getWindowHeight()
-          }}
-          lowerThreshold={ENV.screenWidth * 0.64}
-          onScrollToLower={this.onScrollToLower}
-        >
+        <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
           <Cover
             cover={`${this.$router.params.cover}!p1`}
             src={`${detail.cover}!p5`}
           />
           <Content
-            className='mt-d'
+            className='mt-48'
             title={detail.title || this.$router.params.title}
             avatar={
               detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
@@ -93,29 +82,17 @@ class Article extends Component {
             uploadedDate={detail.uploadedDate}
           />
           <Horizontal
-            className='mt-d'
+            className='mt-40'
             desc={`${detail.uploaderInfo.nickName}的更多案例`}
-            avatar={
-              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
-            }
             data={detail.carousel}
-            nickName={detail.uploaderInfo.nickName}
           />
-          <Horizontal
-            className='mt-d'
-            desc='更多两室案例'
-            avatar={
-              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
-            }
-            data={detail.more}
-            nickName={detail.uploaderInfo.nickName}
-          />
-          <View className='layout-wind mt-d'>
-            <Comments data={comments} />
+          <Comments className='mt-64' data={comments} />
+          <View className='layout-bg'>
+            <MasonryList className='mt-56' data={photo} />
+            <ActivityIndicator show={loading} />
           </View>
-          <MasonryList className='mt-d' title='你可能也想看' data={photo} />
-          <ActivityIndicator show={loading} />
-        </ScrollView>
+        </CScrollView>
+        <FixedBar />
       </View>
     )
   }

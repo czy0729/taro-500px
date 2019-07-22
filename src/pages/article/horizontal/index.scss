@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-19 15:32:00
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 10:45:31
+ * @Last Modified time: 2019-07-22 15:04:29
  */
 @import '@styles/theme.scss';
 @import '@styles/mixins.scss';
@@ -15,7 +15,7 @@
   &__item {
     @include eject(position, relative);
     @include eject(display, inline-block);
-    width: 460px;
+    width: 472px;
     margin-top: 4px;
     margin-bottom: 4px;
     border-radius: $radius-sm;
@@ -30,6 +30,15 @@
     }
   }
   &__info {
-    padding: 30px 20px;
+    padding: 32px 24px;
+  }
+  &__tag {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    padding: 8px 16px;
+    background-color: #ffc300;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
   }
 }

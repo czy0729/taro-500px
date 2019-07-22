@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 18:14:21
+ * @Last Modified time: 2019-07-22 10:05:37
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -17,7 +17,7 @@ import './index.scss'
 
 const cls = 'c-app-masonry-list'
 const imageWidth = (ENV.screenWidth - (ENV.wind * 2 + 16) * ENV.pxRatio) / 2
-const infoHeight = 248 * ENV.pxRatio
+const infoHeight = 104 * ENV.pxRatio
 
 class MasonryList extends Component {
   static defaultProps = {

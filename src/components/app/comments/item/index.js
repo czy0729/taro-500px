@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:16:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:36:58
+ * @Last Modified time: 2019-07-22 09:57:34
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -41,7 +41,9 @@ const Item = ({
       >
         <View className='flex'>
           <Text className='t-28 l-48 t-desc t-c1'>{nickName}</Text>
-          <Text className='t-24 l-48 t-sub ml-16'>@{userName}</Text>
+          {!!userName && (
+            <Text className='t-24 l-48 t-sub ml-16'>@{userName}</Text>
+          )}
         </View>
         <Text className={`${cls}__message t-30 l-48 t-title mt-16`}>
           {message}

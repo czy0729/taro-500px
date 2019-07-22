@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-19 14:43:58
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 13:56:20
+ * @Last Modified time: 2019-07-22 14:28:39
  */
 export function app() {}
 
@@ -18,7 +18,7 @@ export function genRichTextNodes(data) {
         attrs: {
           class: 'c-rich-text__img',
           src: `${item.url.baseUrl}!p5`,
-          style: 'margin-bottom: 20px; width: 100%; height: initial;'
+          style: 'margin-bottom: 16px; width: 100%; height: initial;'
         }
       }
     }
@@ -27,7 +27,7 @@ export function genRichTextNodes(data) {
       attrs: {
         class: 'c-rich-text__text',
         style:
-          'margin-bottom: 20px; font-size: 16px; line-height: 32px; color: #282828;'
+          'margin-bottom: 16px; font-size: 15px; line-height: 32px; color: #4a4a4a;'
       },
       children: [
         {

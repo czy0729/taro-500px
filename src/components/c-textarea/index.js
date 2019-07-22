@@ -2,13 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-07-19 10:43:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 10:53:59
+ * @Last Modified time: 2019-07-22 15:44:24
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { Textarea } from '@tarojs/components'
 import Component from '@components/component'
-import { colorDefault } from '@constants/style'
 import './index.scss'
 
 const cls = 'c-textarea'
@@ -33,12 +32,12 @@ export default class CTextarea extends Component {
     return (
       <Textarea
         className={classNames(cls, className)}
+        placeholderClass={`${cls}__placeholder`}
         style={style}
         type={type}
         value={value}
         focus={focus}
         placeholder={placeholder}
-        placeholderStyle={`color: ${colorDefault}`}
         onInput={this.onInput}
       />
     )

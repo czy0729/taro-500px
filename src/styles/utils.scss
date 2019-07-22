@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:23:38
+ * @Last Modified time: 2019-07-22 15:53:55
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -140,6 +140,10 @@
   margin-right: 32px;
 }
 
+.mb-24 {
+  margin-bottom: 24px;
+}
+
 // text
 .t-c {
   text-align: center;
@@ -256,6 +260,9 @@
 }
 .l-60 {
   line-height: 60px;
+}
+.l-64 {
+  line-height: 64px;
 }
 .l-68 {
   line-height: 68px;
