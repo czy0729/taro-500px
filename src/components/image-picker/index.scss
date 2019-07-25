@@ -1,0 +1,43 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-23 14:00:16
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-23 16:40:59
+ */
+@import '@styles/theme.scss';
+@import '@styles/mixins.scss';
+
+.c-image-picker {
+  &__item {
+    position: relative;
+    width: 176px;
+    height: 176px;
+    margin-right: 24px;
+    margin-bottom: 24px;
+  }
+  &__choose {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 176px;
+    height: 176px;
+    vertical-align: top;
+    @include hairline();
+
+    &:after {
+      border-radius: $radius-sm;
+    }
+  }
+  &__delete {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: -18px;
+    margin-right: -18px;
+    background-color: $color-danger;
+    border-radius: 40px;
+  }
+}

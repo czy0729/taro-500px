@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-19 10:43:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:44:24
+ * @Last Modified time: 2019-07-23 15:33:15
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -38,6 +38,7 @@ export default class CTextarea extends Component {
         value={value}
         focus={focus}
         placeholder={placeholder}
+        showConfirmBar={false}
         onInput={this.onInput}
       />
     )

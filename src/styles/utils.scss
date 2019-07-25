@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:53:55
+ * @Last Modified time: 2019-07-24 18:33:08
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -72,6 +72,9 @@
 .mt-d {
   margin-top: $distance;
 }
+.mt-4 {
+  margin-top: 4px;
+}
 .mt-8 {
   margin-top: 8px;
 }
@@ -136,6 +139,9 @@
 .mr-16 {
   margin-right: 16px;
 }
+.mr-24 {
+  margin-right: 24px;
+}
 .mr-32 {
   margin-right: 32px;
 }
@@ -182,6 +188,9 @@
 }
 .t-default {
   color: $color-default;
+}
+.t-icon {
+  color: $color-icon;
 }
 .t-link {
   color: $color-link;

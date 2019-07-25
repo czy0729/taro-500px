@@ -1,51 +1,47 @@
 /*
  * @Author: czy0729
- * @Date: 2019-07-22 15:19:36
+ * @Date: 2019-07-25 09:33:16
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 10:05:33
+ * @Last Modified time: 2019-07-25 10:01:07
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
 import {
   CScrollView,
-  CTextarea,
+  CImage,
   CButton,
+  CTextarea,
   Tag,
-  ImagePicker,
   Iconfont
 } from '@components'
-import { filesDS } from '@constants/mock'
+import VideoMask from '@components/app/video-mask'
 import './index.scss'
 
-const cls = 'page-publish-photos'
+const cls = 'page-publish-video'
 
 @inject('appStore')
 @observer
-class PublishPhotos extends Component {
+class PublishVideo extends Component {
   config = {
-    navigationBarTitleText: '发布图片'
-  }
-
-  state = {
-    files: filesDS
-  }
-
-  onChange = newFiles => {
-    this.setState({
-      files: newFiles
-    })
+    navigationBarTitleText: '发布视频'
   }
 
   render() {
-    const { files } = this.state
     return (
       <CScrollView className={cls}>
-        <View className={`${cls}__photos`}>
-          <ImagePicker files={files} onChange={this.onChange} />
+        <View className={`${cls}__video flex`}>
+          <VideoMask>
+            <CImage
+              src='https://img.500px.me/graphic/cff75da1644acb03b157811d2375a9781/513b4810760f4296abb5a788753a0984.jpg!p5'
+              width={Taro.pxTransform(176)}
+              height={Taro.pxTransform(176)}
+              radius='sm'
+            />
+          </VideoMask>
         </View>
         <View className={`${cls}__textarea`}>
-          <CTextarea placeholder='说说关于图片的故事，参与合适的话题会获得更多浏览' />
+          <CTextarea placeholder='多多分享想法和经验，参与合适的话题会获得更多浏览' />
         </View>
         <View className={`${cls}__tags`}>
           <View className='flex'>
@@ -75,4 +71,4 @@ class PublishPhotos extends Component {
   }
 }
 
-export default PublishPhotos
+export default PublishVideo

@@ -1,25 +1,23 @@
 /*
  * @Author: czy0729
- * @Date: 2019-07-22 15:28:17
+ * @Date: 2019-07-24 14:50:51
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 10:05:52
+ * @Last Modified time: 2019-07-24 18:31:56
  */
 @import '@styles/theme';
 @import '@styles/mixins';
 
-.page-publish-photos {
+.page-publish-article {
   padding: 0 $wind;
 
-  &__photos {
+  &__cover {
     padding: 40px 0;
     @include hairline-bottom();
   }
-  &__textarea {
+  &__title {
     padding: 40px 0;
+    margin-bottom: 40px;
     @include hairline-bottom();
-  }
-  &__tags {
-    padding: 40px 0;
   }
   &__fixed {
     position: fixed;
@@ -27,5 +25,8 @@
     right: $wind;
     bottom: 32px;
     left: $wind;
+  }
+  &__btn {
+    width: 120px;
   }
 }

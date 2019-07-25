@@ -2,10 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-18 10:05:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 16:05:27
+ * @Last Modified time: 2019-07-24 17:44:29
  */
 import thumb from '../assets/pages/index/11.png'
 import thumb2 from '../assets/pages/index/13.png'
+import thumb3 from '../assets/pages/index/12.png'
+import thumb4 from '../assets/pages/index/31.png'
+
+export const image = thumb
 
 export const followDS = {
   list: [
@@ -600,15 +604,15 @@ export const myVideosDS = {
 
 export const filesDS = [
   {
-    url:
-      'https://img.500px.me/photo/2836edacb49f182e739e83630c7a47920/457c1b50e9bb4a399713cbf20f3d8b54.jpg!p1'
+    url: thumb
   },
   {
-    url:
-      'https://img.500px.me/photo/1d43b5d9644229c8c1ff6c9e64c308403/b8b98285430a42afacf837f809c1c062.jpg!p1'
+    url: thumb2
   },
   {
-    url:
-      'https://img.500px.me/photo/68cf581584fc08ceabce0477274035806/9d732dc2eb8f458391d0eeb90033fc8b.jpg!p1'
+    url: thumb3
+  },
+  {
+    url: thumb4
   }
 ]

@@ -2,15 +2,76 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 16:39:03
+ * @Last Modified time: 2019-07-23 16:20:16
  */
+@import './theme.scss';
+
+/**
+ * 1px的border
+ */
+@mixin hairline() {
+  & {
+    position: relative;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    border: 1px solid $color-border;
+    transform: scale(0.5);
+    transform-origin: left top;
+  }
+}
+
+/**
+ * 1px的border-top
+ */
+@mixin hairline-top() {
+  & {
+    position: relative;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-border;
+    transform: scale(1, 0.5);
+    transform-origin: center top;
+  }
+}
+
+/**
+ * 1px的border-bottom
+ */
+@mixin hairline-bottom() {
+  & {
+    position: relative;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $color-border;
+    transform: scale(1, 0.5);
+    transform-origin: center bottom;
+  }
+}
+
 /**
  * // NOTE Taro 编译成 RN 时对 border 的处理有问题
  * RN 不支持针对某一边设置 style，即 border-bottom-style 会报错
  * 那么 border-bottom: 1px 就需要写成如下形式：
  * border: 0 style color; border-bottom-width: 1px;
  */
-$color-border: rgb(238, 238, 238);
 @mixin border($dir, $width: 1px, $style: solid, $color: $color-border) {
   border: 0 $style $color;
   @each $d in $dir {
@@ -32,10 +93,10 @@ $color-border: rgb(238, 238, 238);
  * 1. Taro 中大写的 PX 不会被编译成 rpx/em，但 RN 还未兼容该写法
  * 2. H5 中 1px(转成 rem 后实际小于 0.5px) + border-radius 会导致 border 不显示
  */
-@mixin hairline($attr) {
-  #{$attr}: 1px;
-  @include eject($attr, 1px);
-}
+// @mixin hairline($attr) {
+//   #{$attr}: 1px;
+//   @include eject($attr, 1px);
+// }
 
 /**
  * NOTE RN 无法通过 text-overflow 实现省略号，这些代码不能打包到 RN 中
@@ -73,6 +134,9 @@ $color-border: rgb(238, 238, 238);
   height: 100%;
 }
 
+/**
+ * 字体
+ */
 @mixin font-size($px) {
   display: block;
   font-size: $px;
@@ -80,40 +144,9 @@ $color-border: rgb(238, 238, 238);
   line-height: $px;
 }
 
-@mixin hairline-top() {
-  & {
-    position: relative;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $color-border;
-    transform: scale(1, 0.5);
-    transform-origin: center top;
-  }
-}
-
-@mixin hairline-bottom() {
-  & {
-    position: relative;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: $color-border;
-    transform: scale(1, 0.5);
-    transform-origin: center bottom;
-  }
-}
-
+/**
+ * 活动状态
+ */
 @mixin active() {
   transition: background-color 0.16s;
 

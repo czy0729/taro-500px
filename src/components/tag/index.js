@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:58:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 14:56:38
+ * @Last Modified time: 2019-07-23 17:54:26
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -35,7 +35,7 @@ export default class Tag extends Component {
         onClick={onClick}
       >
         <Text
-          className={classNames('t-30 l-42', {
+          className={classNames('t-24 l-42', {
             't-title': !type,
             [`${cls}__text--${type}`]: type
           })}

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:33:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 16:59:29
+ * @Last Modified time: 2019-07-23 13:49:35
  */
 // @Notice 组件命名不能与小程序自带的组件重名
 export { default as ActivityIndicator } from './activity-indicator'
@@ -21,6 +21,7 @@ export { default as Flex } from './flex'
 export { default as FlexItem } from './flex/item'
 export { default as Iconfont } from './iconfont'
 export { default as Img } from './img'
+export { default as ImagePicker } from './image-picker'
 export { default as Ipt } from './ipt'
 export { default as ListItem } from './list-item'
 export { default as SectionTitle } from './section-title'
