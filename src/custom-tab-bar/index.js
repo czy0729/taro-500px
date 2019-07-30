@@ -2,38 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 12:09:50
+ * @Last Modified time: 2019-07-30 16:50:27
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import Component from '@components/component'
-import imageHome from '@assets/tab-bar/home.png'
-import imageHomeActive from '@assets/tab-bar/home-active.png'
-import imageUser from '@assets/tab-bar/user.png'
-import imageUserActive from '@assets/tab-bar/user-active.png'
 import imagePublish from '@assets/tab-bar/publish.png'
 import Preview from './preview'
+import { rootCls, listDS } from './ds'
 import './index.scss'
 
-const cls = 'custom-tab-bar'
-const list = [
-  {
-    pagePath: '/pages/index/index',
-    iconPath: imageHome,
-    selectedIconPath: imageHomeActive,
-    text: '首页'
-  },
-  {
-    pagePath: 'add'
-  },
-  {
-    pagePath: '/pages/user/index',
-    iconPath: imageUser,
-    selectedIconPath: imageUserActive,
-    text: '我'
-  }
-]
+const cls = rootCls
 
 class CustomTabBar extends Component {
   state = {
@@ -69,7 +49,7 @@ class CustomTabBar extends Component {
       <View>
         <Preview show={showPreview} onClose={this.closePreview} />
         <View className={classNames(cls, 'flex')}>
-          {list.map((item, index) => (
+          {listDS.map((item, index) => (
             <View
               key={item.pagePath}
               className={`${cls}__item`}

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-01 16:57:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 12:08:54
+ * @Last Modified time: 2019-07-30 16:51:39
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -12,27 +12,10 @@ import CButton from '@components/base/c-button'
 import CImage from '@components/base/c-image'
 import Iconfont from '@components/base/iconfont'
 import { ENV } from '@constants'
+import { rootCls, menuDS } from '../ds'
 import './index.scss'
 
-const cls = 'custom-tab-bar__preview'
-const menuDS = [
-  {
-    text: '文章',
-    icon: 'document'
-  },
-  {
-    text: '图片',
-    icon: 'picture'
-  },
-  {
-    text: '视频',
-    icon: 'video'
-  },
-  {
-    text: '案例',
-    icon: 'plan'
-  }
-]
+const cls = `${rootCls}__preview`
 
 class Preview extends Component {
   static defaultProps = {
