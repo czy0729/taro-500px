@@ -2,19 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-13 09:28:13
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:53:02
+ * @Last Modified time: 2019-07-30 18:15:26
  */
 import classNames from 'classnames'
 import Taro, { Component } from '@tarojs/taro'
-import { ScrollView } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { ENV } from '@constants'
+import CScrollView from '@components/base/c-scroll-view'
 import SearchBar from './search-bar'
 import History from './history'
 import Hot from './hot'
+import { rootCls } from './ds'
 import './index.scss'
 
-const cls = 'page-search'
+const cls = rootCls
 
 @inject('appStore')
 @observer
@@ -25,16 +25,11 @@ class Search extends Component {
 
   render() {
     return (
-      <ScrollView
-        className={classNames(cls, 'layout-screen')}
-        style={{
-          height: ENV.windowHeight
-        }}
-      >
+      <CScrollView className={classNames(cls, 'layout-screen')}>
         <SearchBar />
         <History />
-        <Hot className='mt-20' />
-      </ScrollView>
+        <Hot className='mt-24' />
+      </CScrollView>
     )
   }
 }

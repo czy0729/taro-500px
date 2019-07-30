@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 15:05:46
+ * @Last Modified time: 2019-07-30 17:55:10
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -38,14 +38,14 @@ class App extends Component {
       // 'pages/my-videos/index', // 我的视频
       // 'pages/my-articles/index', // 我的文章
       // 'pages/history/index', // 浏览历史
-      // 'pages/search/index', // 搜索
+      'pages/search/index', // 搜索
       // 'pages/zone/index', // 个人空间
       // 'pages/setting/index', // 设置
       // 'pages/publish-photos/index', // 发布图片
       // 'pages/publish-article/index', // 发布文章
       // 'pages/publish-video/index', // 发布视频
       // 'pages/index/index', // 首页
-      'pages/user/index', // 个人中心
+      // 'pages/user/index', // 个人中心
       'pages/empty/index'
     ],
     window: {
@@ -67,7 +67,7 @@ class App extends Component {
           text: '首页'
         },
         {
-          pagePath: 'pages/user/index',
+          pagePath: 'pages/empty/index',
           iconPath: './assets/tab-bar/user.png',
           selectedIconPath: './assets/tab-bar/user-active.png',
           text: '我'

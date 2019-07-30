@@ -2,26 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-13 10:14:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 11:58:07
+ * @Last Modified time: 2019-07-30 18:28:41
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import { Tag, Iconfont } from '@components'
+import Tag from '@components/base/tag'
+import Iconfont from '@components/base/iconfont'
+import { rootCls, DS } from '../ds'
 import './index.scss'
 
-const cls = 'page-search__hot'
-const DS = [
-  {
-    id: 1,
-    title: '小云台灯'
-  },
-  {
-    id: 2,
-    title: '小云轻智能'
-  }
-]
+const cls = `${rootCls}__hot`
 
 const Hot = ({ className }) => {
   return (

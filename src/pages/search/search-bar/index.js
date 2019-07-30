@@ -2,17 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-13 09:33:47
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 11:47:35
+ * @Last Modified time: 2019-07-30 18:29:15
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { Ipt, Iconfont } from '@components'
 import Component from '@components/component'
+import CInput from '@components/base/c-input'
+import Iconfont from '@components/base/iconfont'
+import { rootCls } from '../ds'
 import './index.scss'
 
-const cls = 'page-search__search-bar'
+const cls = `${rootCls}__search-bar`
 
 @observer
 export default class SearchBar extends Component {
@@ -37,7 +39,7 @@ export default class SearchBar extends Component {
       <View className={classNames(cls, 'flex', className)}>
         <View className={`${cls}__input flex flex-1`}>
           <Iconfont className='t-36 t-sub' name='search' />
-          <Ipt
+          <CInput
             className='ml-8'
             placeholder='小云台灯'
             focus

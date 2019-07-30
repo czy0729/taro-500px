@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:10:39
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-17 18:08:41
+ * @Last Modified time: 2019-07-30 17:24:52
  */
 @import '@styles/theme';
 @import '@styles/mixins';
@@ -17,6 +17,5 @@
   &__item {
     width: 25%;
     padding: 20px 0;
-    @include active();
   }
 }
