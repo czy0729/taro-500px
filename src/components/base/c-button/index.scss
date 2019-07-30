@@ -2,9 +2,9 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:33:54
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:48:21
+ * @Last Modified time: 2019-07-30 14:31:21
  */
-@import '@styles/theme.scss';
+@import '@styles/theme';
 
 .c-button {
   display: flex;
@@ -14,7 +14,11 @@
   padding: 16px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 8px;
+  border-radius: 100px;
+
+  &:after {
+    display: none;
+  }
 
   // type
   &--default {
@@ -52,10 +56,6 @@
 
   &--shadow {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
-  }
-
-  &--round {
-    border-radius: 100px;
   }
 
   &__text {

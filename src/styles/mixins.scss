@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:08:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-23 16:20:16
+ * @Last Modified time: 2019-07-30 14:24:08
  */
-@import './theme.scss';
+@import './theme';
 
 /**
  * 1px的border
  */
-@mixin hairline() {
+@mixin hairline($color: $color-border, $border-radius: 0) {
   & {
     position: relative;
   }
@@ -20,7 +20,8 @@
     left: 0;
     width: 200%;
     height: 200%;
-    border: 1px solid $color-border;
+    border: 1px solid $color;
+    border-radius: $border-radius;
     transform: scale(0.5);
     transform-origin: left top;
   }
@@ -29,7 +30,7 @@
 /**
  * 1px的border-top
  */
-@mixin hairline-top() {
+@mixin hairline-top($color: $color-border) {
   & {
     position: relative;
   }
@@ -40,7 +41,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: $color-border;
+    background-color: $color;
     transform: scale(1, 0.5);
     transform-origin: center top;
   }
@@ -49,7 +50,7 @@
 /**
  * 1px的border-bottom
  */
-@mixin hairline-bottom() {
+@mixin hairline-bottom($color: $color-border) {
   & {
     position: relative;
   }
@@ -60,7 +61,7 @@
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: $color-border;
+    background-color: $color;
     transform: scale(1, 0.5);
     transform-origin: center bottom;
   }

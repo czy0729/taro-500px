@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 09:58:20
+ * @Last Modified time: 2019-07-30 14:27:04
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -55,10 +55,11 @@ view {
 button {
   @include eject(margin-left, 0);
   @include eject(margin-right, 0);
+  overflow: initial;
 
-  &:after {
-    display: none;
-  }
+  // &:after {
+  //   display: none;
+  // }
 }
 ::-webkit-scrollbar {
   width: 0;

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:32:53
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:53:53
+ * @Last Modified time: 2019-07-30 14:25:48
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -21,7 +21,6 @@ export default class CButton extends Component {
     shadow: false,
     loading: false,
     disabled: false,
-    round: true,
     text: '',
     onClick: Function.prototype
   }
@@ -36,7 +35,6 @@ export default class CButton extends Component {
       shadow,
       loading,
       disabled,
-      round,
       text,
       onClick
     } = this.props
@@ -51,8 +49,7 @@ export default class CButton extends Component {
           {
             [`${cls}--${_type}`]: _type,
             [`${cls}--${size}`]: size,
-            [`${cls}--shadow`]: shadow,
-            [`${cls}--round`]: round
+            [`${cls}--shadow`]: shadow
           },
           className
         )}

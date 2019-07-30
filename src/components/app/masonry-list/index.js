@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 12:02:53
+ * @Last Modified time: 2019-07-30 14:50:31
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -67,8 +67,8 @@ class MasonryList extends Component {
         }}
       >
         {!!title && <SectionTitle>{title}</SectionTitle>}
-        <View className='flex flex-align-start'>
-          <View className='flex-item' style={{ width: `${imageWidth}px` }}>
+        <View className='flex flex-justify-between flex-align-start'>
+          <View className='flex-item' style={{ width: transform(imageWidth) }}>
             {this.left.map(item => (
               <Item
                 key={item.id}
