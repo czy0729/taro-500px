@@ -2,13 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:27:28
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 14:01:03
+ * @Last Modified time: 2019-07-30 12:07:10
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import { CImage, Iconfont } from '@components'
+import CImage from '@components/base/c-image'
+import Iconfont from '@components/base/iconfont'
 import { push } from '@utils'
 import './index.scss'
 

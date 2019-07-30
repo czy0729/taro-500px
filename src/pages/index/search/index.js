@@ -2,16 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-06-12 14:46:51
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-14 15:51:10
+ * @Last Modified time: 2019-07-30 13:49:46
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { Iconfont } from '@components'
+import Iconfont from '@components/base/iconfont'
+import { rootCls } from '../ds'
 import './index.scss'
 
-const cls = 'page-index__search'
+const cls = `${rootCls}__search`
 
 const Search = ({ className }) => {
   return (

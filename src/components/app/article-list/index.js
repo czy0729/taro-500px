@@ -2,17 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-07-18 14:16:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 15:06:39
+ * @Last Modified time: 2019-07-30 12:01:09
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import Component from '@components/component'
+import CImage from '@components/base/c-image'
+import Iconfont from '@components/base/iconfont'
 import { transform } from '@utils/style'
 import { ENV, LIST_EMPTY } from '@constants'
-import CImage from '../../img'
-import Iconfont from '../../iconfont'
 import './index.scss'
 
 const cls = 'c-app-article-list'

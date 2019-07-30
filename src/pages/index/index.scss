@@ -2,12 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-14 14:30:21
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 15:29:48
+ * @Last Modified time: 2019-07-30 11:25:24
  */
 @import '@styles/theme.scss';
+@import '@styles/mixins';
 
 .page-index {
   &__container {
     padding: 40px 0 $tab-bar + $space;
+    @include hairline-top();
+  }
+  &__container-discovery {
+    padding-bottom: $tab-bar + $space;
+    background-color: $color-bg;
+    @include hairline-top();
   }
 }

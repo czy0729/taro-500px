@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:53:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 10:53:06
+ * @Last Modified time: 2019-07-30 11:38:59
  */
 const path = require('path')
 const sassImportor = function(url) {
@@ -49,6 +49,7 @@ const config = {
   defineConstants: {},
   alias: {
     '@assets': path.resolve(__dirname, '..', 'src/assets'),
+    '@app': path.resolve(__dirname, '..', 'src/components/app'),
     '@components': path.resolve(__dirname, '..', 'src/components'),
     '@constants': path.resolve(__dirname, '..', 'src/constants'),
     '@mock': path.resolve(__dirname, '..', 'src/mock'),

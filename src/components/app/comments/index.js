@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-18 10:43:58
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 17:30:09
+ * @Last Modified time: 2019-07-30 12:01:58
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
+import SectionTitle from '@components/base/section-title'
 import { LIST_EMPTY } from '@constants'
-import SectionTitle from '../../section-title'
 import Item from './item'
 import './index.scss'
 

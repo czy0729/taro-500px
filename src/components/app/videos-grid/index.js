@@ -2,15 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-07-19 15:42:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 15:49:04
+ * @Last Modified time: 2019-07-30 12:04:04
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
+import CImage from '@components/base/c-image'
 import { transform } from '@utils/style'
 import { ENV } from '@constants'
-import CImage from '../../img'
 import './index.scss'
 
 const cls = 'c-app-videos-grid'

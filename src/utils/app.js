@@ -2,9 +2,26 @@
  * @Author: czy0729
  * @Date: 2019-06-19 14:43:58
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 14:28:39
+ * @Last Modified time: 2019-07-30 11:37:19
  */
-export function app() {}
+
+/**
+ * 动态更新导航栏
+ * @param {*} that
+ * @param {*} index
+ */
+export function updateTabBar(that, index) {
+  if (
+    that &&
+    that.$scope &&
+    typeof that.$scope.getTabBar === 'function' &&
+    that.$scope.getTabBar()
+  ) {
+    that.$scope.getTabBar().setData({
+      selected: index
+    })
+  }
+}
 
 /**
  * (mock) 500px的数据转成wx富文本结构

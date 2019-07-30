@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-20 15:27:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 16:16:31
+ * @Last Modified time: 2019-07-30 12:03:44
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import Iconfont from '../../iconfont'
+import Iconfont from '@components/base/iconfont'
 import './index.scss'
 
 const cls = 'c-app-share'

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 10:07:51
+ * @Last Modified time: 2019-07-30 11:59:11
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -44,7 +44,6 @@ class App extends Component {
       // 'pages/publish-photos/index', // 发布图片
       // 'pages/publish-article/index', // 发布文章
       // 'pages/publish-video/index', // 发布视频
-
       'pages/index/index', // 首页
       'pages/user/index' // 个人中心
     ],

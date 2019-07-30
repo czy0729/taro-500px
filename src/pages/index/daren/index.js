@@ -2,50 +2,34 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:56:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 15:40:52
+ * @Last Modified time: 2019-07-30 13:47:46
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, CImage, CButton } from '@components'
+import SectionTitle from '@components/base/section-title'
+import CImage from '@components/base/c-image'
+import CButton from '@components/base/c-button'
+import { rootCls, darenDS } from '../ds'
 import './index.scss'
 
-const cls = 'page-index__daren'
-const DS = [
-  {
-    user: '本空设计',
-    tip: '138万粉丝，1856笔记',
-    avatar: require('../../../assets/pages/index/41.png')
-  },
-  {
-    user: '上海小梧桐',
-    tip: '1.3万粉丝，219笔记',
-    avatar: require('../../../assets/pages/index/42.png')
-  },
-  {
-    user: '北欧君',
-    tip: '51万粉丝，99笔记',
-    avatar: require('../../../assets/pages/index/43.png')
-  }
-]
+const cls = `${rootCls}__daren`
 
 const Collect = ({ className }) => {
   return (
     <View className={classNames(cls, className)}>
       <View className='layout-wind'>
-        <SectionTitle text='更多达人' icon='angle-right'>
-          达人推荐
-        </SectionTitle>
+        <SectionTitle desc='达人推荐' text='更多达人' icon='angle-right' />
       </View>
       <ScrollView className={`${cls}__scroll-view`} scrollX>
-        {DS.map((item, index) => (
+        {darenDS.map((item, index) => (
           <View
             key={item.title}
             className={classNames({
               [`${cls}__item`]: true,
               [`${cls}__item--first`]: index === 0,
-              [`${cls}__item--last`]: index === DS.length - 1,
+              [`${cls}__item--last`]: index === darenDS.length - 1,
               'ml-16': !!index
             })}
           >

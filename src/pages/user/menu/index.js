@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:09:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 09:48:17
+ * @Last Modified time: 2019-07-30 12:07:38
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import { Iconfont } from '@components'
+import Iconfont from '@components/base/iconfont'
 import './index.scss'
 
 const cls = 'page-user__menu'

@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-20 17:40:38
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 10:21:25
+ * @Last Modified time: 2019-07-30 12:02:29
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import Iconfont from '../../iconfont'
+import Iconfont from '@components/base/iconfont'
 import './index.scss'
 
 const cls = 'c-app-fixed-bar'

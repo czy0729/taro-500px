@@ -2,13 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-23 13:44:58
+ * @Last Modified time: 2019-07-30 12:09:50
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
-import { Iconfont } from '@components'
 import Component from '@components/component'
+import imageHome from '@assets/tab-bar/home.png'
+import imageHomeActive from '@assets/tab-bar/home-active.png'
+import imageUser from '@assets/tab-bar/user.png'
+import imageUserActive from '@assets/tab-bar/user-active.png'
+import imagePublish from '@assets/tab-bar/publish.png'
 import Preview from './preview'
 import './index.scss'
 
@@ -16,8 +20,8 @@ const cls = 'custom-tab-bar'
 const list = [
   {
     pagePath: '/pages/index/index',
-    iconPath: require('../assets/tab-bar/home.png'),
-    selectedIconPath: require('../assets/tab-bar/home-active.png'),
+    iconPath: imageHome,
+    selectedIconPath: imageHomeActive,
     text: '首页'
   },
   {
@@ -25,8 +29,8 @@ const list = [
   },
   {
     pagePath: '/pages/user/index',
-    iconPath: require('../assets/tab-bar/user.png'),
-    selectedIconPath: require('../assets/tab-bar/user-active.png'),
+    iconPath: imageUser,
+    selectedIconPath: imageUserActive,
     text: '我'
   }
 ]
@@ -72,13 +76,8 @@ class CustomTabBar extends Component {
               onClick={() => this.switchTab(item.pagePath)}
             >
               {item.pagePath === 'add' ? (
-                <View className='flex flex-column'>
-                  <View
-                    className={`${cls}__btn-plus flex flex-justify-center`}
-                    onClick={this.showPreview}
-                  >
-                    <Iconfont className='t-44 t-plain' name='plus' />
-                  </View>
+                <View onClick={this.showPreview}>
+                  <Image className={`${cls}__publish`} src={imagePublish} />
                 </View>
               ) : (
                 <View className='flex flex-column'>
@@ -88,7 +87,7 @@ class CustomTabBar extends Component {
                       selected === index ? item.selectedIconPath : item.iconPath
                     }
                   />
-                  <Text className='t-20 l-24 t-sub'>{item.text}</Text>
+                  <Text className='t-20 l-24 t-sub mt-8'>{item.text}</Text>
                 </View>
               )}
             </View>

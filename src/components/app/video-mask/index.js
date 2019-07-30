@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-25 09:44:14
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 09:52:24
+ * @Last Modified time: 2019-07-30 12:03:52
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import Iconfont from '../../iconfont'
+import Iconfont from '@components/base/iconfont'
 import './index.scss'
 
 const cls = 'c-app-video-mask'

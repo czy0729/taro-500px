@@ -2,15 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-06-18 15:16:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 09:57:34
+ * @Last Modified time: 2019-07-30 12:02:16
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
+import CImage from '@components/base/c-image'
 import { lastDate } from '@utils'
 import { radius } from '@utils/style'
-import CImage from '../../../img'
 import './index.scss'
 
 const cls = 'c-app-comments__item'

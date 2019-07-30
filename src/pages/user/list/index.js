@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-17 17:17:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 09:47:20
+ * @Last Modified time: 2019-07-30 12:07:26
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View } from '@tarojs/components'
-import { ListItem } from '@components'
+import ListItem from '@components/base/list-item'
 import { push } from '@utils'
 
 const cls = 'page-user__list'

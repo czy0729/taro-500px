@@ -2,13 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-07-01 16:57:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 11:36:05
+ * @Last Modified time: 2019-07-30 12:08:54
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
-import { CButton, CImage, Iconfont } from '@components'
 import Component from '@components/component'
+import CButton from '@components/base/c-button'
+import CImage from '@components/base/c-image'
+import Iconfont from '@components/base/iconfont'
 import { ENV } from '@constants'
 import './index.scss'
 

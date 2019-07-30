@@ -2,16 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 10:05:37
+ * @Last Modified time: 2019-07-30 12:02:53
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import Component from '@components/component'
+import SectionTitle from '@components/base/section-title'
 import { transform } from '@utils/style'
 import { ENV, LIST_EMPTY } from '@constants'
-import SectionTitle from '../../section-title'
 import Item from './item'
 import './index.scss'
 
@@ -60,7 +60,12 @@ class MasonryList extends Component {
     this.index = _data.length - 1
 
     return (
-      <View className={classNames(cls, className)}>
+      <View
+        className={classNames(cls, className)}
+        style={{
+          minHeight: ENV.windowHeight
+        }}
+      >
         {!!title && <SectionTitle>{title}</SectionTitle>}
         <View className='flex flex-align-start'>
           <View className='flex-item' style={{ width: `${imageWidth}px` }}>

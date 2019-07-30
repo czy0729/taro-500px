@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-12 14:35:00
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-12 14:42:04
+ * @Last Modified time: 2019-07-30 11:37:06
  */
 import classNames from 'classnames'
 import { AtTabsPane } from 'taro-ui'
@@ -15,7 +15,7 @@ export default class TabsPane extends Component {
   static defaultProps = {
     className: '',
     current: 0,
-    index: null
+    index: 0
   }
 
   render() {

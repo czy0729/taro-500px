@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-24 18:33:08
+ * @Last Modified time: 2019-07-30 11:36:26
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -12,7 +12,8 @@
   flex: 1;
   background-color: $color-bg;
 }
-.layout-bg {
+.layout-bg,
+.bg {
   background-color: $color-bg;
 }
 .layout-outer {

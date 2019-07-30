@@ -3,7 +3,7 @@
  * @Doc: https://taro-ui.aotu.io/#/docs/input
  * @Date: 2019-06-13 10:21:47
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 10:03:42
+ * @Last Modified time: 2019-07-30 13:56:45
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -12,7 +12,7 @@ import Component from '@components/component'
 import { colorDefault } from '@constants/style'
 import './index.scss'
 
-const cls = 'c-ipt'
+const cls = 'c-input'
 
 export default class Ipt extends Component {
   static defaultProps = {

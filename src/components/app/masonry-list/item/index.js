@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 10:29:09
+ * @Last Modified time: 2019-07-30 12:03:15
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
+import CImage from '@components/base/c-image'
+import Iconfont from '@components/base/iconfont'
 import { transform } from '@utils/style'
-import CImage from '../../../img'
-import Iconfont from '../../../iconfont'
 import './index.scss'
 
 const cls = 'c-app-masonry-list__item'
