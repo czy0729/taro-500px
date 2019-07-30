@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 14:03:30
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 13:49:22
+ * @Last Modified time: 2019-07-30 14:57:44
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -20,9 +20,7 @@ const Recommend = ({ className }) => {
   return (
     <View className={classNames(cls, className)}>
       <View className='layout-wind'>
-        <SectionTitle text='换一批' icon='refresh'>
-          设计师推荐
-        </SectionTitle>
+        <SectionTitle desc='设计师推荐' text='换一批' icon='refresh' />
       </View>
       <ScrollView className={`${cls}__scroll-view`} scrollX>
         {recommendDS.map((item, index) => (

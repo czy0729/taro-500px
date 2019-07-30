@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 11:59:11
+ * @Last Modified time: 2019-07-30 15:05:46
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -44,8 +44,9 @@ class App extends Component {
       // 'pages/publish-photos/index', // 发布图片
       // 'pages/publish-article/index', // 发布文章
       // 'pages/publish-video/index', // 发布视频
-      'pages/index/index', // 首页
-      'pages/user/index' // 个人中心
+      // 'pages/index/index', // 首页
+      'pages/user/index', // 个人中心
+      'pages/empty/index'
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -60,7 +61,7 @@ class App extends Component {
       backgroundColor: colorPlain,
       list: [
         {
-          pagePath: 'pages/index/index',
+          pagePath: 'pages/empty/index',
           iconPath: './assets/tab-bar/home.png',
           selectedIconPath: './assets/tab-bar/home-active.png',
           text: '首页'

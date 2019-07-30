@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:45:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 10:05:57
+ * @Last Modified time: 2019-07-30 16:25:25
  */
 @import '@styles/theme';
 
@@ -18,8 +18,22 @@
     height: $header;
   }
   &__split {
-    width: 1PX;
+    position: relative;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.64);
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 1px;
+      background-color: rgba(255, 255, 255, 0.8);
+      transform: scale(0.5, 1);
+      transform-origin: center top;
+    }
+  }
+  &__extra {
+    color: rgba(255, 255, 255, 0.8);
   }
 }

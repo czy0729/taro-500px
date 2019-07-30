@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 11:36:26
+ * @Last Modified time: 2019-07-30 16:21:17
  */
 @import './theme.scss';
 @import './mixins.scss';
@@ -180,6 +180,9 @@
 }
 .t-danger {
   color: $color-danger;
+}
+.t-title {
+  color: $color-title;
 }
 .t-desc {
   color: $color-desc;
