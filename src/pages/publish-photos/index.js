@@ -2,19 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-07-22 15:19:36
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 10:05:33
+ * @Last Modified time: 2019-07-31 12:01:08
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import {
-  CScrollView,
-  CTextarea,
-  CButton,
-  Tag,
-  ImagePicker,
-  Iconfont
-} from '@components'
+import CScrollView from '@base/c-scroll-view'
+import CTextarea from '@base/c-textarea'
+import CButton from '@base/c-button'
+import ImagePicker from '@base/image-picker'
+import Iconfont from '@base/iconfont'
+import Tag from '@base/tag'
+import { push } from '@utils'
 import { filesDS } from '@constants/mock'
 import './index.scss'
 
@@ -42,7 +41,15 @@ class PublishPhotos extends Component {
     return (
       <CScrollView className={cls}>
         <View className={`${cls}__photos`}>
-          <ImagePicker files={files} onChange={this.onChange} />
+          <ImagePicker
+            files={files}
+            onChange={this.onChange}
+            onImageClick={(index, filePath) => {
+              push('/pages/photo-edit/index', {
+                filePath: filePath.url
+              })
+            }}
+          />
         </View>
         <View className={`${cls}__textarea`}>
           <CTextarea placeholder='说说关于图片的故事，参与合适的话题会获得更多浏览' />

@@ -1,0 +1,19 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-07-31 14:00:04
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-07-31 14:05:09
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.navigation-title {
+  position: absolute;
+  z-index: 99;
+  top: 56px;
+  left: 0;
+  right: 0;
+  font-size: 34px;
+  line-height: 56px;
+  text-align: center;
+}

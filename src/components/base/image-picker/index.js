@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-23 13:48:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-23 16:48:51
+ * @Last Modified time: 2019-07-31 12:01:16
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import Component from '@components/component'
-import CImage from '../img'
+import CImage from '../c-image'
 import Iconfont from '../iconfont'
 import './index.scss'
 
