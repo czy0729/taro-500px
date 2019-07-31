@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 09:52:00
+ * @Last Modified time: 2019-07-31 10:31:35
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -10,7 +10,7 @@ import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import CImage from '@base/c-image'
 import CButton from '@base/c-button'
-import CRichText from '@base/c-rich-text'
+import ParserRichText from '@components/wx/parser-rich-text'
 import Tag from '@base/tag'
 import BtnGood from '@app/btn-good'
 import Share from '@app/share'
@@ -58,7 +58,7 @@ const Content = ({
           ))}
         </View>
         <View className='mt-64' style={{ minHeight: Taro.pxTransform(640) }}>
-          <CRichText nodes={richText} />
+          <ParserRichText html={richText} showWithAnimation selectable />
         </View>
         <Text className='t-24 l-32 t-sub mt-48'>
           (C) 声明∶ 本页所有文字与图片禁止转载或发布

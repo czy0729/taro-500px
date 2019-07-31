@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:53:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 09:29:23
+ * @Last Modified time: 2019-07-31 10:25:26
  */
 const path = require('path')
 const sassImportor = function(url) {
@@ -60,7 +60,12 @@ const config = {
     '@utils': path.resolve(__dirname, '..', 'src/utils')
   },
   copy: {
-    patterns: [],
+    patterns: [
+      {
+        from: 'src/components/wx/parser-rich-text/Parser/',
+        to: 'dist/components/wx/parser-rich-text/Parser/'
+      }
+    ],
     options: {}
   },
   weapp: {
