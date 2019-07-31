@@ -2,38 +2,24 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:09:09
+ * @Last Modified time: 2019-07-31 09:52:00
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
+import CImage from '@base/c-image'
+import CButton from '@base/c-button'
+import CRichText from '@base/c-rich-text'
+import Tag from '@base/tag'
+import BtnGood from '@app/btn-good'
+import Share from '@app/share'
 import { date } from '@utils'
-import { CImage, CButton, CRichText, Tag } from '@components'
-import BtnGood from '@components/app/btn-good'
-import Share from '@components/app/share'
 import { radius } from '@utils/style'
+import { rootCls, infoDS } from '../ds'
 import './index.scss'
 
-const cls = 'page-article__content'
-const infoDS = [
-  {
-    label: '户型',
-    value: '两室'
-  },
-  {
-    label: '使用面积',
-    value: '85平'
-  },
-  {
-    label: '灯具花费',
-    value: '2万元'
-  },
-  {
-    label: '位置',
-    value: '广州'
-  }
-]
+const cls = `${rootCls}__content`
 
 const Content = ({
   className,

@@ -3,7 +3,7 @@
  * @Doc: https://nervjs.github.io/taro/docs/components/viewContainer/swiper.html
  * @Date: 2019-06-17 15:07:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-18 17:37:09
+ * @Last Modified time: 2019-07-31 09:33:07
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -11,7 +11,7 @@ import { View, Text, Swiper, SwiperItem } from '@tarojs/components'
 import Component from '@components/component'
 import { ENV } from '@constants'
 import { transform } from '@utils/style'
-import CImage from '../img'
+import CImage from '../c-image'
 import './index.scss'
 
 const cls = 'c-swiper'

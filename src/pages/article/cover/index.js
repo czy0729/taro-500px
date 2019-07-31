@@ -2,17 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-24 13:58:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 14:06:25
+ * @Last Modified time: 2019-07-31 09:52:40
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { CImage } from '@components'
+import CImage from '@base/c-image'
 import { transform } from '@utils/style'
 import { screenWidth } from '@constants/style'
+import { rootCls } from '../ds'
 
-const cls = 'page-article__cover'
+const cls = `${rootCls}__cover`
 const height = screenWidth * 0.66667
 
 const Cover = ({ className, cover, src }) => {

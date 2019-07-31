@@ -2,17 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 16:42:05
+ * @Last Modified time: 2019-07-31 09:32:15
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, CImage } from '@components'
+import SectionTitle from '@base/section-title'
+import CImage from '@base/c-image'
 import { transform } from '@utils/style'
 import { ENV } from '@constants'
+import { rootCls } from '../ds'
 
-const cls = 'page-detail__gallery'
+const cls = `${rootCls}__gallery`
 const imageHalfWidth = (ENV.screenWidth - ENV.wind * 2 * ENV.pxRatio) / 2
 const imageLgWidth = imageHalfWidth - 8 * ENV.pxRatio
 const imageSmWidth = imageHalfWidth / 2 - 12 * ENV.pxRatio

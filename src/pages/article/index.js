@@ -2,21 +2,23 @@
  * @Author: czy0729
  * @Date: 2019-06-19 09:48:33
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:07:23
+ * @Last Modified time: 2019-07-31 09:55:59
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { CScrollView, ActivityIndicator } from '@components'
-import MasonryList from '@components/app/masonry-list'
-import Comments from '@components/app/comments'
-import FixedBar from '@components/app/fixed-bar'
+import CScrollView from '@base/c-scroll-view'
+import ActivityIndicator from '@base/activity-indicator'
+import MasonryList from '@app/masonry-list'
+import Comments from '@app/comments'
+import FixedBar from '@app/fixed-bar'
 import Cover from './cover'
 import Content from './content'
 import Horizontal from './horizontal'
+import { rootCls } from './ds'
 import './index.scss'
 
-const cls = 'page-article'
+const cls = rootCls
 
 @inject('appStore')
 @observer
@@ -56,7 +58,13 @@ class Article extends Component {
   }
 
   render() {
-    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
+    const {
+      id = '4b635f43f5ceba488bc24dd8d7d41189',
+      cover,
+      title,
+      avatar,
+      nickName
+    } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -65,19 +73,12 @@ class Article extends Component {
     return (
       <View>
         <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
-          <Cover
-            cover={`${this.$router.params.cover}!p1`}
-            src={`${detail.cover}!p5`}
-          />
+          <Cover cover={`${cover}!p1`} src={`${detail.cover}!p5`} />
           <Content
             className='mt-48'
-            title={detail.title || this.$router.params.title}
-            avatar={
-              detail.uploaderInfo.avatar.baseUrl || this.$router.params.avatar
-            }
-            nickName={
-              detail.uploaderInfo.nickName || this.$router.params.nickName
-            }
+            title={detail.title || title}
+            avatar={detail.uploaderInfo.avatar.baseUrl || avatar}
+            nickName={detail.uploaderInfo.nickName || nickName}
             richText={detail.richText}
             uploadedDate={detail.uploadedDate}
           />
@@ -87,7 +88,7 @@ class Article extends Component {
             data={detail.carousel}
           />
           <Comments className='mt-64' data={comments} />
-          <View className='layout-bg'>
+          <View className='bg'>
             <MasonryList className='mt-56' data={photo} />
             <ActivityIndicator show={loading} />
           </View>

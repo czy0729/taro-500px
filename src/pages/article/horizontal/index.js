@@ -2,16 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-19 15:14:33
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 15:03:19
+ * @Last Modified time: 2019-07-31 09:53:29
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { SectionTitle, CImage } from '@components'
+import CImage from '@base/c-image'
+import SectionTitle from '@base/section-title'
+import { rootCls } from '../ds'
 import './index.scss'
 
-const cls = 'page-article__horizontal'
+const cls = `${rootCls}__horizontal`
 const width = 472
 const height = width * 0.56
 
@@ -38,7 +40,9 @@ const Horizontal = ({ className, desc, data }) => {
                 width={Taro.pxTransform(width)}
                 height={Taro.pxTransform(height)}
               />
-              <Text className={`${cls}__tag t-20 l-28 t-title`}>三室 95平米</Text>
+              <Text className={`${cls}__tag t-20 l-28 t-title`}>
+                三室 95平米
+              </Text>
               <View className={`${cls}__info`}>
                 <Text className='t-30 l-40 t-title t-c1'>
                   欧美无主灯装修风格怎么做

@@ -2,21 +2,24 @@
  * @Author: czy0729
  * @Date: 2019-06-17 14:25:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-22 14:42:55
+ * @Last Modified time: 2019-07-31 09:45:15
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { CScrollView, CSwiper, ActivityIndicator } from '@components'
-import MasonryList from '@components/app/masonry-list'
-import Comments from '@components/app/comments'
-import FixedBar from '@components/app/fixed-bar'
+import CScrollView from '@base/c-scroll-view'
+import CSwiper from '@base/c-swiper'
+import ActivityIndicator from '@base/activity-indicator'
+import MasonryList from '@app/masonry-list'
+import Comments from '@app/comments'
+import FixedBar from '@app/fixed-bar'
 import { ENV } from '@constants'
 import Content from './content'
 import Gallery from './gallery'
+import { rootCls } from './ds'
 import './index.scss'
 
-const cls = 'page-detail'
+const cls = rootCls
 
 @inject('appStore')
 @observer
@@ -30,7 +33,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
+    const { id = '3d796d4c38d4415899af48f468b6e1f2' } = this.$router.params
     const { appStore } = this.props
     appStore.fetchDetail({
       id
@@ -56,7 +59,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { id = '4b635f43f5ceba488bc24dd8d7d41189' } = this.$router.params
+    const { id = '3d796d4c38d4415899af48f468b6e1f2' } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -89,7 +92,7 @@ class Detail extends Component {
             />
           </View>
           <Comments className='mt-64' data={comments} />
-          <View className='layout-bg'>
+          <View className='bg'>
             <MasonryList data={photo} />
             <ActivityIndicator show={loading} />
           </View>

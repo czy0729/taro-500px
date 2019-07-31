@@ -2,19 +2,22 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 16:31:46
+ * @Last Modified time: 2019-07-31 09:35:34
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import { date } from '@utils'
-import { CImage, CButton, Tag } from '@components'
-import BtnGood from '@components/app/btn-good'
-import Share from '@components/app/share'
+import CImage from '@base/c-image'
+import CButton from '@base/c-button'
+import Tag from '@base/tag'
+import BtnGood from '@app/btn-good'
+import Share from '@app/share'
 import { radius } from '@utils/style'
+import { rootCls } from '../ds'
 
-const cls = 'page-detail__content'
+const cls = `${rootCls}__content`
 
 const Content = ({ className, avatar, nickName, content, uploadedDate }) => {
   return (
@@ -49,8 +52,7 @@ Content.defaultProps = {
   avatar: '',
   nickName: '',
   content: '',
-  uploadedDate: '',
-  liked: 0
+  uploadedDate: ''
 }
 
 Content.options = {
