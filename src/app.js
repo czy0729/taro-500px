@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 12:01:40
+ * @Last Modified time: 2019-07-31 15:41:24
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'

@@ -1,17 +1,15 @@
 /*
  * @Author: czy0729
- * @Date: 2019-07-31 12:21:21
+ * @Date: 2019-07-31 15:34:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 17:45:02
+ * @Last Modified time: 2019-07-31 16:55:33
  */
-.page-photo-edit {
-  background-color: #000;
-
+.c-wx-cropper {
   &__toolbar {
     position: absolute;
-    right: 0;
-    bottom: 40px;
     left: 0;
+    bottom: 40px;
+    width: 50%;
   }
   &__toolbar-item {
     padding: 40px 0;

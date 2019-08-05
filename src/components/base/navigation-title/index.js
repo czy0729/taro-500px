@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-31 13:50:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 14:04:29
+ * @Last Modified time: 2019-07-31 15:35:35
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -10,7 +10,7 @@ import { Text } from '@tarojs/components'
 import Component from '@components/component'
 import './index.scss'
 
-const cls = 'navigation-title'
+const cls = 'c-navigation-title'
 
 export default class NavigationTitle extends Component {
   static defaultProps = {

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:57:57
+ * @Last Modified time: 2019-07-31 16:30:58
  */
 @import './theme';
 @import './mixins';
@@ -171,6 +171,9 @@
 
 .t-plain {
   color: $color-plain;
+}
+.t-plain-opacity {
+  color: rgba(255, 255, 255, 0.8);
 }
 .t-main {
   color: $color-main;

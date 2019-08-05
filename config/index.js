@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:53:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 10:25:26
+ * @Last Modified time: 2019-07-31 14:35:02
  */
 const path = require('path')
 const sassImportor = function(url) {
@@ -61,6 +61,10 @@ const config = {
   },
   copy: {
     patterns: [
+      {
+        from: 'src/components/wx/cropper/Cropper/',
+        to: 'dist/components/wx/cropper/Cropper/'
+      },
       {
         from: 'src/components/wx/parser-rich-text/Parser/',
         to: 'dist/components/wx/parser-rich-text/Parser/'
