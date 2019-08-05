@@ -3,7 +3,7 @@
  * @Doc: https://nervjs.github.io/taro/docs/components/viewContainer/swiper.html
  * @Date: 2019-06-17 15:07:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 09:33:07
+ * @Last Modified time: 2019-08-05 14:36:18
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -24,15 +24,25 @@ export default class CSwiper extends Component {
     width: ENV.screenWidth,
     height: ENV.screenWidth,
     indicatorDots: false,
-    indicatorColor: '#999',
-    indicatorActiveColor: '#333',
+    // indicatorColor: '#999',
+    // indicatorActiveColor: '#333',
     autoplay: false,
     current: 0,
+    mode: 'aspectFill',
+    itemStyle: {},
+    imageStyle: {},
+    indicatorStyle: {},
     onChange: Function.prototype
   }
 
   state = {
-    index: this.props.current
+    index: 0
+  }
+
+  componentDidMount() {
+    this.setState({
+      index: this.props.current
+    })
   }
 
   onChange = evt => {
@@ -53,14 +63,19 @@ export default class CSwiper extends Component {
       width,
       height,
       indicatorDots,
-      indicatorColor,
-      indicatorActiveColor,
+      // indicatorColor,
+      // indicatorActiveColor,
       autoplay,
-      current
+      current,
+      mode,
+      style,
+      itemStyle,
+      imageStyle,
+      indicatorStyle
     } = this.props
     const { index } = this.state
     return (
-      <View className={classNames(cls, className)}>
+      <View className={classNames(cls, className)} style={style}>
         {!!cover && (
           <View className={`${cls}__cover`}>
             <CImage src={cover} width={width} height={height} />
@@ -71,21 +86,27 @@ export default class CSwiper extends Component {
             height: transform(height)
           }}
           circular
-          indicatorColor={indicatorColor}
-          indicatorActiveColor={indicatorActiveColor}
+          // indicatorColor={indicatorColor}
+          // indicatorActiveColor={indicatorActiveColor}
           indicatorDots={indicatorDots}
           autoplay={autoplay}
           current={current}
           onChange={this.onChange}
         >
           {data.map(item => (
-            <SwiperItem key={item}>
-              <CImage src={item} width={width} height={height} />
+            <SwiperItem key={item} style={itemStyle}>
+              <CImage
+                style={imageStyle}
+                mode={mode}
+                src={item}
+                width={width}
+                height={height}
+              />
             </SwiperItem>
           ))}
         </Swiper>
         {!!data.length && (
-          <View className={`${cls}__text`}>
+          <View className={`${cls}__text`} style={indicatorStyle}>
             <Text className='t-28 l-40 t-plain'>
               {index + 1} / {data.length}
             </Text>

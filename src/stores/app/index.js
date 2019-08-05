@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 12:09:06
+ * @Last Modified time: 2019-08-05 15:25:40
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim } from '@utils'
@@ -15,11 +15,24 @@ import { initDetail } from './init'
 class AppStore extends store {
   @observable state = {
     photo: LIST_EMPTY,
+
     detail: {
       // 0: initDetail
     },
+
     comments: {
       // 0: LIST_EMPTY
+    },
+
+    // 图片编辑数据
+    photoEdit: {
+      current: 1,
+      data: [
+        'https://img.500px.me/photo/7c9a4dbc6415498473d975bc86e881129/943b9dbcbd5a40d4a4542617023a44cc.jpg!p5',
+        'https://img.500px.me/500px1000348795.jpg!p5',
+        'https://img.500px.me/500px1000639459.jpg!p5',
+        'https://img.500px.me/500px229165319.jpg!p5'
+      ]
     }
   }
 
@@ -215,6 +228,16 @@ class AppStore extends store {
     }
 
     return Promise.resolve(DS)
+  }
+
+  // -------------------- method --------------------
+  /**
+   * 保存图片编辑数据
+   */
+  savePhotoEditData = photoEdit => {
+    this.setState({
+      photoEdit
+    })
   }
 }
 

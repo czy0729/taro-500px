@@ -109,7 +109,7 @@ Component({
 
         IS_TOUCH_CONTENT: false,  // 是否是可拖动的状态（拖拽裁剪框）
         IS_TOUCH_SIDE: false,  // 是否可以拖拽边框
-        IS_NO_DRAG: false, 
+        IS_NO_DRAG: false,
 
         // 拖拽区域的时候设置
         TOUCH_OFFSET_X: null, // 手按下相对于裁剪框左边的距离
@@ -262,7 +262,7 @@ Component({
           })
 
           wx.hideLoading()
-        } 
+        }
       })
     },
 
@@ -492,7 +492,7 @@ Component({
       this.drag.SPACE_RIGHT_POSITION = this.conf.CROPPER_WIDTH - this.conf.CUT_L - this.conf.CUT_MIN_W
       this.drag.SPACE_LEFT_POSITION = this.conf.CROPPER_WIDTH - this.conf.CUT_R - this.conf.CUT_MIN_W
     },
-    
+
     /**
      *  拖拽中
      */
@@ -697,7 +697,7 @@ Component({
       }
     },
   },
-  
+
   created: function () {
     this.initStaticData()
     // console.log(this.drag)

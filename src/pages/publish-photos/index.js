@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-22 15:19:36
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 12:01:08
+ * @Last Modified time: 2019-08-05 15:25:22
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
@@ -14,7 +14,6 @@ import ImagePicker from '@base/image-picker'
 import Iconfont from '@base/iconfont'
 import Tag from '@base/tag'
 import { push } from '@utils'
-import { filesDS } from '@constants/mock'
 import './index.scss'
 
 const cls = 'page-publish-photos'
@@ -26,29 +25,33 @@ class PublishPhotos extends Component {
     navigationBarTitleText: '发布图片'
   }
 
-  state = {
-    files: filesDS
-  }
-
   onChange = newFiles => {
-    this.setState({
-      files: newFiles
+    const { appStore } = this.props
+    appStore.savePhotoEditData({
+      data: newFiles.map(item => item.url)
     })
   }
 
+  onImageClick = index => {
+    const { appStore } = this.props
+    appStore.savePhotoEditData({
+      current: index
+    })
+    push('/pages/photo-edit/index')
+  }
+
   render() {
-    const { files } = this.state
+    const { appStore } = this.props
+    const { data } = appStore.state.photoEdit
     return (
       <CScrollView className={cls}>
         <View className={`${cls}__photos`}>
           <ImagePicker
-            files={files}
+            files={data.map(item => ({
+              url: item
+            }))}
             onChange={this.onChange}
-            onImageClick={(index, filePath) => {
-              push('/pages/photo-edit/index', {
-                filePath: filePath.url
-              })
-            }}
+            onImageClick={this.onImageClick}
           />
         </View>
         <View className={`${cls}__textarea`}>
