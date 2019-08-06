@@ -11,7 +11,7 @@ const H5 = process.env.TARO_ENV === 'h5'
 const RN = process.env.TARO_ENV === 'rn'
 const WEAPP = process.env.TARO_ENV === 'weapp'
 const { screenWidth, screenHeight } = Taro.getSystemInfoSync()
-const pxRatio = WEAPP ? screenWidth / 750 : 1
+export const pxRatio = WEAPP ? screenWidth / 750 : 1
 
 // 环境
 export const ENV = {

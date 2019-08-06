@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-05 15:25:40
+ * @Last Modified time: 2019-08-06 14:17:08
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim } from '@utils'
@@ -28,10 +28,10 @@ class AppStore extends store {
     photoEdit: {
       current: 1,
       data: [
-        'https://img.500px.me/photo/7c9a4dbc6415498473d975bc86e881129/943b9dbcbd5a40d4a4542617023a44cc.jpg!p5',
-        'https://img.500px.me/500px1000348795.jpg!p5',
-        'https://img.500px.me/500px1000639459.jpg!p5',
-        'https://img.500px.me/500px229165319.jpg!p5'
+        'https://img.500px.me/91d2d1881f6b438eb819d0f03b596892.jpeg!p5',
+        'https://img.500px.me/53743a784c234bd79fab627506be2303.jpeg!p5',
+        'https://img.500px.me/21999c2caba845efab4375a6f6155ff1.jpeg!p5',
+        'https://img.500px.me/f9f00e8f2b4c4ce48fc8a98d478c9fd9.jpeg!p5'
       ]
     }
   }

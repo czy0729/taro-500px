@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-31 11:26:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-05 15:24:10
+ * @Last Modified time: 2019-08-06 14:30:11
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
@@ -12,8 +12,8 @@ import NavigationTitle from '@base/navigation-title'
 import CSwiper from '@base/c-swiper'
 import CImage from '@base/c-image'
 import Iconfont from '@base/iconfont'
+import { getWindowHeight } from '@utils/style'
 import Cropper from '@components/wx/cropper'
-import { ENV } from '@constants'
 import imageNext from '@assets/common/next.png'
 import { rootCls } from './ds'
 import './index.scss'
@@ -91,7 +91,7 @@ class PhotoEdit extends Component {
         current={current}
         data={data}
         mode='aspectFit'
-        height={ENV.screenHeight}
+        height={getWindowHeight()}
         itemStyle={{
           display: 'flex',
           alignItems: 'center'
@@ -157,7 +157,7 @@ class PhotoEdit extends Component {
       <View
         className={cls}
         style={{
-          height: ENV.windowHeight
+          height: getWindowHeight()
         }}
       >
         <Back theme='light' />

@@ -1,0 +1,51 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-05 16:56:45
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-06 14:23:44
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.c-image-moveable-picker {
+  width: 100%;
+
+  &__wrap {
+    width: 176px;
+    height: 176px;
+    background-color: $color-bg;
+    border-radius: $radius-sm;
+  }
+  &__image-wrap {
+    position: relative;
+  }
+  &__image {
+    width: 176px;
+    height: 176px;
+    border-radius: $radius-sm;
+  }
+  &__delete {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    margin-top: -18px;
+    margin-right: -18px;
+  }
+  &__choose {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 176px;
+    height: 176px;
+    vertical-align: top;
+    background-color: #fff;
+    @include hairline();
+
+    &:after {
+      border-radius: $radius-sm * 2;
+    }
+  }
+}

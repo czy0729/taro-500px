@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-22 15:19:36
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-05 15:25:22
+ * @Last Modified time: 2019-08-06 14:21:04
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
@@ -10,7 +10,7 @@ import { View, Text } from '@tarojs/components'
 import CScrollView from '@base/c-scroll-view'
 import CTextarea from '@base/c-textarea'
 import CButton from '@base/c-button'
-import ImagePicker from '@base/image-picker'
+import ImageMoveablePicker from '@base/image-moveable-picker'
 import Iconfont from '@base/iconfont'
 import Tag from '@base/tag'
 import { push } from '@utils'
@@ -28,7 +28,7 @@ class PublishPhotos extends Component {
   onChange = newFiles => {
     const { appStore } = this.props
     appStore.savePhotoEditData({
-      data: newFiles.map(item => item.url)
+      data: newFiles
     })
   }
 
@@ -46,10 +46,8 @@ class PublishPhotos extends Component {
     return (
       <CScrollView className={cls}>
         <View className={`${cls}__photos`}>
-          <ImagePicker
-            files={data.map(item => ({
-              url: item
-            }))}
+          <ImageMoveablePicker
+            files={data}
             onChange={this.onChange}
             onImageClick={this.onImageClick}
           />
