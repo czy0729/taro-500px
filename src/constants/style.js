@@ -2,11 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-13 11:32:08
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 10:03:34
+ * @Last Modified time: 2019-08-07 10:19:04
  */
 import Taro from '@tarojs/taro'
 
+const WEAPP = process.env.TARO_ENV === 'weapp'
+
 export const { screenWidth, screenHeight } = Taro.getSystemInfoSync()
+export const pxRatio = WEAPP ? screenWidth / 750 : 1
 export const statusBarHeight = 40
 
 export const colorPlain = 'rgb(255, 255, 255)'

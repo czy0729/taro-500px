@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 16:17:35
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 14:33:34
+ * @Last Modified time: 2019-08-07 15:57:08
  */
 @import '@styles/theme';
 @import '@styles/mixins';
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: 100;
+  z-index: 1001;
   top: 56px;
   left: $wind;
   height: 62px;

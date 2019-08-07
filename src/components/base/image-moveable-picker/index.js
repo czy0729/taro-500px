@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-08-05 16:33:32
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-06 14:23:01
+ * @Last Modified time: 2019-08-07 18:15:47
  */
 import classNames from 'classnames'
 import deepmerge from 'deepmerge'
@@ -85,9 +85,21 @@ export default class ImageMoveablePicker extends Component {
     }
     Taro.chooseImage(params)
       .then(res => {
-        const targetFiles = res.tempFilePaths.map(path => path)
-        const newFiles = files.concat(targetFiles)
-        onChange(newFiles, 'add')
+        Taro.getImageInfo({
+          src: res.tempFilePaths[0],
+          success: image => {
+            const targetFiles = res.tempFilePaths.map(path => ({
+              url: path,
+              width: image.width,
+              height: image.height,
+
+              // @todo 分离
+              tags: []
+            }))
+            const newFiles = files.concat(targetFiles)
+            onChange(newFiles, 'add')
+          }
+        })
       })
       .catch(onFail)
   }
@@ -206,7 +218,6 @@ export default class ImageMoveablePicker extends Component {
           /**
            * 松手后真正修改图片的顺序。
            * 如果开启了动画 会出现奇怪的现象，暂时在松手的时候关闭动画。
-           * 此处待优化，如果移动距离超过两张图，会出现图片闪烁，虽然不影响功能，但是看起来很不友好。
            */
           const { onChange } = this.props
           onChange(sortArr(files, index, this.currentTargetIndex))
@@ -246,7 +257,7 @@ export default class ImageMoveablePicker extends Component {
         }}
       >
         {files.map((item, index) => {
-          const key = `${movedCount}|${item}|${index}`
+          const key = `${movedCount}|${item.url}|${index}`
           return (
             <MovableView
               key={key}
@@ -260,16 +271,16 @@ export default class ImageMoveablePicker extends Component {
               animation={animation}
               outOfBounds={false}
               data-index={index}
-              onTouchEnd={this.onImageTouchEnd}
               onChange={this.onImageMove}
+              onTouchEnd={this.onImageTouchEnd}
             >
               <View className={`${cls}__image-wrap`}>
                 <Image
                   class={`${cls}__image`}
                   mode='aspectFill'
-                  src={item}
+                  src={item.url}
                   data-index={index}
-                  data-images={item}
+                  data-images={item.url}
                   onClick={() => this.onImageClick(index)}
                 />
                 <Image

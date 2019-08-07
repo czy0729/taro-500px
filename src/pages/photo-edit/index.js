@@ -2,19 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-07-31 11:26:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-06 14:30:11
+ * @Last Modified time: 2019-08-07 18:00:47
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
 import Back from '@base/back'
 import NavigationTitle from '@base/navigation-title'
-import CSwiper from '@base/c-swiper'
 import CImage from '@base/c-image'
 import Iconfont from '@base/iconfont'
 import { getWindowHeight } from '@utils/style'
 import Cropper from '@components/wx/cropper'
 import imageNext from '@assets/common/next.png'
+import Photos from './photos'
 import { rootCls } from './ds'
 import './index.scss'
 
@@ -45,9 +45,15 @@ class PhotoEdit extends Component {
     })
   }
 
-  onChange = current => {
+  onSwiperChange = current => {
     this.setState({
       current
+    })
+  }
+
+  onDataChange = data => {
+    this.setState({
+      data
     })
   }
 
@@ -63,10 +69,19 @@ class PhotoEdit extends Component {
     })
   }
 
-  changeFile = img => {
+  onCut = img => {
     const { current, data } = this.state
     this.setState({
-      data: data.map((item, index) => (index === current ? img.path : item)),
+      data: data.map((item, index) =>
+        index === current
+          ? {
+              ...item,
+              url: img.path,
+              width: img.width,
+              height: img.height
+            }
+          : item
+      ),
       showCut: false
     })
   }
@@ -74,6 +89,7 @@ class PhotoEdit extends Component {
   next = () => {
     const { appStore } = this.props
     const { data } = this.state
+    console.log(JSON.stringify(data))
     appStore.savePhotoEditData({
       data
     })
@@ -87,21 +103,11 @@ class PhotoEdit extends Component {
     }
 
     return (
-      <CSwiper
+      <Photos
         current={current}
         data={data}
-        mode='aspectFit'
-        height={getWindowHeight()}
-        itemStyle={{
-          display: 'flex',
-          alignItems: 'center'
-        }}
-        indicatorStyle={{
-          right: '50%',
-          bottom: Taro.pxTransform(256),
-          marginRight: `-${Taro.pxTransform(58)}`
-        }}
-        onChange={this.onChange}
+        onSwiperChange={this.onSwiperChange}
+        onDataChange={this.onDataChange}
       />
     )
   }
@@ -134,8 +140,8 @@ class PhotoEdit extends Component {
   renderPreview() {
     return (
       <View className={`${cls}__preview`}>
-        {this.renderSwiper()}
         {this.renderToolbar()}
+        {this.renderSwiper()}
       </View>
     )
   }
@@ -144,8 +150,8 @@ class PhotoEdit extends Component {
     const { current, data } = this.state
     return (
       <Cropper
-        imageSrc={data[current]}
-        onOk={this.changeFile}
+        imageSrc={data[current].url}
+        onOk={this.onCut}
         onClose={this.hideCut}
       />
     )

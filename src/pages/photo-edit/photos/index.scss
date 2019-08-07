@@ -1,0 +1,114 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-06 16:20:17
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-07 18:06:25
+ */
+@import '@styles/theme';
+
+.page-photo-edit__photos {
+  position: relative;
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  &__text {
+    position: absolute;
+    z-index: 10;
+    right: 50%;
+    bottom: 192px;
+    min-width: 58px;
+    padding: 0 24px;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+    transform: translateX(50%);
+    pointer-events: none;
+  }
+  &__tags {
+    width: 100%;
+  }
+  &__tag {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: 40px;
+
+    &-dot {
+      position: relative;
+      width: 48px;
+      height: 40px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 16px;
+        height: 16px;
+        background-color: $color-danger;
+        border: 2px solid $color-plain;
+        border-radius: 16px;
+        opacity: 0.8;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &-text {
+      position: relative;
+      height: 40px;
+      padding: 0 16px;
+      margin-left: 8px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -1.6vw;
+        margin-left: -3vw;
+        border-width: 12px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, 0.6) transparent transparent transparent;
+        transform: rotate(90deg);
+      }
+    }
+    &-del {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      margin-right: -44px;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+    }
+
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+    &--reverse &-text {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+    &--reverse &-del {
+      right: initial;
+      left: 0;
+      margin-right: 0;
+      margin-left: -44px;
+    }
+    &--reverse &-text:after {
+      left: initial;
+      right: 0;
+      margin-left: initial;
+      margin-right: -3vw;
+      border-color: transparent transparent rgba(0, 0, 0, 0.6) transparent;
+    }
+  }
+}

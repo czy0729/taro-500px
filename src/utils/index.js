@@ -2,11 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 11:05:51
+ * @Last Modified time: 2019-08-07 14:06:24
  */
 import Taro from '@tarojs/taro'
 
 const PAGE_WEBVIEW = '/pages/webview/index'
+
+/**
+ * @todo 深拷贝
+ * @param {*} target
+ */
+export function deepmerge(target) {
+  return JSON.parse(JSON.stringify(target))
+}
 
 /**
  * 跳转
