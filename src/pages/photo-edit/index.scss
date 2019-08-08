@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-31 12:21:21
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 16:04:06
+ * @Last Modified time: 2019-08-08 14:46:15
  */
 .page-photo-edit {
   background-color: #000;
@@ -10,18 +10,5 @@
   &__preview {
     position: relative;
     height: 100vh;
-  }
-  &__toolbar {
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 120px 0 40px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-    pointer-events: none;
-  }
-  &__toolbar-item {
-    pointer-events: initial;
   }
 }

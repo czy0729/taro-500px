@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 16:30:58
+ * @Last Modified time: 2019-08-08 15:23:38
  */
 @import './theme';
 @import './mixins';
@@ -167,6 +167,10 @@
 }
 .t-c2 {
   @include lamp-clamp(2);
+}
+
+.t-shadow {
+  @include eject(text-shadow, 2px 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 .t-plain {

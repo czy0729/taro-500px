@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-08-06 16:19:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 17:43:32
+ * @Last Modified time: 2019-08-08 15:48:55
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -17,11 +17,11 @@ import {
 } from '@tarojs/components'
 import Component from '@components/component'
 import CImage from '@base/c-image'
-import Iconfont from '@base/iconfont'
 import { deepmerge } from '@utils'
 import { getWindowHeight, transform } from '@utils/style'
 import { screenWidth, pxRatio } from '@constants/style'
 import { rootCls } from '../ds'
+import Tag from '../tag'
 import './index.scss'
 
 const cls = `${rootCls}__photos`
@@ -208,7 +208,7 @@ class Photos extends Component {
     )
   }
 
-  renderItem(item, page) {
+  renderMovableArea(item, page) {
     const { animation, control } = this.state
     const imageHeight = (screenWidth / item.width) * item.height
     return (
@@ -222,9 +222,7 @@ class Photos extends Component {
         {item.tags.map(i => (
           <MovableView
             key={`${page}|${i.id}`}
-            className={classNames(`${cls}__tag`, {
-              [`${cls}__tag--reverse`]: i.reverse
-            })}
+            className={`${cls}__wrap-tag`}
             x={`${(i.left * screenWidth) / pxRatio}rpx`}
             y={`${(i.top * imageHeight) / pxRatio}rpx`}
             direction='all'
@@ -239,32 +237,17 @@ class Photos extends Component {
             onTouchEnd={this.onTagTouchEnd}
             onClick={this.onTagClick}
           >
-            <View
-              className={`${cls}__tag-dot`}
-              data-page={page}
-              data-index={i.id}
-              onTouchStart={this.onTagTouchStart}
-              onTouchEnd={this.onTagReverse}
+            <Tag
+              reverse={i.reverse}
+              page={page}
+              index={i.id}
+              name={i.name}
+              control={control}
+              onTagTouchStart={this.onTagTouchStart}
+              onTagReverse={this.onTagReverse}
+              onTagClick={this.onTagClick}
+              onTagDel={this.onTagDel}
             />
-            <Text
-              className={`${cls}__tag-text t-24 l-40 t-plain`}
-              data-page={page}
-              data-index={i.id}
-              onTouchEnd={this.onTagClick}
-            >
-              {i.name}
-            </Text>
-            {control === `${page}|${i.id}` && (
-              <View
-                className={`${cls}__tag-del`}
-                data-page={page}
-                data-index={i.id}
-                onTouchStart={this.onTagTouchStart}
-                onTouchEnd={this.onTagDel}
-              >
-                <Iconfont className='t-20 t-plain' name='close' />
-              </View>
-            )}
           </MovableView>
         ))}
       </MovableArea>
@@ -293,12 +276,12 @@ class Photos extends Component {
               className={`${cls}__item`}
               onTouchMove={moving ? this.onSwiperItemTouchMove : undefined}
             >
-              {this.renderItem(item, idx)}
+              {this.renderMovableArea(item, idx)}
             </SwiperItem>
           ))}
         </Swiper>
         {!!files.length && (
-          <View className={`${cls}__text`}>
+          <View className={`${cls}__text t-shadow`}>
             <Text className='t-28 l-40 t-plain'>
               {index + 1} / {files.length}
             </Text>

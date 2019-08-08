@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-22 15:19:36
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 18:14:25
+ * @Last Modified time: 2019-08-08 14:06:49
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
@@ -25,10 +25,15 @@ class PublishPhotos extends Component {
     navigationBarTitleText: '发布图片'
   }
 
-  onChange = newFiles => {
+  onChange = files => {
     const { appStore } = this.props
+    files.forEach(item => {
+      if (!item.tags) {
+        item.tags = []
+      }
+    })
     appStore.savePhotoEditData({
-      data: newFiles
+      data: files
     })
   }
 

@@ -2,19 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-07-31 11:26:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 18:00:47
+ * @Last Modified time: 2019-08-08 14:49:25
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import Back from '@base/back'
 import NavigationTitle from '@base/navigation-title'
-import CImage from '@base/c-image'
-import Iconfont from '@base/iconfont'
 import { getWindowHeight } from '@utils/style'
 import Cropper from '@components/wx/cropper'
-import imageNext from '@assets/common/next.png'
 import Photos from './photos'
+import Toolbar from './toolbar'
 import { rootCls } from './ds'
 import './index.scss'
 
@@ -57,13 +55,13 @@ class PhotoEdit extends Component {
     })
   }
 
-  showCut = () => {
+  onShowCut = () => {
     this.setState({
       showCut: true
     })
   }
 
-  hideCut = () => {
+  onHideCut = () => {
     this.setState({
       showCut: false
     })
@@ -86,62 +84,28 @@ class PhotoEdit extends Component {
     })
   }
 
-  next = () => {
+  onNext = () => {
     const { appStore } = this.props
     const { data } = this.state
-    console.log(JSON.stringify(data))
     appStore.savePhotoEditData({
       data
     })
     Taro.navigateBack()
   }
 
-  renderSwiper() {
-    const { current, data, _loaded } = this.state
-    if (!_loaded) {
-      return null
-    }
-
-    return (
-      <Photos
-        current={current}
-        data={data}
-        onSwiperChange={this.onSwiperChange}
-        onDataChange={this.onDataChange}
-      />
-    )
-  }
-
-  renderToolbar() {
-    return (
-      <View className={`${cls}__toolbar flex`}>
-        <View
-          className={`${cls}__toolbar-item flex flex-column flex-1`}
-          onClick={this.showCut}
-        >
-          <Iconfont className='t-48 t-plain' name='cut' />
-          <Text className='t-26 l-48 t-default t-c mt-8'>裁剪</Text>
-        </View>
-        <View className={`${cls}__toolbar-item flex flex-column flex-1`}>
-          <Iconfont className='t-48 t-plain' name='tag' />
-          <Text className='t-26 l-48 t-default t-c mt-8'>标签</Text>
-        </View>
-        <View
-          className={`${cls}__toolbar-item flex flex-column flex-1`}
-          onClick={this.next}
-        >
-          <CImage src={imageNext} width={Taro.pxTransform(48)} />
-          <Text className='t-26 l-48 t-default t-c mt-8'>下一步</Text>
-        </View>
-      </View>
-    )
-  }
-
   renderPreview() {
+    const { current, data, _loaded } = this.state
     return (
       <View className={`${cls}__preview`}>
-        {this.renderToolbar()}
-        {this.renderSwiper()}
+        <Toolbar onShowCut={this.onShowCut} onNext={this.onNext} />
+        {_loaded && (
+          <Photos
+            current={current}
+            data={data}
+            onSwiperChange={this.onSwiperChange}
+            onDataChange={this.onDataChange}
+          />
+        )}
       </View>
     )
   }
@@ -152,7 +116,7 @@ class PhotoEdit extends Component {
       <Cropper
         imageSrc={data[current].url}
         onOk={this.onCut}
-        onClose={this.hideCut}
+        onClose={this.onHideCut}
       />
     )
   }

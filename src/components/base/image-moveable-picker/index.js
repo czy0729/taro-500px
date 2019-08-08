@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-08-05 16:33:32
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 18:15:47
+ * @Last Modified time: 2019-08-08 14:05:45
  */
 import classNames from 'classnames'
-import deepmerge from 'deepmerge'
 import Taro from '@tarojs/taro'
 import { View, MovableArea, MovableView, Image } from '@tarojs/components'
 import Component from '@components/component'
+import { deepmerge } from '@utils'
 import imageClose from '@assets/common/close.png'
 import Iconfont from '../iconfont'
 import {
@@ -25,7 +25,7 @@ export default class ImageMoveablePicker extends Component {
     className: '',
     style: null,
     files: [],
-    multiple: false,
+    multiple: true,
     count: 9,
     sizeType: '',
     sourceType: '',
@@ -42,16 +42,18 @@ export default class ImageMoveablePicker extends Component {
   }
 
   componentDidMount() {
-    const { files } = this.props
+    const { count, files } = this.props
+    const len = files.length > count ? count : files.length
     this.setState({
-      reallyPositons: standardPositions.slice(0, files.length)
+      reallyPositons: standardPositions.slice(0, len)
     })
   }
 
   componentWillReceiveProps(nexrProps) {
-    const { files } = nexrProps
+    const { count, files } = nexrProps
+    const len = files.length > count ? count : files.length
     this.setState({
-      reallyPositons: standardPositions.slice(0, files.length)
+      reallyPositons: standardPositions.slice(0, len)
     })
   }
 
@@ -69,13 +71,11 @@ export default class ImageMoveablePicker extends Component {
       onFail
     } = this.props
     // const filePathName = Taro.getEnv() === Taro.ENV_TYPE.ALIPAY ? 'apFilePaths' : 'tempFiles'
-    // const count = multiple ? 99 : 1
     const params = {}
     if (multiple) {
-      params.count = 99
-    }
-    if (count) {
-      params.count = count
+      params.count = count - files.length
+    } else {
+      params.count = 1
     }
     if (sizeType) {
       params.sizeType = sizeType
@@ -83,23 +83,21 @@ export default class ImageMoveablePicker extends Component {
     if (sourceType) {
       params.sourceType = sourceType
     }
-    Taro.chooseImage(params)
-      .then(res => {
-        Taro.getImageInfo({
-          src: res.tempFilePaths[0],
-          success: image => {
-            const targetFiles = res.tempFilePaths.map(path => ({
-              url: path,
-              width: image.width,
-              height: image.height,
 
-              // @todo 分离
-              tags: []
-            }))
-            const newFiles = files.concat(targetFiles)
-            onChange(newFiles, 'add')
-          }
-        })
+    Taro.chooseImage(params)
+      .then(async res => {
+        const newFiles = []
+        for (const path of res.tempFilePaths) {
+          const image = await Taro.getImageInfo({
+            src: path
+          })
+          newFiles.push({
+            url: path,
+            width: image.width,
+            height: image.height
+          })
+        }
+        onChange(deepmerge([...files, ...newFiles]), 'add')
       })
       .catch(onFail)
   }
@@ -161,7 +159,7 @@ export default class ImageMoveablePicker extends Component {
           },
           () => {
             let data = {
-              reallyPositons: deepmerge([], this.state.reallyPositons)
+              reallyPositons: deepmerge(this.state.reallyPositons)
             }
 
             // 重新计算每一个图片应该在的位置
@@ -248,7 +246,8 @@ export default class ImageMoveablePicker extends Component {
       animation,
       movedCount
     } = this.state
-    const showChoose = files.length < count
+    const _files = files.filter((item, index) => index < count)
+    const showChoose = _files.length < count
     return (
       <MovableArea
         className={classNames(cls, className)}
@@ -256,7 +255,7 @@ export default class ImageMoveablePicker extends Component {
           height: `${moveableViewHeight[files.length]}rpx`
         }}
       >
-        {files.map((item, index) => {
+        {_files.map((item, index) => {
           const key = `${movedCount}|${item.url}|${index}`
           return (
             <MovableView
@@ -297,8 +296,8 @@ export default class ImageMoveablePicker extends Component {
             className={`${cls}__wrap`}
             style={{
               position: 'absolute',
-              top: `${standardPositions[files.length].y}rpx`,
-              left: `${standardPositions[files.length].x}rpx`
+              top: `${standardPositions[_files.length].y}rpx`,
+              left: `${standardPositions[_files.length].x}rpx`
             }}
             onClick={this.chooseFile}
           >

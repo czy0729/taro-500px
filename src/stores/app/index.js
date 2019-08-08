@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 18:05:05
+ * @Last Modified time: 2019-08-08 15:17:51
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim } from '@utils'
@@ -26,7 +26,7 @@ class AppStore extends store {
 
     // 图片编辑数据
     photoEdit: {
-      current: 4,
+      current: 0,
       data: [
         {
           url:
