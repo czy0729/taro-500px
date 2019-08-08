@@ -1,0 +1,31 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-08 20:04:25
+ * @Last Modified by:   czy0729
+ * @Last Modified time: 2019-08-08 20:04:25
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.page-tags__search-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 8px 0 8px $wind;
+  background-color: $color-plain;
+
+  &__input {
+    height: 72px;
+    padding: 0 $wind;
+    font-size: 28px;
+    line-height: 36px;
+    background-color: $color-bg;
+    border-radius: 64px;
+  }
+  &__cancel {
+    padding: 0 32px;
+    font-size: 28px;
+    line-height: 68px;
+  }
+}

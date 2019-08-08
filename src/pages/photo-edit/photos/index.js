@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-08-06 16:19:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 16:43:36
+ * @Last Modified time: 2019-08-08 19:26:31
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -117,14 +117,39 @@ class Photos extends Component {
     const { page, index } = currentTarget.dataset
     const files = deepmerge(this.state.files)
     const findIndex = files[page].tags.findIndex(item => item.id === index)
+
     if (findIndex !== -1) {
-      files[page].tags[findIndex] = {
-        ...files[page].tags[findIndex],
-        reverse: !files[page].tags[findIndex].reverse
-      }
-      this.setState({
-        files
-      })
+      let width
+      Taro.createSelectorQuery()
+        .in(this.$scope)
+        .select(`.${cls}__tag--${page}-${index}`)
+        .boundingClientRect(rect => {
+          width = rect.width
+        })
+        .exec(() => {
+          const reverse = !files[page].tags[findIndex].reverse
+
+          // 40是红点宽
+          const offset = ((width + 40) * pxRatio) / screenWidth
+          if (reverse) {
+            // 反转要计算中心锚点偏移位置比例
+            files[page].tags[findIndex] = {
+              ...files[page].tags[findIndex],
+              left: files[page].tags[findIndex].left - offset,
+              reverse
+            }
+          } else {
+            files[page].tags[findIndex] = {
+              ...files[page].tags[findIndex],
+              left: files[page].tags[findIndex].left + offset,
+              reverse
+            }
+          }
+
+          this.setState({
+            files
+          })
+        })
     }
   }
 
@@ -166,6 +191,7 @@ class Photos extends Component {
         page,
         index
       }
+      console.log(this.tagData)
     }
   }
 
@@ -199,6 +225,7 @@ class Photos extends Component {
           () => {
             const { onDataChange } = this.props
             onDataChange(files)
+            this.tagData = initTagData
             this.setState({
               animation: true
             })
@@ -221,9 +248,10 @@ class Photos extends Component {
         <CImage mode='aspectFit' src={item.url} height={imageHeight} />
         {item.tags.map(i => (
           <MovableView
-            key={`${page}|${i.id}`}
+            key={i.id}
             className={classNames(`${cls}__tag`, {
-              [`${cls}__tag--reverse`]: i.reverse
+              [`${cls}__tag--reverse`]: i.reverse,
+              [`${cls}__tag--${page}-${i.id}`]: true
             })}
             x={`${(i.left * screenWidth) / pxRatio}rpx`}
             y={`${(i.top * imageHeight) / pxRatio}rpx`}
@@ -243,7 +271,7 @@ class Photos extends Component {
               className={`${cls}__tag-dot`}
               data-page={page}
               data-index={i.id}
-              onTouchStart={this.onTagTouchStart}
+              onTouchStart={this.onTagClick}
               onTouchEnd={this.onTagReverse}
             />
             <View className={`${cls}__tag-angle`} />
