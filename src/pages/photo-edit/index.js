@@ -2,15 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-07-31 11:26:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 14:49:25
+ * @Last Modified time: 2019-08-09 17:14:21
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View } from '@tarojs/components'
 import Back from '@base/back'
 import NavigationTitle from '@base/navigation-title'
-import { getWindowHeight } from '@utils/style'
 import Cropper from '@components/wx/cropper'
+import { push, back } from '@utils'
+import { getWindowHeight } from '@utils/style'
 import Photos from './photos'
 import Toolbar from './toolbar'
 import { rootCls } from './ds'
@@ -84,20 +85,41 @@ class PhotoEdit extends Component {
     })
   }
 
+  onTag = () => {
+    const { appStore } = this.props
+    const { current, data } = this.state
+
+    appStore.savePhotoEditData({
+      current,
+      _data: data,
+      _onUpdate: newData => {
+        this.setState({
+          data: newData
+        })
+      }
+    })
+
+    push('/pages/tags/index')
+  }
+
   onNext = () => {
     const { appStore } = this.props
     const { data } = this.state
     appStore.savePhotoEditData({
       data
     })
-    Taro.navigateBack()
+    back()
   }
 
   renderPreview() {
     const { current, data, _loaded } = this.state
     return (
       <View className={`${cls}__preview`}>
-        <Toolbar onShowCut={this.onShowCut} onNext={this.onNext} />
+        <Toolbar
+          onShowCut={this.onShowCut}
+          onTag={this.onTag}
+          onNext={this.onNext}
+        />
         {_loaded && (
           <Photos
             current={current}

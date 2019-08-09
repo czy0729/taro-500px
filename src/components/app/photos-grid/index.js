@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import CImage from '@components/base/c-image'
+import CImage from '@base/c-image'
 import { transform } from '@utils/style'
 import { ENV } from '@constants'
 

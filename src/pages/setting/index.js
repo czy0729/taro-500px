@@ -2,14 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:59:29
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 09:38:59
+ * @Last Modified time: 2019-08-09 17:12:03
  */
 import classNames from 'classnames'
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
-import { View, ScrollView } from '@tarojs/components'
-import { ListItem, CButton } from '@components'
-import { ENV } from '@constants'
+import { View } from '@tarojs/components'
+import CScrollView from '@base/c-scroll-view'
+import CButton from '@base/c-button'
+import ListItem from '@base/list-item'
+import { push } from '@utils'
 import './index.scss'
 
 const cls = 'page-setting'
@@ -18,7 +20,8 @@ const DS = [
     id: 1,
     data: [
       {
-        label: '个人资料'
+        label: '个人资料',
+        url: '/pages/my-info/index'
       }
     ]
   },
@@ -61,13 +64,7 @@ class Setting extends Component {
 
   render() {
     return (
-      <ScrollView
-        className={cls}
-        style={{
-          height: ENV.windowHeight
-        }}
-        scrollY
-      >
+      <CScrollView className={cls}>
         {DS.map((item, index) => (
           <View
             key={item.id}
@@ -75,15 +72,19 @@ class Setting extends Component {
               'mt-64': !!index
             })}
           >
-            {item.data.map((i) => (
-              <ListItem key={i.label} text={i.label} />
+            {item.data.map(i => (
+              <ListItem
+                key={i.label}
+                text={i.label}
+                onClick={() => push(i.url)}
+              />
             ))}
           </View>
         ))}
         <View className={`${cls}__fixed`}>
           <CButton type='default'>退出登录</CButton>
         </View>
-      </ScrollView>
+      </CScrollView>
     )
   }
 }

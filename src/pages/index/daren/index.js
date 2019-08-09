@@ -2,15 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-06-11 15:56:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 13:47:46
+ * @Last Modified time: 2019-08-09 16:50:18
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import SectionTitle from '@components/base/section-title'
-import CImage from '@components/base/c-image'
-import CButton from '@components/base/c-button'
+import SectionTitle from '@base/section-title'
+import CImage from '@base/c-image'
+import CButton from '@base/c-button'
+import { push } from '@utils'
 import { rootCls, darenDS } from '../ds'
 import './index.scss'
 
@@ -32,6 +33,7 @@ const Collect = ({ className }) => {
               [`${cls}__item--last`]: index === darenDS.length - 1,
               'ml-16': !!index
             })}
+            onClick={() => push('')}
           >
             <View className='flex flex-column'>
               <CImage

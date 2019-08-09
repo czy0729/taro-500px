@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-07 14:06:24
+ * @Last Modified time: 2019-08-09 17:12:31
  */
 import Taro from '@tarojs/taro'
 
@@ -22,10 +22,27 @@ export function deepmerge(target) {
  * @param {*} options
  */
 export function push(url, options) {
+  if (!url) {
+    Taro.showToast({
+      title: '缺少页面',
+      icon: 'none',
+      duration: 800
+    })
+    return
+  }
+
   Taro.navigateTo({
     url,
     ...options
   })
+}
+
+/**
+ * 退后
+ * @param {*} options
+ */
+export function back(options) {
+  Taro.navigateBack(options)
 }
 
 /**

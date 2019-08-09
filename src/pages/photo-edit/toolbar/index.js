@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-08-08 14:36:12
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 15:30:31
+ * @Last Modified time: 2019-08-09 12:22:01
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -16,7 +16,7 @@ import './index.scss'
 
 const cls = `${rootCls}__toolbar`
 
-function Toolbar({ className, onShowCut, onNext }) {
+function Toolbar({ className, onShowCut, onTag, onNext }) {
   return (
     <View className={classNames(cls, 'flex', className)}>
       <View className='flex flex-column flex-1' onClick={onShowCut}>
@@ -25,7 +25,7 @@ function Toolbar({ className, onShowCut, onNext }) {
           <Text className='t-26 l-48 t-default t-c t-shadow mt-8'>裁剪</Text>
         </View>
       </View>
-      <View className='flex flex-column flex-1'>
+      <View className='flex flex-column flex-1' onClick={onTag}>
         <View className={`${cls}__item flex flex-column`}>
           <Iconfont className='t-48 t-plain t-shadow' name='tag' />
           <Text className='t-26 l-48 t-default t-c t-shadow mt-8'>标签</Text>
@@ -48,6 +48,7 @@ function Toolbar({ className, onShowCut, onNext }) {
 Toolbar.defaultProps = {
   className: '',
   onShowCut: Function.prototype,
+  onTag: Function.prototype,
   onNext: Function.prototype
 }
 

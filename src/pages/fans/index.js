@@ -2,12 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:41:25
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:54:11
+ * @Last Modified time: 2019-08-09 15:37:40
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, ScrollView, Text } from '@tarojs/components'
-import { ListItem, CButton, CImage } from '@components'
+import CButton from '@base/c-button'
+import CImage from '@base/c-image'
+import ListItem from '@base/list-item'
 import { ENV } from '@constants'
 import { fansDS } from '@constants/mock'
 
@@ -35,7 +37,7 @@ class Fans extends Component {
             <ListItem
               key={item.id}
               arrow={false}
-              border={!!index}
+              border={index !== fansDS.list.length - 1}
               renderExtra={
                 <CButton
                   size='mini'

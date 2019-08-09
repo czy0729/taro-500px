@@ -2,11 +2,11 @@
  * @Author: czy0729
  * @Date: 2019-08-06 16:19:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 19:26:31
+ * @Last Modified time: 2019-08-09 14:58:00
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
-import { observer, inject } from '@tarojs/mobx'
+import { observer } from '@tarojs/mobx'
 import {
   View,
   Text,
@@ -34,7 +34,6 @@ const initTagData = {
   index: 0
 }
 
-@inject('appStore')
 @observer
 class Photos extends Component {
   static defaultProps = {
@@ -57,6 +56,14 @@ class Photos extends Component {
 
   componentDidMount() {
     const { current, data } = this.props
+    this.setState({
+      index: current,
+      files: data
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { current, data } = nextProps
     this.setState({
       index: current,
       files: data
@@ -119,37 +126,48 @@ class Photos extends Component {
     const findIndex = files[page].tags.findIndex(item => item.id === index)
 
     if (findIndex !== -1) {
-      let width
-      Taro.createSelectorQuery()
-        .in(this.$scope)
-        .select(`.${cls}__tag--${page}-${index}`)
-        .boundingClientRect(rect => {
-          width = rect.width
-        })
-        .exec(() => {
-          const reverse = !files[page].tags[findIndex].reverse
+      // let width
+      // Taro.createSelectorQuery()
+      //   .in(this.$scope)
+      //   .select(`.${cls}__tag--${page}-${index}`)
+      //   .boundingClientRect(rect => {
+      //     width = rect.width
+      //   })
+      //   .exec(() => {
+      //     const reverse = !files[page].tags[findIndex].reverse
 
-          // 40是红点宽
-          const offset = ((width + 40) * pxRatio) / screenWidth
-          if (reverse) {
-            // 反转要计算中心锚点偏移位置比例
-            files[page].tags[findIndex] = {
-              ...files[page].tags[findIndex],
-              left: files[page].tags[findIndex].left - offset,
-              reverse
-            }
-          } else {
-            files[page].tags[findIndex] = {
-              ...files[page].tags[findIndex],
-              left: files[page].tags[findIndex].left + offset,
-              reverse
-            }
-          }
+      //     // 40是红点宽
+      //     const offset = ((width + 40) * pxRatio) / screenWidth
+      //     if (reverse) {
+      //       // 反转要计算中心锚点偏移位置比例
+      //       files[page].tags[findIndex] = {
+      //         ...files[page].tags[findIndex],
+      //         left: files[page].tags[findIndex].left - offset,
+      //         reverse
+      //       }
+      //     } else {
+      //       files[page].tags[findIndex] = {
+      //         ...files[page].tags[findIndex],
+      //         left: files[page].tags[findIndex].left + offset,
+      //         reverse
+      //       }
+      //     }
 
-          this.setState({
-            files
-          })
-        })
+      //     this.setState({
+      //       files
+      //     })
+      //   })
+
+      const reverse = !files[page].tags[findIndex].reverse
+      files[page].tags[findIndex] = {
+        ...files[page].tags[findIndex],
+        left: files[page].tags[findIndex].left,
+        reverse
+      }
+
+      this.setState({
+        files
+      })
     }
   }
 
@@ -191,7 +209,6 @@ class Photos extends Component {
         page,
         index
       }
-      console.log(this.tagData)
     }
   }
 

@@ -2,12 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-18 09:38:21
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-18 11:44:39
+ * @Last Modified time: 2019-08-09 15:39:06
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, ScrollView, Text } from '@tarojs/components'
-import { ListItem, CButton, CImage } from '@components'
+import CButton from '@base/c-button'
+import CImage from '@base/c-image'
+import ListItem from '@base/list-item'
 import { ENV } from '@constants'
 import { followDS } from '@constants/mock'
 
@@ -33,7 +35,7 @@ class Follow extends Component {
           <ListItem
             key={item.id}
             arrow={false}
-            border={!!index}
+            border={index !== followDS.list.length - 1}
             renderExtra={
               <CButton size='mini' type='default'>
                 已关注

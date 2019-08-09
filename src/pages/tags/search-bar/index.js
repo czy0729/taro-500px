@@ -1,16 +1,16 @@
 /*
  * @Author: czy0729
  * @Date: 2019-08-08 20:30:11
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-08-08 20:30:11
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-09 14:30:42
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import Component from '@components/component'
-import CInput from '@components/base/c-input'
-import Iconfont from '@components/base/iconfont'
+import CInput from '@base/c-input'
+import Iconfont from '@base/iconfont'
 import { rootCls } from '../ds'
 import './index.scss'
 
@@ -18,6 +18,10 @@ const cls = `${rootCls}__search-bar`
 
 @observer
 export default class SearchBar extends Component {
+  static defaultProps = {
+    onAdd: Function.prototype
+  }
+
   state = {
     value: ''
   }
@@ -28,8 +32,10 @@ export default class SearchBar extends Component {
     })
   }
 
-  back = () => {
-    Taro.navigateBack()
+  onAdd = () => {
+    const { onAdd } = this.props
+    const { value } = this.state
+    onAdd(value)
   }
 
   render() {
@@ -52,7 +58,7 @@ export default class SearchBar extends Component {
             't-sub': value === '',
             't-danger': value !== ''
           })}
-          onClick={this.back}
+          onClick={this.onAdd}
         >
           添加
         </Text>

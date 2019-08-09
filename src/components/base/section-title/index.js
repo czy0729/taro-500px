@@ -2,12 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 10:37:10
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 17:06:53
+ * @Last Modified time: 2019-08-09 16:44:43
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import Component from '@components/component'
+import { push } from '@utils'
 import Iconfont from '../iconfont'
 import './index.scss'
 
@@ -18,7 +19,9 @@ export default class SectionTitle extends Component {
     desc: '',
     text: '',
     icon: '',
-    onClick: Function.prototype
+    onClick: () => {
+      push('')
+    }
   }
 
   render() {

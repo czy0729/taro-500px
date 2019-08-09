@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-19 11:08:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 12:10:16
+ * @Last Modified time: 2019-08-09 15:40:30
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import { CImage } from '@components'
+import CImage from '@base/c-image'
 import { push } from '@utils'
 import { LIST_EMPTY } from '@constants'
 

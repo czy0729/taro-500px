@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-19 16:50:13
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 11:50:32
+ * @Last Modified time: 2019-08-09 15:53:14
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import imgEmpty from '@assets/components/empty/01.jpg'
-import CImage from '../img'
+import CImage from '../c-image'
 import './index.scss'
 
 const cls = 'c-empty'

@@ -2,13 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-07-18 17:06:45
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 11:06:26
+ * @Last Modified time: 2019-08-09 17:05:23
  */
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, ScrollView } from '@tarojs/components'
+import { View, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { ListItem, CImage } from '@components'
-import { ENV } from '@constants'
+import CScrollView from '@base/c-scroll-view'
+import CImage from '@base/c-image'
+import ListItem from '@base/list-item'
+import { push } from '@utils'
 
 const cls = 'page-my-info'
 const DS = [
@@ -43,12 +45,7 @@ class MyInfo extends Component {
 
   render() {
     return (
-      <ScrollView
-        style={{
-          height: ENV.windowHeight
-        }}
-        scrollY
-      >
+      <CScrollView>
         <View className={`${cls}__container`}>
           <ListItem
             text='头像'
@@ -62,6 +59,7 @@ class MyInfo extends Component {
                 }}
               />
             }
+            onClick={() => push('')}
           />
           {DS.map(item => (
             <ListItem
@@ -72,10 +70,11 @@ class MyInfo extends Component {
                   {item.value || '未设置'}
                 </Text>
               }
+              onClick={() => push('')}
             />
           ))}
         </View>
-      </ScrollView>
+      </CScrollView>
     )
   }
 }

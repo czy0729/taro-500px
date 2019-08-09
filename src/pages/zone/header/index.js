@@ -2,13 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:27:28
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 17:39:41
+ * @Last Modified time: 2019-08-09 16:54:57
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import { CImage, CButton } from '@components'
+import CImage from '@base/c-image'
+import CButton from '@base/c-button'
 import { push } from '@utils'
 import './index.scss'
 
@@ -57,13 +58,18 @@ const Header = ({ className }) => {
             <View className='flex-1'>
               <CButton
                 ghost
-                size='medium'
+                size='mini'
                 text='编辑个人资料'
                 onClick={() => push('/pages/my-info/index')}
               />
             </View>
             <View className='flex-1 ml-32'>
-              <CButton ghost size='medium' text='更改封面' />
+              <CButton
+                ghost
+                size='mini'
+                text='更改封面'
+                onClick={() => push('')}
+              />
             </View>
           </View>
         </View>

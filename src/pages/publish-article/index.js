@@ -2,12 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-07-23 17:59:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-24 18:33:10
+ * @Last Modified time: 2019-08-09 14:52:14
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, Text, Editor } from '@tarojs/components'
-import { CScrollView, CImage, CInput, CButton, Iconfont } from '@components'
+import CScrollView from '@base/c-scroll-view'
+import CImage from '@base/c-image'
+import CInput from '@base/c-input'
+import CButton from '@base/c-button'
+import Iconfont from '@base/iconfont'
 import './index.scss'
 
 const cls = 'page-publish-article'

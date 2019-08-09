@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-17 17:17:43
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:01:56
+ * @Last Modified time: 2019-08-09 17:08:08
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View } from '@tarojs/components'
-import ListItem from '@components/base/list-item'
+import ListItem from '@base/list-item'
 import { push } from '@utils'
 import { rootCls, listDS } from '../ds'
 
@@ -21,11 +21,7 @@ const List = ({ className }) => {
         <ListItem
           key={item.label}
           text={item.label}
-          onClick={() => {
-            if (item.url) {
-              push(item.url)
-            }
-          }}
+          onClick={() => push(item.url)}
         />
       ))}
     </View>

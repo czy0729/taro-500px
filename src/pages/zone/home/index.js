@@ -2,16 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-07-19 15:16:21
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 16:34:04
+ * @Last Modified time: 2019-08-09 15:52:34
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View } from '@tarojs/components'
-import { SectionTitle } from '@components'
-import PhotosGrid from '@components/app/photos-grid'
-import VideosGrid from '@components/app/videos-grid'
-import ArticleList from '@components/app/article-list'
+import SectionTitle from '@base/section-title'
+import PhotosGrid from '@app/photos-grid'
+import VideosGrid from '@app/videos-grid'
+import ArticleList from '@app/article-list'
 import { push } from '@utils'
 import { zoneDS } from '@constants/mock'
 import './index.scss'

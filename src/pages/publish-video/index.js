@@ -2,20 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-07-25 09:33:16
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-25 10:01:07
+ * @Last Modified time: 2019-08-09 15:49:02
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
-import {
-  CScrollView,
-  CImage,
-  CButton,
-  CTextarea,
-  Tag,
-  Iconfont
-} from '@components'
-import VideoMask from '@components/app/video-mask'
+import CScrollView from '@base/c-scroll-view'
+import CImage from '@base/c-image'
+import CTextarea from '@base/c-textarea'
+import CButton from '@base/c-button'
+import Tag from '@base/tag'
+import Iconfont from '@base/iconfont'
+import VideoMask from '@app/video-mask'
 import './index.scss'
 
 const cls = 'page-publish-video'

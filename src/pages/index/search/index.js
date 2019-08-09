@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import Iconfont from '@components/base/iconfont'
+import Iconfont from '@base/iconfont'
 import { rootCls } from '../ds'
 import './index.scss'
 

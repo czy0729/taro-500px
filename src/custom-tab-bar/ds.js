@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-30 16:40:06
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:51:35
+ * @Last Modified time: 2019-08-09 14:50:15
  */
 import imageHome from '@assets/tab-bar/home.png'
 import imageHomeActive from '@assets/tab-bar/home-active.png'
@@ -32,15 +32,18 @@ export const listDS = [
 export const menuDS = [
   {
     text: '文章',
-    icon: 'document'
+    icon: 'document',
+    pagePath: '/pages/publish-article/index'
   },
   {
     text: '图片',
-    icon: 'picture'
+    icon: 'picture',
+    pagePath: '/pages/publish-photos/index'
   },
   {
     text: '视频',
-    icon: 'video'
+    icon: 'video',
+    pagePath: '/pages/publish-video/index'
   },
   {
     text: '案例',

@@ -2,10 +2,10 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 15:17:51
+ * @Last Modified time: 2019-08-09 14:23:21
  */
 import { observable, computed } from 'mobx'
-import { dev, getTimestamp, HTMLTrim } from '@utils'
+import { dev, getTimestamp, HTMLTrim, deepmerge } from '@utils'
 import store from '@utils/store'
 import fetch from '@utils/fetch'
 import { genRichTextNodes } from '@utils/app'
@@ -14,17 +14,20 @@ import { initDetail } from './init'
 
 class AppStore extends store {
   @observable state = {
+    // 照片
     photo: LIST_EMPTY,
 
+    // 文章
     detail: {
       // 0: initDetail
     },
 
+    // 留言
     comments: {
       // 0: LIST_EMPTY
     },
 
-    // 图片编辑数据
+    // 照片编辑数据
     photoEdit: {
       current: 0,
       data: [
@@ -185,7 +188,9 @@ class AppStore extends store {
             }
           ]
         }
-      ]
+      ],
+      _data: [],
+      _onUpdate: Function.prototype
     }
   }
 
@@ -390,6 +395,29 @@ class AppStore extends store {
   savePhotoEditData = photoEdit => {
     this.setState({
       photoEdit
+    })
+  }
+
+  /**
+   * 图片跨页面增加标签
+   */
+  addPhotoEditTag = tag => {
+    const { current, _data, _onUpdate } = this.state.photoEdit
+    const data = deepmerge(_data)
+    data[current].tags.push({
+      ...tag,
+      id: getTimestamp(),
+      top: 0.4,
+      left: 0.4
+    })
+
+    // 使用页面提供的回调函数更新页面state
+    _onUpdate(data)
+
+    // 清理临时引用
+    this.savePhotoEditData({
+      _data: [],
+      _onUpdate: Function.prototype
     })
   }
 }

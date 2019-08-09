@@ -2,12 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-06-13 18:21:34
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 17:02:09
+ * @Last Modified time: 2019-08-09 15:56:04
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { Back, CScrollView, Tabs, TabsPane } from '@components'
+import CScrollView from '@base/c-scroll-view'
+import Back from '@base/back'
+import Tabs from '@base/tabs'
+import TabsPane from '@base/tabs/pane'
 import Header from './header'
 import Menu from './menu'
 import Home from './home'
@@ -39,7 +42,7 @@ class Zone extends Component {
     const { current } = this.state
     return (
       <View className={cls}>
-        <Back />
+        <Back theme='light' />
         <CScrollView>
           <Header />
           <Menu />

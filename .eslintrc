@@ -5,7 +5,8 @@
     "react/jsx-filename-extension": [
       1,
       { "extensions": [".js", ".jsx", ".tsx"] }
-    ]
+    ],
+    "react/sort-comp": 0
   },
   "parser": "babel-eslint"
 }

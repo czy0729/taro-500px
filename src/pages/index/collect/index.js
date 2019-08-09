@@ -2,14 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-06-11 10:23:41
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 13:46:18
+ * @Last Modified time: 2019-08-09 16:48:31
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import SectionTitle from '@components/base/section-title'
-import CImage from '@components/base/c-image'
+import CImage from '@base/c-image'
+import SectionTitle from '@base/section-title'
+import { push } from '@utils'
 import { rootCls, collectDS } from '../ds'
 import './index.scss'
 
@@ -30,6 +31,7 @@ const Collect = ({ className }) => {
               [`${cls}__item--last`]: index === collectDS.length - 1,
               'ml-16': !!index
             })}
+            onClick={() => push('')}
           >
             <CImage
               width={Taro.pxTransform(270)}

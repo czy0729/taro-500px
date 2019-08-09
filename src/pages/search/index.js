@@ -7,7 +7,7 @@
 import classNames from 'classnames'
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
-import CScrollView from '@components/base/c-scroll-view'
+import CScrollView from '@base/c-scroll-view'
 import SearchBar from './search-bar'
 import History from './history'
 import Hot from './hot'

@@ -2,12 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-07-18 18:13:45
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 12:17:35
+ * @Last Modified time: 2019-08-09 15:47:05
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import { CScrollView, CInput, CTextarea, CButton } from '@components'
+import CScrollView from '@base/c-scroll-view'
+import CInput from '@base/c-input'
+import CTextarea from '@base/c-textarea'
+import CButton from '@base/c-button'
 import './index.scss'
 
 const cls = 'page-new-favor'

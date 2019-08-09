@@ -2,12 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-13 18:21:34
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 15:48:14
+ * @Last Modified time: 2019-08-09 14:45:28
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import CScrollView from '@components/base/c-scroll-view'
+import CScrollView from '@base/c-scroll-view'
 import { updateTabBar } from '@utils/app'
 import Header from './header'
 import Menu from './menu'
@@ -31,7 +31,7 @@ class User extends Component {
 
   render() {
     return (
-      <CScrollView>
+      <CScrollView showTabBar>
         <View className={`${cls}__container`}>
           <Header />
           <Menu />

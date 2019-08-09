@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-07-18 12:27:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-19 16:28:44
+ * @Last Modified time: 2019-08-09 15:50:17
  */
 import Taro, { Component } from '@tarojs/taro'
-import { View, ScrollView } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import ArticleList from '@components/app/article-list'
-import { ENV } from '@constants'
+import CScrollView from '@base/c-scroll-view'
+import ArticleList from '@app/article-list'
 import { myArticleDS } from '@constants/mock'
 import './index.scss'
 
@@ -23,16 +23,11 @@ class MyArticles extends Component {
 
   render() {
     return (
-      <ScrollView
-        style={{
-          height: ENV.windowHeight
-        }}
-        scrollY
-      >
+      <CScrollView>
         <View className={`${cls}__container`}>
           <ArticleList data={myArticleDS} />
         </View>
-      </ScrollView>
+      </CScrollView>
     )
   }
 }

@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 12:03:15
+ * @Last Modified time: 2019-08-09 15:49:42
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import CImage from '@components/base/c-image'
-import Iconfont from '@components/base/iconfont'
+import CImage from '@base/c-image'
+import Iconfont from '@base/iconfont'
 import { transform } from '@utils/style'
 import './index.scss'
 
@@ -41,7 +41,7 @@ const Item = ({
         />
         {!!time && (
           <View className={`${cls}__mask flex flex-justify-center`}>
-            <Iconfont className='t-44 t-plain' name='search' />
+            <Iconfont className='t-44 t-plain' name='play' />
             <Text className={`${cls}__time t-24 l-32 t-plain`}>{time}</Text>
           </View>
         )}

@@ -2,17 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 14:51:50
+ * @Last Modified time: 2019-08-09 17:03:18
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
-import CScrollView from '@components/base/c-scroll-view'
-import Tabs from '@components/base/tabs'
-import TabsPane from '@components/base/tabs/pane'
-import ActivityIndicator from '@components/base/activity-indicator'
+import CScrollView from '@base/c-scroll-view'
+import Tabs from '@base/tabs'
+import TabsPane from '@base/tabs/pane'
+import ActivityIndicator from '@base/activity-indicator'
 import MasonryList from '@app/masonry-list'
 import { updateTabBar } from '@utils/app'
+import { ENV } from '@constants'
 import Search from './search'
 import Collect from './collect'
 import Recommend from './recommend'
@@ -73,7 +74,11 @@ class Index extends Component {
           onClick={this.onTabsClick}
         >
           <TabsPane current={current}>
-            <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
+            <CScrollView
+              className={cls}
+              showTabBar
+              onScrollToLower={this.onScrollToLower}
+            >
               <View className={`${cls}__container`}>
                 <Collect />
                 <Recommend className='mt-40' />
@@ -86,8 +91,17 @@ class Index extends Component {
             </CScrollView>
           </TabsPane>
           <TabsPane current={current} index={1}>
-            <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
-              <View className={`${cls}__container-discovery`}>
+            <CScrollView
+              className={cls}
+              showTabBar
+              onScrollToLower={this.onScrollToLower}
+            >
+              <View
+                className={`${cls}__container-discovery`}
+                style={{
+                  minHeight: ENV.windowHeight
+                }}
+              >
                 <MasonryList data={appStore.photo} />
                 <ActivityIndicator show={loading} />
               </View>

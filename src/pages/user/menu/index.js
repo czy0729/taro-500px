@@ -2,14 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:09:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:23:21
+ * @Last Modified time: 2019-08-09 17:08:00
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
+import Iconfont from '@base/iconfont'
 import { push } from '@utils'
-import Iconfont from '@components/base/iconfont'
 import { rootCls, menuDS } from '../ds'
 import './index.scss'
 
@@ -22,13 +22,7 @@ const Menu = ({ className }) => {
         <View
           key={item.label}
           className={`${cls}__item flex flex-column`}
-          onClick={() => {
-            if (item.url) {
-              push({
-                url: item.url
-              })
-            }
-          }}
+          onClick={() => push(item.url)}
         >
           <Iconfont className='t-44 t-main' name={item.icon} />
           <Text className='t-24 l-32 t-desc t-c mt-16'>{item.label}</Text>

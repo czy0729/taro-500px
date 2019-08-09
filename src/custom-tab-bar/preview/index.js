@@ -2,16 +2,17 @@
  * @Author: czy0729
  * @Date: 2019-07-01 16:57:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:51:39
+ * @Last Modified time: 2019-08-09 16:53:38
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import Component from '@components/component'
-import CButton from '@components/base/c-button'
-import CImage from '@components/base/c-image'
-import Iconfont from '@components/base/iconfont'
-import { ENV } from '@constants'
+import CButton from '@base/c-button'
+import CImage from '@base/c-image'
+import Iconfont from '@base/iconfont'
+import { push } from '@utils'
+import { getWindowHeight } from '@utils/style'
 import { rootCls, menuDS } from '../ds'
 import './index.scss'
 
@@ -24,7 +25,7 @@ class Preview extends Component {
 
   renderPlan() {
     return (
-      <View className={`${cls}__plan flex`}>
+      <View className={`${cls}__plan flex`} onClick={() => push('')}>
         <View className='flex-1'>
           <View className={`${cls}__wrap`}>
             <Text className='t-24 l-40 t-c t-warning'>正在征集</Text>
@@ -91,6 +92,12 @@ class Preview extends Component {
             <View
               key={item.text}
               className={`${cls}__item flex flex-column flex-1`}
+              onClick={() => {
+                push(item.pagePath)
+                setTimeout(() => {
+                  onClose()
+                }, 2000)
+              }}
             >
               <View className='flex flex-justify-center'>
                 <Iconfont className='t-52 t-title' name={item.icon} />
@@ -117,7 +124,7 @@ class Preview extends Component {
           [`${cls}--show`]: show
         })}
         style={{
-          height: ENV.windowHeight
+          height: getWindowHeight()
         }}
       >
         <View className={`${cls}__container`}>

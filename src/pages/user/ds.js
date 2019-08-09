@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-30 15:47:50
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:19:28
+ * @Last Modified time: 2019-08-09 16:03:40
  */
 export const rootCls = 'page-user'
 
@@ -40,7 +40,7 @@ export const menuDS = [
   {
     label: '我的文章',
     icon: 'document',
-    url: '/pages/my-article/index'
+    url: '/pages/my-articles/index'
   },
   {
     label: '我的方案',

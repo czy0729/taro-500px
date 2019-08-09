@@ -2,15 +2,16 @@
  * @Author: czy0729
  * @Date: 2019-06-11 14:03:30
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 14:57:44
+ * @Last Modified time: 2019-08-09 16:49:25
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { ScrollView, View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
-import SectionTitle from '@components/base/section-title'
-import CImage from '@components/base/c-image'
-import CButton from '@components/base/c-button'
+import SectionTitle from '@base/section-title'
+import CImage from '@base/c-image'
+import CButton from '@base/c-button'
+import { push } from '@utils'
 import { rootCls, recommendDS } from '../ds'
 import './index.scss'
 
@@ -32,6 +33,7 @@ const Recommend = ({ className }) => {
               [`${cls}__item--last`]: index === recommendDS.length - 1,
               'ml-16': !!index
             })}
+            onClick={() => push('')}
           >
             <View className='flex'>
               <View className='flex-1'>

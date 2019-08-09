@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 20:04:08
+ * @Last Modified time: 2019-08-09 15:59:43
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -27,28 +27,29 @@ const store = {
 class App extends Component {
   config = {
     pages: [
-      // 'pages/article/index', // 文章详情
-      // 'pages/detail/index', // 图片详情
-      // 'pages/fans/index', // 我的粉丝
-      // 'pages/follow/index', // 我的关注
-      // 'pages/my-favor/index', // 我的收藏
-      // 'pages/new-favor/index', // 新建收藏
-      // 'pages/favor-detail/index', // 收藏夹详情
-      // 'pages/my-photos/index', // 我的图片
-      // 'pages/my-videos/index', // 我的视频
-      // 'pages/my-articles/index', // 我的文章
-      // 'pages/history/index', // 浏览历史
-      // 'pages/search/index', // 搜索
-      // 'pages/zone/index', // 个人空间
-      // 'pages/setting/index', // 设置
-      // 'pages/publish-photos/index', // 发布图片
-      'pages/tags/index', // 图片标签
+      'pages/index/index', // 首页
+      'pages/user/index', // 个人中心
+      'pages/detail/index', // 图片详情
+      'pages/article/index', // 文章详情
+      'pages/search/index', // 搜索
+      'pages/fans/index', // 我的粉丝
+      'pages/follow/index', // 我的关注
+      'pages/my-favor/index', // 我的收藏
+      'pages/new-favor/index', // 新建收藏
+      'pages/favor-detail/index', // 收藏夹详情
+      'pages/my-photos/index', // 我的图片
+      'pages/my-videos/index', // 我的视频
+      'pages/my-articles/index', // 我的文章
+      'pages/history/index', // 浏览历史
+      'pages/zone/index', // 个人空间
+      'pages/setting/index', // 设置
+      'pages/publish-photos/index', // 发布图片
+      'pages/publish-article/index', // 发布文章
+      'pages/publish-video/index', // 发布视频
       'pages/photo-edit/index', // 图片编辑
-      // 'pages/publish-article/index', // 发布文章
-      // 'pages/publish-video/index', // 发布视频
-      // 'pages/index/index', // 首页
-      // 'pages/user/index', // 个人中心
-      'pages/empty/index'
+      'pages/tags/index', // 图片标签
+      'pages/my-info/index', // 图片标签
+      'pages/empty/index' // 开发占位页
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -63,13 +64,13 @@ class App extends Component {
       backgroundColor: colorPlain,
       list: [
         {
-          pagePath: 'pages/empty/index',
+          pagePath: 'pages/index/index',
           iconPath: './assets/tab-bar/home.png',
           selectedIconPath: './assets/tab-bar/home-active.png',
           text: '首页'
         },
         {
-          pagePath: 'pages/empty/index',
+          pagePath: 'pages/user/index',
           iconPath: './assets/tab-bar/user.png',
           selectedIconPath: './assets/tab-bar/user-active.png',
           text: '我'

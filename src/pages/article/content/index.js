@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 17:26:59
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 10:31:35
+ * @Last Modified time: 2019-08-09 15:32:20
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -10,10 +10,10 @@ import { View, Text } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import CImage from '@base/c-image'
 import CButton from '@base/c-button'
-import ParserRichText from '@components/wx/parser-rich-text'
 import Tag from '@base/tag'
 import BtnGood from '@app/btn-good'
 import Share from '@app/share'
+import ParserRichText from '@components/wx/parser-rich-text'
 import { date } from '@utils'
 import { radius } from '@utils/style'
 import { rootCls, infoDS } from '../ds'
