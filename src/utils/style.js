@@ -2,12 +2,12 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:06:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-06-24 14:45:51
+ * @Last Modified time: 2019-08-12 12:16:28
  */
 import Taro from '@tarojs/taro'
 
 const NAVIGATOR_HEIGHT = 44
-const TAB_BAR_HEIGHT = 50
+const TAB_BAR_HEIGHT = 48
 
 /**
  * px自动补全

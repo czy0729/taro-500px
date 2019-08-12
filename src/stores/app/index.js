@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:57:46
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-09 14:23:21
+ * @Last Modified time: 2019-08-09 18:06:15
  */
 import { observable, computed } from 'mobx'
 import { dev, getTimestamp, HTMLTrim, deepmerge } from '@utils'
@@ -10,7 +10,7 @@ import store from '@utils/store'
 import fetch from '@utils/fetch'
 import { genRichTextNodes } from '@utils/app'
 import { LIST_EMPTY } from '@constants'
-import { initDetail } from './init'
+import { initPhotoItem, initDetail } from './init'
 
 class AppStore extends store {
   @observable state = {
@@ -20,6 +20,32 @@ class AppStore extends store {
     // 文章
     detail: {
       // 0: initDetail
+      1: {
+        title: '短腿大脸猫的图片',
+        cover:
+          'https://img.haohaozhu.cn/App-imageShow/o_nphone/b550e226x33o0L600pochi9',
+        content:
+          '\n我家就是北欧风，走的简洁、大方、实用的总方针。\n\n图1，2。客厅\n舒梵的门洞形状的大镜子，大爱，质量特别好，很有分量，显得家里都大了，蓬荜生辉！\n\n一整面墙的爱格板电视柜，白色简约好看，收纳能力强大，是家里保持干净整洁的独门秘籍。最爱。\n\n图3。客厅\n桌子、椅子、沙发都是细腿高脚。精致、好打扫卫生。\n客厅配色：主要是莫兰迪蓝 珊瑚粉 少量金色点缀，看着比较舒服。\n\n图4\n厨房\n25mm细边框玻璃移门，有质感。\n门槛石取消，用移门轨道直接压住厨房地砖和客厅地板。\n橱柜的白色玻璃门板，简约、好打理。\n西门子白色冰箱，容量大，简约、好看、大气。\n博世白色油烟机，颜值高。\n武峰伊丽莎白全自净吊顶，简约好看。\n瓷砖美缝，马贝141填缝剂，哑光，有质感\n\n图5\n卫生间\n15mm细边框玻璃吊轨门 玉砂玻璃，有质感。\n浴室柜的白色玻璃门板，简约、好打理。\n浴室柜的亚历克台面：细腻光滑有质感。\n瓷砖美缝：马贝141填缝剂，哑光，有质感\n\n\n图6，7，8\n装饰画是亚克力板 画芯，淘宝买材料，自己DIY。成本才几十块。全屋的装饰画都是自己DIY，成本只有500块左右，不仅省钱，而且比买的成品画还好看！\n\n图9\n金色小花瓶是要几朵花就可以插满，漂漂亮亮，很省钱。\n\n',
+        uploadedDate: getTimestamp(),
+        uploaderInfo: {
+          avatar: {
+            baseUrl:
+              'https://img.haohaozhu.cn/App-imageShow/o_nphone/b550e226x33o0L600pochi9'
+          },
+          nickName: '短腿大脸猫'
+        },
+        pictureLikeedCount: 53,
+        carousel: initPhotoItem,
+        more: [
+          'https://img.haohaozhu.cn/App-imageShow/sq_thumb/877/ca81a245c2rp0XU00phxkn2?w=230&h=230&iv=1',
+          'https://img.haohaozhu.cn/App-imageShow/sq_thumb/94f/8a60021jk1110qg00ponn3y?w=230&h=230&iv=1',
+          'https://img.haohaozhu.cn/App-imageShow/sq_thumb/fd0/37a1e20ih0m80mc00po1gp93q8g4?w=230&h=230&iv=1',
+          'https://img.haohaozhu.cn/App-imageShow/sq_thumb/d62/9bdef20ku0ok00000om2n07?w=230&h=230&iv=1',
+          'https://img.haohaozhu.cn/App-imageShow/sq_thumb/629/c8a0623402c00MA00plxfuy?w=230&h=230&iv=1'
+        ],
+        richText: [],
+        _loaded: getTimestamp()
+      }
     },
 
     // 留言
@@ -30,165 +56,7 @@ class AppStore extends store {
     // 照片编辑数据
     photoEdit: {
       current: 0,
-      data: [
-        {
-          url:
-            'https://img.haohaozhu.cn/App-imageShow/o_nphone/b550e226x33o0L600pochi9',
-          width: 750,
-          height: 1061,
-          tags: [
-            {
-              id: 10,
-              name: '舒梵',
-              top: 0.49538171536286524,
-              left: 0.06373333333333334
-            },
-            {
-              id: 11,
-              name: '宜家',
-              top: 0.5741753063147974,
-              left: 0.41333333333333333,
-              reverse: true
-            },
-            {
-              id: 12,
-              name: '爱格板',
-              top: 0.32855796418473143,
-              left: 0.2608,
-              reverse: true
-            },
-            {
-              id: 13,
-              name: '海信',
-              top: 0.48803016022620166,
-              left: 0.5450666666666667
-            },
-            {
-              id: 14,
-              name: '依诺维绅',
-              top: 0.5969839773798303,
-              left: 0.6893333333333334,
-              reverse: false
-            },
-            {
-              id: 15,
-              name: '陌希生活',
-              top: 0.6373232799245995,
-              left: 0.28586666666666666,
-              reverse: true
-            },
-            {
-              id: 16,
-              name: '白色垃圾桶',
-              top: 0.695004712535344,
-              left: 0.5573333333333333
-            },
-            { id: 17, name: '菲林格尔', top: 0.8197926484448633, left: 0.2616 }
-          ]
-        },
-        {
-          url:
-            'https://img.haohaozhu.cn/App-imageShow/o_nphone/759a6232f2c00df00pochdp',
-          width: 750,
-          height: 571,
-          tags: [
-            {
-              id: 20,
-              name: '伸缩杆',
-              top: 0.27075306479859895,
-              left: 0.1576,
-              reverse: true
-            },
-            {
-              id: 21,
-              name: '依诺维绅',
-              top: 0.6507880910683013,
-              left: 0.13386666666666666,
-              reverse: true
-            },
-            {
-              id: 22,
-              name: 'ANNA ART画芯',
-              top: 0.2991243432574431,
-              left: 0.6456,
-              reverse: false
-            },
-            {
-              id: 23,
-              name: '宜家',
-              top: 0.6273204903677758,
-              left: 0.6570666666666667
-            },
-            {
-              id: 24,
-              name: '陌希生活',
-              top: 0.8581436077057794,
-              left: 0.33813333333333334,
-              reverse: false
-            }
-          ]
-        },
-        {
-          url:
-            'https://img.haohaozhu.cn/App-imageShow/o_nphone/26fab22c03400z600pochdp',
-          width: 750,
-          height: 1000,
-          tags: [
-            {
-              id: 30,
-              name: '马贝填缝剂141',
-              top: 0.3952,
-              left: 0.11893333333333334
-            },
-            { id: 31, name: '芝麻开门', top: 0.5738, left: 0.4565333333333333 }
-          ]
-        },
-        {
-          url:
-            'https://img.haohaozhu.cn/App-imageShow/o_nphone/fac2c22c02lx0a600pochcr',
-          width: 750,
-          height: 839,
-          tags: [
-            { id: 40, name: '羽毛灯', top: 0.17497020262216925, left: 0.5896 },
-            {
-              id: 41,
-              name: '南希映画，画芯',
-              top: 0.6762812872467222,
-              left: 0.5874666666666667,
-              reverse: false
-            },
-            {
-              id: 42,
-              name: '二黑木作',
-              top: 0.9053635280095352,
-              left: 0.5221333333333333,
-              reverse: true
-            }
-          ]
-        },
-        {
-          url:
-            'https://img.haohaozhu.cn/App-imageShow/o_nphone/7761222c03400y300pochds',
-          width: 750,
-          height: 1000,
-          tags: [
-            {
-              id: 50,
-              name: '尤加利',
-              top: 0.8462000000000001,
-              left: 0.1648,
-              reverse: true
-            },
-            {
-              id: 51,
-              name: '南希映画，画芯',
-              top: 0.4646,
-              left: 0.1888,
-              reverse: true
-            }
-          ]
-        }
-      ],
+      data: initPhotoItem,
       _data: [],
       _onUpdate: Function.prototype
     }
@@ -236,7 +104,21 @@ class AppStore extends store {
       }))
       if (refresh) {
         DS = {
-          list: nextDS,
+          list: [
+            {
+              id: 1,
+              height: 1061,
+              width: 750,
+              url:
+                'https://img.haohaozhu.cn/App-imageShow/o_nphone/b550e226x33o0L600pochi9',
+              user: '短腿大脸猫',
+              avatar:
+                'https://img.haohaozhu.cn/Pic-imageShow/sq_big/00018dt9?iv=1&v=8',
+              title: '短腿大脸猫的图片',
+              count: 1486
+            },
+            ...nextDS
+          ],
           pagination: {
             page: 1,
             pageTotal: 10
@@ -290,10 +172,20 @@ class AppStore extends store {
         },
         pictureLikeedCount: data.pictureLikeedCount,
         carousel: [
-          data.url.baseUrl,
+          {
+            url: data.url.baseUrl,
+            width: 0,
+            height: 0,
+            tags: []
+          },
           ...photos
             .filter((item, index) => index > 0 && index < 10)
-            .map(item => item.url.baseUrl)
+            .map(item => ({
+              url: item.url.baseUrl,
+              width: 0,
+              height: 0,
+              tags: []
+            }))
         ],
         more: photos
           .reverse()

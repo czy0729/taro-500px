@@ -3,7 +3,7 @@
  * @Doc: https://nervjs.github.io/taro/docs/components/viewContainer/swiper.html
  * @Date: 2019-06-17 15:07:22
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-05 14:36:18
+ * @Last Modified time: 2019-08-12 14:26:56
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -32,7 +32,8 @@ export default class CSwiper extends Component {
     itemStyle: {},
     imageStyle: {},
     indicatorStyle: {},
-    onChange: Function.prototype
+    onChange: Function.prototype,
+    onImageClick: Function.prototype
   }
 
   state = {
@@ -53,6 +54,15 @@ export default class CSwiper extends Component {
       index: current
     })
     onChange(current)
+  }
+
+  onImageClick = index => {
+    const { data, onImageClick } = this.props
+    Taro.previewImage({
+      urls: data,
+      current: data[index]
+    })
+    onImageClick(index)
   }
 
   render() {
@@ -93,7 +103,7 @@ export default class CSwiper extends Component {
           current={current}
           onChange={this.onChange}
         >
-          {data.map(item => (
+          {data.map((item, idx) => (
             <SwiperItem key={item} style={itemStyle}>
               <CImage
                 style={imageStyle}
@@ -101,6 +111,7 @@ export default class CSwiper extends Component {
                 src={item}
                 width={width}
                 height={height}
+                onClick={() => this.onImageClick(idx)}
               />
             </SwiperItem>
           ))}

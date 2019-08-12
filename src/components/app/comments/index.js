@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-18 10:43:58
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 12:01:58
+ * @Last Modified time: 2019-08-09 17:39:07
  */
 import classNames from 'classnames'
 import Taro from '@tarojs/taro'
@@ -50,9 +50,11 @@ const Comments = ({ className, data }) => {
           </View>
         ))}
       </View>
-      <View className={`${cls}__more`}>
-        <Text className='t-30 l-48 t-link t-c'>查看更多评论</Text>
-      </View>
+      {!!data.list.length && (
+        <View className={`${cls}__more`}>
+          <Text className='t-30 l-48 t-link t-c'>查看更多评论</Text>
+        </View>
+      )}
     </View>
   )
 }

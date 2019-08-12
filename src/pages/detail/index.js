@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-17 14:25:48
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 09:45:15
+ * @Last Modified time: 2019-08-12 12:05:39
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -14,6 +14,7 @@ import MasonryList from '@app/masonry-list'
 import Comments from '@app/comments'
 import FixedBar from '@app/fixed-bar'
 import { ENV } from '@constants'
+import Photos from './photos'
 import Content from './content'
 import Gallery from './gallery'
 import { rootCls } from './ds'
@@ -33,7 +34,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
-    const { id = '3d796d4c38d4415899af48f468b6e1f2' } = this.$router.params
+    const { id = '1' } = this.$router.params
     const { appStore } = this.props
     appStore.fetchDetail({
       id
@@ -59,7 +60,7 @@ class Detail extends Component {
   }
 
   render() {
-    const { id = '3d796d4c38d4415899af48f468b6e1f2' } = this.$router.params
+    const { id = '1' } = this.$router.params
     const { appStore } = this.props
     const { loading } = this.state
     const detail = appStore.detail(id)
@@ -68,11 +69,15 @@ class Detail extends Component {
     return (
       <View>
         <CScrollView className={cls} onScrollToLower={this.onScrollToLower}>
-          <CSwiper
-            height={ENV.screenWidth * 1.216}
-            cover={`${this.$router.params.cover}!p1`}
-            data={detail.carousel.map(item => `${item}!p5`)}
-          />
+          {id === '1' ? (
+            <Photos data={detail.carousel} />
+          ) : (
+            <CSwiper
+              height={ENV.screenWidth * 1.216}
+              cover={`${this.$router.params.cover}!p1`}
+              data={detail.carousel.map(item => `${item.url}!p5`)}
+            />
+          )}
           <View className={`${cls}__wrap`}>
             <Content
               avatar={
