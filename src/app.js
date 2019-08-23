@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-12 12:06:28
+ * @Last Modified time: 2019-08-17 14:50:43
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -29,26 +29,29 @@ class App extends Component {
     pages: [
       'pages/index/index', // 首页
       'pages/user/index', // 个人中心
-      'pages/detail/index', // 图片详情
+
       'pages/article/index', // 文章详情
-      'pages/search/index', // 搜索
+      'pages/detail/index', // 图片详情
       'pages/fans/index', // 我的粉丝
-      'pages/follow/index', // 我的关注
-      'pages/my-favor/index', // 我的收藏
-      'pages/new-favor/index', // 新建收藏
       'pages/favor-detail/index', // 收藏夹详情
+      'pages/follow/index', // 我的关注
+      'pages/history/index', // 浏览历史
+      'pages/my-articles/index', // 我的文章
+      'pages/my-favor/index', // 我的收藏
+      'pages/my-info/index', // 图片标签
       'pages/my-photos/index', // 我的图片
       'pages/my-videos/index', // 我的视频
-      'pages/my-articles/index', // 我的文章
-      'pages/history/index', // 浏览历史
-      'pages/zone/index', // 个人空间
-      'pages/setting/index', // 设置
+      'pages/new-favor/index', // 新建收藏
       'pages/publish-photos/index', // 发布图片
+      'pages/photo-edit/index', // 图片编辑
       'pages/publish-article/index', // 发布文章
       'pages/publish-video/index', // 发布视频
-      'pages/photo-edit/index', // 图片编辑
+      'pages/search/index', // 搜索
+      'pages/setting/index', // 设置
       'pages/tags/index', // 图片标签
-      'pages/my-info/index', // 图片标签
+      'pages/topics/index', // 话题
+      'pages/zone/index', // 个人空间
+
       'pages/empty/index' // 开发占位页
     ],
     window: {

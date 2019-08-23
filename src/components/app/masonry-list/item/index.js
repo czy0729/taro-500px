@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-09 15:49:42
+ * @Last Modified time: 2019-08-12 14:55:41
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'

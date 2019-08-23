@@ -6,20 +6,21 @@
   top: 0;
   right: 0;
   left: 0;
-  padding: 8px 0 8px $wind;
-  background-color: $color-plain;
+  padding: 8px 0 16px $wind;
+  background-color: $color-bg2;
+  @include hairline-bottom();
 
   &__input {
     height: 72px;
-    padding: 0 $wind;
+    padding: 0 24px;
     font-size: 28px;
-    line-height: 36px;
-    background-color: $color-bg;
-    border-radius: 64px;
+    line-height: 32px;
+    background-color: $color-plain;
+    border-radius: 8px;
   }
   &__cancel {
-    padding: 0 32px;
+    padding: 0 24px;
     font-size: 28px;
-    line-height: 68px;
+    line-height: 64px;
   }
 }

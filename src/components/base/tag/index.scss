@@ -2,19 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-18 16:17:39
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-20 14:57:29
+ * @Last Modified time: 2019-08-14 12:07:41
  */
 @import '@styles/theme';
 
 .c-tag {
-  padding: 8px 32px;
-  background-color: $color-plain;
-  border: 1px solid $color-border;
-  border-radius: 64px;
+  padding: 16px 32px;
+  background-color: $color-bg;
+  border-radius: $radius-xs;
 
   &--link {
     background-color: #f3f4f8;
-    border-color: #f3f4f8;
+    border: 1px solid #f3f4f8;
+    border-radius: 64px;
   }
   &__text--link {
     color: #5467a7;

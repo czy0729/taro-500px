@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 12:09:07
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-08 15:23:38
+ * @Last Modified time: 2019-08-14 12:08:26
  */
 @import './theme';
 @import './mixins';
@@ -159,7 +159,7 @@
   text-align: right;
 }
 .t-b {
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 .t-c1 {
