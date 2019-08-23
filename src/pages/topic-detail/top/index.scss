@@ -1,0 +1,46 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-23 10:02:22
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-23 11:43:39
+ */
+@import '@styles/theme';
+
+.page-topic-detail__top {
+  &__wrap {
+    position: relative;
+    padding: 64px $wind;
+  }
+  &__cover {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  &__extra {
+    opacity: 0.64;
+  }
+  &__button {
+    position: absolute;
+    top: 120px;
+    right: $wind;
+    width: 152px;
+  }
+  &__detail {
+    padding: $wind;
+    margin: -112px $wind $wind;
+    background: #fff;
+    box-shadow: 0px 6px 46px 0px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+  }
+}

@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-18 11:33:54
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 14:31:21
+ * @Last Modified time: 2019-08-23 14:08:41
  */
 @import '@styles/theme';
 
@@ -14,7 +14,7 @@
   padding: 16px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 100px;
+  border-radius: 6px;
 
   &:after {
     display: none;
@@ -24,6 +24,10 @@
   &--default {
     background: $color-plain;
     border-color: $color-border;
+  }
+  &--main {
+    background: $color-main;
+    border-color: $color-main;
   }
   &--warning {
     background: $color-warning;
@@ -49,6 +53,13 @@
     }
   }
 
+  &--plain {
+    &-danger {
+      background: $color-plain;
+      border-color: $color-plain;
+    }
+  }
+
   &--mini {
     min-width: 112px;
     padding: 0 16px;
@@ -56,6 +67,10 @@
 
   &--shadow {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+  }
+
+  &--round {
+    border-radius: 100px;
   }
 
   &__text {
@@ -66,9 +81,8 @@
     &--default {
       color: $color-sub;
     }
-    &--warning {
-      color: $color-plain;
-    }
+    &--main,
+    &--warning,
     &--danger {
       color: $color-plain;
     }
@@ -79,6 +93,12 @@
       &-plain {
         color: $color-plain;
       }
+      &-danger {
+        color: $color-danger;
+      }
+    }
+
+    &--plain {
       &-danger {
         color: $color-danger;
       }

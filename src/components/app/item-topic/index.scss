@@ -1,0 +1,17 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-23 15:02:37
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-23 15:26:27
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.c-app-item-topic {
+  padding: 32px 32px 32px 0;
+  margin-left: $wind;
+
+  &--border {
+    @include hairline-top();
+  }
+}

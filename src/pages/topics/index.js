@@ -2,15 +2,15 @@
  * @Author: czy0729
  * @Date: 2019-08-13 15:12:41
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-14 11:44:22
+ * @Last Modified time: 2019-08-23 15:34:05
  */
 import Taro, { Component } from '@tarojs/taro'
 import { observer, inject } from '@tarojs/mobx'
-import { View, Text } from '@tarojs/components'
+import { View } from '@tarojs/components'
 import CScrollView from '@base/c-scroll-view'
-import CImage from '@base/c-image'
 import TabsVertical from '@base/tabs-vertical'
 import TabsVerticalPane from '@base/tabs-vertical/pane'
+import ItemTopic from '@app/item-topic'
 import { back } from '@utils'
 import { transform } from '@utils/style'
 import SearchBar from './search-bar'
@@ -61,24 +61,16 @@ class Topics extends Component {
             <TabsVerticalPane key={item.title} current={current} index={index}>
               <CScrollView
                 className={cls}
-                showTabBar
                 onScrollToLower={this.onScrollToLower}
               >
                 {item.data.map(i => (
-                  <View key={i.title} className={`${cls}__item flex`}>
-                    <CImage src={i.image} width={Taro.pxTransform(88)} radius />
-                    <View className='ml-16'>
-                      <Text className='t-28 l-32 t-desc t-c1'>{i.title}</Text>
-                      <View className='flex mt-16'>
-                        <Text className='t-20 l-24 t-sub'>
-                          回答 {i.anwser}
-                        </Text>
-                        <Text className='t-20 l-24 t-sub ml-32'>
-                          关注 {i.follow}
-                        </Text>
-                      </View>
-                    </View>
-                  </View>
+                  <ItemTopic
+                    key={i.id}
+                    title={i.title}
+                    image={i.image}
+                    anwser={i.answer}
+                    follow={i.follow}
+                  />
                 ))}
               </CScrollView>
             </TabsVerticalPane>
