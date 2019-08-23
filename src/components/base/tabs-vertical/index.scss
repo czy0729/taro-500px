@@ -1,0 +1,37 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-06-12 14:14:45
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-14 10:59:27
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.at-tabs--vertical {
+  .at-tabs__header {
+    width: 168px;
+    background-color: $color-bg;
+  }
+  .at-tabs__item {
+    flex: initial;
+    justify-content: flex-start;
+    padding: 40px 32px;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 32px;
+    color: $color-desc;
+    @include hairline-top($color-plain);
+
+    &--active {
+      font-weight: 500;
+      color: $color-danger;
+      background-color: $color-plain;
+    }
+  }
+  .at-tabs__item-underline {
+    display: none;
+  }
+  .at-tabs__underline {
+    display: none;
+  }
+}

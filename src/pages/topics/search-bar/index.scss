@@ -1,0 +1,32 @@
+/*
+ * @Author: czy0729
+ * @Date: 2019-08-08 20:04:25
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-08-13 15:55:22
+ */
+@import '@styles/theme';
+@import '@styles/mixins';
+
+.page-topics__search-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 8px 0 16px $wind;
+  background-color: $color-bg2;
+  @include hairline-bottom();
+
+  &__input {
+    height: 72px;
+    padding: 0 24px;
+    font-size: 28px;
+    line-height: 32px;
+    background-color: $color-plain;
+    border-radius: 8px;
+  }
+  &__cancel {
+    padding: 0 24px;
+    font-size: 28px;
+    line-height: 64px;
+  }
+}
