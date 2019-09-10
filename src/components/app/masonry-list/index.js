@@ -2,15 +2,14 @@
  * @Author: czy0729
  * @Date: 2019-06-11 16:15:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-31 09:37:24
+ * @Last Modified time: 2019-09-10 11:47:16
  */
-import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import Component from '@components/component'
 import SectionTitle from '@base/section-title'
-import { transform } from '@utils/style'
+import { c, transform, push } from '@utils'
 import { ENV, LIST_EMPTY } from '@constants'
 import Item from './item'
 import './index.scss'
@@ -60,10 +59,15 @@ class MasonryList extends Component {
     this.index = _data.length - 1
 
     return (
-      <View className={classNames(cls, className)}>
-        {!!title && <SectionTitle>{title}</SectionTitle>}
+      <View className={c(cls, className)}>
+        {!!title && <SectionTitle text={title} />}
         <View className='flex flex-justify-between flex-align-start'>
-          <View className='flex-item' style={{ width: transform(imageWidth) }}>
+          <View
+            className='flex-item'
+            style={{
+              width: transform(imageWidth)
+            }}
+          >
             {this.left.map(item => (
               <Item
                 key={item.id}
@@ -77,20 +81,17 @@ class MasonryList extends Component {
                 count={item.count}
                 time={item.time}
                 onClick={() => {
-                  Taro.navigateTo({
-                    url: `/pages/detail/index?id=${item.id}&cover=${
-                      item.url
-                    }&nickName=${item.user}&avatar=${item.avatar}`
-                  })
+                  push(
+                    `/pages/detail/index?id=${item.id}&cover=${item.url}&nickName=${item.user}&avatar=${item.avatar}`
+                  )
                 }}
               />
             ))}
           </View>
           <View
-            className='flex-item'
+            className='flex-item ml-16'
             style={{
-              width: transform(imageWidth),
-              marginLeft: Taro.pxTransform(16)
+              width: transform(imageWidth)
             }}
           >
             {this.right.map(item => (
@@ -106,13 +107,9 @@ class MasonryList extends Component {
                 count={item.count}
                 time={item.time}
                 onClick={() => {
-                  Taro.navigateTo({
-                    url: `/pages/article/index?id=${item.id}&cover=${
-                      item.url
-                    }&nickName=${item.user}&avatar=${item.avatar}&title=${
-                      item.title
-                    }`
-                  })
+                  push(
+                    `/pages/article/index?id=${item.id}&cover=${item.url}&nickName=${item.user}&avatar=${item.avatar}&title=${item.title}`
+                  )
                 }}
               />
             ))}

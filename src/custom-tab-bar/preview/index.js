@@ -2,17 +2,18 @@
  * @Author: czy0729
  * @Date: 2019-07-01 16:57:01
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-09 16:53:38
+ * @Last Modified time: 2019-09-10 11:10:22
  */
-import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import Component from '@components/component'
 import CButton from '@base/c-button'
 import CImage from '@base/c-image'
 import Iconfont from '@base/iconfont'
-import { push } from '@utils'
-import { getWindowHeight } from '@utils/style'
+import { c, height, push } from '@utils'
+import image11 from '@assets/pages/index/11.png'
+import image12 from '@assets/pages/index/12.png'
+import image13 from '@assets/pages/index/13.png'
 import { rootCls, menuDS } from '../ds'
 import './index.scss'
 
@@ -23,6 +24,15 @@ class Preview extends Component {
     onClose: Function.prototype
   }
 
+  onDelayClose = pagePath => {
+    const { onClose } = this.props
+    push(pagePath)
+
+    setTimeout(() => {
+      onClose()
+    }, 2000)
+  }
+
   renderPlan() {
     return (
       <View className={`${cls}__plan flex`} onClick={() => push('')}>
@@ -31,53 +41,20 @@ class Preview extends Component {
             <Text className='t-24 l-40 t-c t-warning'>正在征集</Text>
           </View>
           <Text className='t-36 l-50 t-title t-b mt-8'>晒晒你家的照明方案</Text>
-          <CButton
-            className='mt-40'
-            type='warning'
-            text='点击参与'
-            size='mini'
-            style={{
-              width: Taro.pxTransform(144)
-            }}
-          />
+          <View className={`${cls}__btn mt-40`}>
+            <CButton type='warning' text='点击参与' size='mini' />
+          </View>
         </View>
         <View className={`${cls}__thumbs`}>
-          <CImage
-            src={require('../../assets/pages/index/13.png')}
-            width={Taro.pxTransform(160)}
-            radius
-            style={{
-              position: 'absolute',
-              zIndex: 3,
-              bottom: 0,
-              right: 0
-            }}
-          />
-          <CImage
-            src={require('../../assets/pages/index/12.png')}
-            width={Taro.pxTransform(80)}
-            radius
-            style={{
-              position: 'absolute',
-              zIndex: 2,
-              top: 0,
-              left: 0
-            }}
-          />
-          <CImage
-            src={require('../../assets/pages/index/11.png')}
-            width={Taro.pxTransform(124)}
-            radius
-            style={{
-              position: 'absolute',
-              zIndex: 1,
-              top: 0,
-              left: 0,
-              marginTop: Taro.pxTransform(32),
-              marginLeft: `-${Taro.pxTransform(48)}`,
-              opacity: 0.5
-            }}
-          />
+          <View className={`${cls}__img3`}>
+            <CImage src={image13} width={160} radius />
+          </View>
+          <View className={`${cls}__img2`}>
+            <CImage src={image12} width={80} radius />
+          </View>
+          <View className={`${cls}__img1`}>
+            <CImage src={image11} width={124} radius />
+          </View>
         </View>
       </View>
     )
@@ -92,12 +69,7 @@ class Preview extends Component {
             <View
               key={item.text}
               className={`${cls}__item flex flex-column flex-1`}
-              onClick={() => {
-                push(item.pagePath)
-                setTimeout(() => {
-                  onClose()
-                }, 2000)
-              }}
+              onClick={() => this.onDelayClose(item.pagePath)}
             >
               <View className='flex flex-justify-center'>
                 <Iconfont className='t-52 t-title' name={item.icon} />
@@ -120,11 +92,11 @@ class Preview extends Component {
     const { show } = this.props
     return (
       <View
-        className={classNames(cls, {
+        className={c(cls, {
           [`${cls}--show`]: show
         })}
         style={{
-          height: getWindowHeight()
+          height: height()
         }}
       >
         <View className={`${cls}__container`}>

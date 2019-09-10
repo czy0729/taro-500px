@@ -2,18 +2,79 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:56:09
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-09 17:12:31
+ * @Last Modified time: 2019-09-10 11:33:17
  */
 import Taro from '@tarojs/taro'
+import classNames from 'classnames'
 
-const PAGE_WEBVIEW = '/pages/webview/index'
+/* ==================== 常用 ==================== */
+/**
+ * classNames引用 (缩短引用)
+ * @param  {...any} arg
+ */
+export function c(...arg) {
+  return classNames(...arg)
+}
 
 /**
- * @todo 深拷贝
+ * Taro 转单位 (缩短引用)
+ * @param  {...any} arg
+ */
+export function px(...arg) {
+  return Taro.pxTransform(...arg)
+}
+
+/**
+ * 自动补全环境样式单位
  * @param {*} target
  */
-export function deepmerge(target) {
-  return JSON.parse(JSON.stringify(target))
+export function transform(target) {
+  if (process.env.TARO_ENV === 'h5') {
+    return target
+  }
+
+  if (process.env.TARO_ENV === 'rn') {
+    if (String(target).includes('px')) {
+      return parseInt(target.replace('px', ''))
+    }
+    return target
+  }
+
+  if (String(target).includes('px')) {
+    return target
+  }
+  return `${target}px`
+}
+
+/**
+ * 返回屏幕可用高度
+ * // NOTE 各端返回的 windowHeight 不一定是最终可用高度（例如可能没减去 statusBar 的高度），需二次计算
+ * @param {*} showTabBar
+ */
+const NAVIGATOR_HEIGHT = 44
+const TAB_BAR_HEIGHT = 48
+export function height(showTabBar = false) {
+  const info = Taro.getSystemInfoSync()
+  const { windowHeight, statusBarHeight, titleBarHeight } = info
+  const tabBarHeight = showTabBar ? TAB_BAR_HEIGHT : 0
+
+  if (process.env.TARO_ENV === 'rn') {
+    return windowHeight - statusBarHeight - NAVIGATOR_HEIGHT - tabBarHeight
+  }
+
+  if (process.env.TARO_ENV === 'h5') {
+    return `${windowHeight - tabBarHeight}px`
+  }
+
+  if (process.env.TARO_ENV === 'alipay') {
+    // NOTE 支付宝比较迷，windowHeight 似乎是去掉了 tabBar 高度，但无 tab 页跟 tab 页返回高度是一样的
+    return `${windowHeight -
+      statusBarHeight -
+      titleBarHeight +
+      (showTabBar ? 0 : TAB_BAR_HEIGHT)}px`
+  }
+
+  return `${windowHeight}px`
 }
 
 /**
@@ -37,6 +98,7 @@ export function push(url, options) {
   })
 }
 
+/* ==================== 基本 ==================== */
 /**
  * 退后
  * @param {*} options
@@ -46,32 +108,41 @@ export function back(options) {
 }
 
 /**
+ * @todo 深拷贝
+ * @param {*} target
+ */
+export function deepmerge(target) {
+  return JSON.parse(JSON.stringify(target))
+}
+
+/**
  * // NOTE 后端返回的 url 可能是网页链接，需要在 webview 中打开
  * 也可能是小程序自身的链接，只能用 navigate/redirect 之类的打开
  * 就需要有个地方统一判断处理
  */
-export function jump(options) {
-  const { url, title = '', payload = {}, method = 'navigateTo' } = options
+// const PAGE_WEBVIEW = '/pages/webview/index'
+// export function jump(options) {
+//   const { url, title = '', payload = {}, method = 'navigateTo' } = options
 
-  if (/^https?:\/\//.test(url)) {
-    Taro[method]({
-      url: `${PAGE_WEBVIEW}?${urlStringify({ url, title })}`
-    })
-  } else if (/^\/pages\//.test(url)) {
-    // TODO H5 不支持 switchTab，暂时 hack 下
-    if (process.env.TARO_ENV === 'h5' && method === 'switchTab') {
-      Taro.navigateBack({ delta: Taro.getCurrentPages().length - 1 })
-      setTimeout(() => {
-        Taro.redirectTo({ url })
-      }, 100)
-      return
-    }
+//   if (/^https?:\/\//.test(url)) {
+//     Taro[method]({
+//       url: `${PAGE_WEBVIEW}?${urlStringify({ url, title })}`
+//     })
+//   } else if (/^\/pages\//.test(url)) {
+//     // TODO H5 不支持 switchTab，暂时 hack 下
+//     if (process.env.TARO_ENV === 'h5' && method === 'switchTab') {
+//       Taro.navigateBack({ delta: Taro.getCurrentPages().length - 1 })
+//       setTimeout(() => {
+//         Taro.redirectTo({ url })
+//       }, 100)
+//       return
+//     }
 
-    Taro[method]({
-      url: `${url}?${urlStringify(payload)}`
-    })
-  }
-}
+//     Taro[method]({
+//       url: `${url}?${urlStringify(payload)}`
+//     })
+//   }
+// }
 
 /**
  * 返回timestamp
@@ -104,15 +175,14 @@ export function urlStringify(payload, encode = true) {
 /**
  * 补零
  * @version 190301 1.0
- * @param {*} n
- * @param {*} c
+ * @param {*} num
+ * @param {*} count
  */
-export function pad(n, c) {
-  if ((n = n + '').length < c) {
-    return new Array(++c - n.length).join('0') + n
-  } else {
-    return n
+export function pad(num, count) {
+  if ((num = num + '').length < count) {
+    return new Array(++count - num.length).join('0') + num
   }
+  return num
 }
 
 /**
@@ -456,6 +526,7 @@ export function log(type, key, value, ...other) {
 }
 
 /**
+ * 读取本地缓存
  * @version 190306 1.0
  * @param {*} key
  */
@@ -466,6 +537,7 @@ export function getStorage(key) {
 }
 
 /**
+ * 本地缓存
  * @version 190306 1.0
  * @param {*} key
  * @param {*} data

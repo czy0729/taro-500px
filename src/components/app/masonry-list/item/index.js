@@ -2,19 +2,19 @@
  * @Author: czy0729
  * @Date: 2019-06-11 22:33:52
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-12 14:55:41
+ * @Last Modified time: 2019-09-10 11:45:26
  */
 import Taro from '@tarojs/taro'
 import { View, Text, Image } from '@tarojs/components'
 import { observer } from '@tarojs/mobx'
 import CImage from '@base/c-image'
 import Iconfont from '@base/iconfont'
-import { transform } from '@utils/style'
+import { transform } from '@utils'
 import './index.scss'
 
 const cls = 'c-app-masonry-list__item'
 
-const Item = ({
+function Item({
   detailId,
   url,
   height,
@@ -24,7 +24,7 @@ const Item = ({
   count,
   time,
   onClick
-}) => {
+}) {
   if (!detailId) {
     return null
   }
@@ -46,18 +46,9 @@ const Item = ({
           </View>
         )}
       </View>
-      <View>
-        <Text className='t-28 l-44 t-title t-c2 mt-16'>{title}</Text>
-      </View>
+      <Text className='t-28 l-44 t-title t-c2 mt-16'>{title}</Text>
       <View className='flex mt-8'>
-        <CImage
-          src={`${avatar}!p1`}
-          width={Taro.pxTransform(32)}
-          style={{
-            borderRadius: Taro.pxTransform(32),
-            overflow: 'hidden'
-          }}
-        />
+        <CImage src={`${avatar}!p1`} width={32} round />
         <View className='flex-item ml-8'>
           <Text className='t-24 l-32 t-sub t-c1'>{user}</Text>
         </View>

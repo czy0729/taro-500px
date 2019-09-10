@@ -2,13 +2,13 @@
  * @Author: czy0729
  * @Date: 2019-06-13 14:39:42
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:50:27
+ * @Last Modified time: 2019-09-10 09:29:19
  */
-import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { View, Image, Text } from '@tarojs/components'
 import Component from '@components/component'
 import imagePublish from '@assets/tab-bar/publish.png'
+import { c } from '@utils'
 import Preview from './preview'
 import { rootCls, listDS } from './ds'
 import './index.scss'
@@ -48,7 +48,7 @@ class CustomTabBar extends Component {
     return (
       <View>
         <Preview show={showPreview} onClose={this.closePreview} />
-        <View className={classNames(cls, 'flex')}>
+        <View className={c(cls, 'flex')}>
           {listDS.map((item, index) => (
             <View
               key={item.pagePath}

@@ -2,22 +2,21 @@
  * @Author: czy0729
  * @Date: 2019-07-17 16:09:20
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-09 17:08:00
+ * @Last Modified time: 2019-09-10 11:08:10
  */
-import classNames from 'classnames'
 import Taro from '@tarojs/taro'
 import { observer } from '@tarojs/mobx'
 import { View, Text } from '@tarojs/components'
 import Iconfont from '@base/iconfont'
-import { push } from '@utils'
+import { c, push } from '@utils'
 import { rootCls, menuDS } from '../ds'
 import './index.scss'
 
 const cls = `${rootCls}__menu`
 
-const Menu = ({ className }) => {
+function Menu({ className }) {
   return (
-    <View className={classNames(cls, 'flex flex-wrap', className)}>
+    <View className={c(cls, 'flex flex-wrap', className)}>
       {menuDS.map(item => (
         <View
           key={item.label}

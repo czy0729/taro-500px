@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:37:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-23 15:29:44
+ * @Last Modified time: 2019-09-10 11:02:19
  */
 import '@tarojs/async-await'
 import Taro, { Component } from '@tarojs/taro'
@@ -27,8 +27,8 @@ const store = {
 class App extends Component {
   config = {
     pages: [
-      // 'pages/index/index', // 首页
-      // 'pages/user/index', // 个人中心
+      'pages/user/index', // 个人中心
+      'pages/index/index', // 首页
 
       // 'pages/article/index', // 文章详情
       // 'pages/detail/index', // 图片详情
@@ -49,7 +49,7 @@ class App extends Component {
       // 'pages/search/index', // 搜索
       // 'pages/setting/index', // 设置
       // 'pages/tags/index', // 图片标签
-      'pages/topics/index', // 话题
+      // 'pages/topics/index', // 话题
       // 'pages/my-topics/index', // 我关注的话题
       // 'pages/topic-detail/index', // 话题详情
       // 'pages/auth/index', // 设计师认证
@@ -70,13 +70,13 @@ class App extends Component {
       backgroundColor: colorPlain,
       list: [
         {
-          pagePath: 'pages/empty/index',
+          pagePath: 'pages/index/index',
           iconPath: './assets/tab-bar/home.png',
           selectedIconPath: './assets/tab-bar/home-active.png',
           text: '首页'
         },
         {
-          pagePath: 'pages/empty/index',
+          pagePath: 'pages/user/index',
           iconPath: './assets/tab-bar/user.png',
           selectedIconPath: './assets/tab-bar/user-active.png',
           text: '我'

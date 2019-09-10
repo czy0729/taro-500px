@@ -1,8 +1,8 @@
 /*
  * @Author: czy0729
  * @Date: 2019-07-30 14:35:21
- * @Last Modified by:   czy0729
- * @Last Modified time: 2019-07-30 14:35:21
+ * @Last Modified by: czy0729
+ * @Last Modified time: 2019-09-10 10:24:06
  */
 @import '@styles/theme';
 @import '@styles/mixins';
@@ -27,5 +27,9 @@
     &--last {
       margin-right: $wind;
     }
+  }
+  &__avatar {
+    border-radius: 96px;
+    overflow: hidden;
   }
 }

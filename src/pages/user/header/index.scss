@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-07-17 14:45:31
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-07-30 16:25:25
+ * @Last Modified time: 2019-09-10 11:06:03
  */
 @import '@styles/theme';
 
@@ -16,6 +16,11 @@
 
   &__header {
     height: $header;
+  }
+  &__avatar {
+    border: 4px solid #fff;
+    border-radius: 136px;
+    overflow: hidden;
   }
   &__split {
     position: relative;

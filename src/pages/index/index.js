@@ -2,7 +2,7 @@
  * @Author: czy0729
  * @Date: 2019-06-10 11:39:15
  * @Last Modified by: czy0729
- * @Last Modified time: 2019-08-13 12:19:58
+ * @Last Modified time: 2019-09-10 10:20:24
  */
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
@@ -12,8 +12,8 @@ import Tabs from '@base/tabs'
 import TabsPane from '@base/tabs/pane'
 import ActivityIndicator from '@base/activity-indicator'
 import MasonryList from '@app/masonry-list'
+import { height } from '@utils'
 import { updateTabBar } from '@utils/app'
-import { ENV } from '@constants'
 import Search from './search'
 import Collect from './collect'
 import Recommend from './recommend'
@@ -64,6 +64,7 @@ class Index extends Component {
 
   render() {
     const { appStore } = this.props
+    const { photo } = appStore
     const { current, loading } = this.state
     return (
       <View>
@@ -84,7 +85,7 @@ class Index extends Component {
                 <Recommend className='mt-40' />
                 <Daren className='mt-40' />
                 <View className='bg mt-64'>
-                  <MasonryList data={appStore.photo} />
+                  <MasonryList data={photo} />
                   <ActivityIndicator show={loading} />
                 </View>
               </View>
@@ -99,10 +100,10 @@ class Index extends Component {
               <View
                 className={`${cls}__container-discovery`}
                 style={{
-                  minHeight: ENV.windowHeight
+                  minHeight: height()
                 }}
               >
-                <MasonryList data={appStore.photo} />
+                <MasonryList data={photo} />
                 <ActivityIndicator show={loading} />
               </View>
             </CScrollView>
